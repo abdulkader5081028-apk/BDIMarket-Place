@@ -1,34 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BDIMarket-Place | Login</title>
-<link rel="stylesheet" href="css/css/auth.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BDIMarket Place - Login</title>
+    <!-- সঠিক সিএসএস পাথ লিংক করা হলো -->
+    <link rel="stylesheet" href="css/auth.css">
 </head>
-
 <body>
 
-<h1>BDIMarket-Place</h1>
+    <!-- লোগো যা হোমপেজে নিয়ে যাবে -->
+    <a href="index.html" class="brand-logo">BDI<span>Market</span></a>
 
-<h2>Login</h2>
+    <!-- লগইন কার্ড কন্টেইনার -->
+    <div class="auth-container">
+        <h2>Sign In</h2>
+        
+        <form>
+            <!-- ইমেইল ফিল্ড -->
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
 
-<form>
+            <!-- পাসওয়ার্ড ফিল্ড -->
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+            </div>
 
-<label>Email</label><br>
-<input type="email" placeholder="Enter your email"><br><br>
+            <!-- সাবমিট বাটন -->
+            <button type="submit" class="btn-submit">Sign In</button>
+        </form>
 
-<label>Password</label><br>
-<input type="password" placeholder="Enter your password"><br><br>
-
-<button type="submit">Login</button>
-
-</form>
-
-<p>
-Don't have an account?
-<a href="signup.html">Sign Up</a>
-</p>
+        <!-- নিচের লিংক এরিয়া -->
+        <div class="auth-footer">
+            <p>New to BDIMarket Place? <a href="signup.html">Join Free</a></p>
+        </div>
+    </div>
 
 </body>
 </html>
