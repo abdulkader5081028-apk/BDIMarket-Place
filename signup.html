@@ -4,52 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BDIMarket Place - Sign Up</title>
-    <!-- সঠিক সিএসএস পাথ লিংক করা হলো -->
-    <link rel="stylesheet" href="css/auth.css">
+    <link class="stylesheet" href="css/auth.css">
 </head>
 <body>
 
-    <!-- লোগো যা হোমপেজে নিয়ে যাবে -->
     <a href="index.html" class="brand-logo">BDI<span>Market</span></a>
 
-    <!-- সাইনআপ কার্ড কন্টেইনার -->
     <div class="auth-container">
         <h2>Create Account</h2>
         
-        <form>
-            <!-- নাম ফিল্ড -->
+        <!-- এখানে id="signup-form" যোগ করা হয়েছে -->
+        <form id="signup-form">
             <div class="form-group">
                 <label for="name">Full Name</label>
                 <input type="text" id="name" placeholder="Enter your full name" required>
             </div>
 
-            <!-- ইমেইল ফিল্ড -->
             <div class="form-group">
                 <label for="email">Email Address</label>
                 <input type="email" id="email" placeholder="Enter your email" required>
             </div>
 
-            <!-- পাসওয়ার্ড ফিল্ড -->
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" id="password" placeholder="Create password" required>
             </div>
 
-            <!-- কনফার্ম পাসওয়ার্ড ফিল্ড -->
             <div class="form-group">
                 <label for="confirm-password">Confirm Password</label>
                 <input type="password" id="confirm-password" placeholder="Confirm password" required>
             </div>
 
-            <!-- সাবমিট বাটন -->
             <button type="submit" class="btn-submit">Create Account</button>
         </form>
 
-        <!-- নিচের লিংক এরিয়া -->
         <div class="auth-footer">
             <p>Already have an account? <a href="login.html">Sign In</a></p>
         </div>
     </div>
 
+    <!-- জাভাস্ক্রিপ্ট ফাইল লিঙ্ক করা হলো (টাইপ মডিউল সহ) -->
+    <script type="module" src="js/auth.js"></script>
 </body>
 </html>
+        
