@@ -1,40 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BDIMarket-Place | Sign Up</title>
-<link rel="stylesheet" href="css/css/auth.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BDIMarket Place - Sign Up</title>
+    <!-- সঠিক সিএসএস পাথ লিংক করা হলো -->
+    <link rel="stylesheet" href="css/auth.css">
 </head>
-
 <body>
 
-<h1>BDIMarket-Place</h1>
+    <!-- লোগো যা হোমপেজে নিয়ে যাবে -->
+    <a href="index.html" class="brand-logo">BDI<span>Market</span></a>
 
-<h2>Create Account</h2>
+    <!-- সাইনআপ কার্ড কন্টেইনার -->
+    <div class="auth-container">
+        <h2>Create Account</h2>
+        
+        <form>
+            <!-- নাম ফিল্ড -->
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="Enter your full name" required>
+            </div>
 
-<form>
+            <!-- ইমেইল ফিল্ড -->
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
 
-<label>Full Name</label><br>
-<input type="text" placeholder="Enter your full name"><br><br>
+            <!-- পাসওয়ার্ড ফিল্ড -->
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Create password" required>
+            </div>
 
-<label>Email</label><br>
-<input type="email" placeholder="Enter your email"><br><br>
+            <!-- কনফার্ম পাসওয়ার্ড ফিল্ড -->
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" placeholder="Confirm password" required>
+            </div>
 
-<label>Password</label><br>
-<input type="password" placeholder="Create password"><br><br>
+            <!-- সাবমিট বাটন -->
+            <button type="submit" class="btn-submit">Create Account</button>
+        </form>
 
-<label>Confirm Password</label><br>
-<input type="password" placeholder="Confirm password"><br><br>
-
-<button type="submit">Create Account</button>
-
-</form>
-
-<p>
-Already have an account?
-<a href="login.html">Login</a>
-</p>
+        <!-- নিচের লিংক এরিয়া -->
+        <div class="auth-footer">
+            <p>Already have an account? <a href="login.html">Sign In</a></p>
+        </div>
+    </div>
 
 </body>
 </html>
