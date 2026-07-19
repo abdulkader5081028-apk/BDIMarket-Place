@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Product - BDIMarket Place</title>
+    <!-- একই ড্যাশবোর্ড সিএসএস ব্যবহার করা হচ্ছে -->
+    <link rel="stylesheet" href="css/dashboard.css">
+    <style>
+        /* ফর্মার জন্য কিছু অতিরিক্ত ছোট স্টাইল */
+        .form-container {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            max-width: 700px;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #4a5568;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            outline: none;
+            font-size: 14px;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: var(--primary-color);
+        }
+        .btn-submit-prod {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-submit-prod:hover {
+            background-color: #e05500;
+        }
+        @media (max-width: 600px) {
+            .form-row { grid-template-columns: 1fr; gap: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Left Sidebar Menu -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            BDI<span>Market</span> Seller
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="seller-dashboard.html">📊 Dashboard</a></li>
+            <li class="active"><a href="product-upload.html">📦 Upload Product</a></li>
+            <li><a href="#">📜 Orders Received</a></li>
+            <li><a href="#">💬 Messages</a></li>
+            <li><a href="index.html">🏠 View Homepage</a></li>
+        </ul>
+    </aside>
+
+    <!-- Right Side Main Wrapper -->
+    <div class="main-wrapper">
+        <!-- Top Navigation Bar -->
+        <header class="top-navbar">
+            <div class="panel-title"><h2>Add New Product</h2></div>
+            <div class="user-profile">Hello, Seller! 👤</div>
+        </header>
+
+        <!-- Main Form Content -->
+        <main class="page-content">
+            <div class="form-container">
+                <form>
+                    <!-- Product Title -->
+                    <div class="form-group">
+                        <label for="prod-title">Product Name / Title</label>
+                        <input type="text" id="prod-title" placeholder="e.g., Premium Cotton Men's T-Shirt" required>
+                    </div>
+
+                    <!-- Category Selection -->
+                    <div class="form-group">
+                        <label for="prod-category">Category</label>
+                        <select id="prod-category" required>
+                            <option value="">Select a category</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="garments">Garments & Apparel</option>
+                            <option value="machinery">Industrial Machinery</option>
+                            <option value="agriculture">Agriculture & Food</option>
+                            <option value="beauty">Beauty & Personal Care</option>
+                        </select>
+                    </div>
+
+                    <!-- Price & MOQ Row -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="prod-price">Unit Price ($ USD)</label>
+                            <input type="number" id="prod-price" step="0.01" placeholder="e.g., 5.00" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="prod-moq">Minimum Order Quantity (MOQ)</label>
+                            <input type="text" id="prod-moq" placeholder="e.g., 100 Pcs / 1 Set" required>
+                        </div>
+                    </div>
+
+                    <!-- Product Image URL -->
+                    <div class="form-group">
+                        <label for="prod-image">Product Image Link/URL</label>
+                        <input type="url" id="prod-image" placeholder="https://example.com/image.jpg">
+                    </div>
+
+                    <!-- Product Description -->
+                    <div class="form-group">
+                        <label for="prod-desc">Product Details & Specifications</label>
+                        <textarea id="prod-desc" rows="5" placeholder="Write about your product material, sizes, shipping info..."></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn-submit-prod">Submit Product for Review</button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
