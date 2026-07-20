@@ -400,7 +400,103 @@ body{
         box-sizing: border-box !important;
     }
 }
+/* --- আলিবাবা স্টাইল: টপ ক্যাটাগরি, ফুল উইডথ ব্যানার ও প্রোডাক্ট লেআউট --- */
+@media (max-width: 768px) {
+    
+    /* ১. হেডার ও সার্চবার মোবাইল ফ্রেন্ডলি করা */
+    .main-header {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        padding: 10px 15px !important;
+        height: auto !important;
+        background: #fff !important;
+    }
+    .logo {
+        font-size: 26px !important;
+        margin-bottom: 8px !important;
+    }
+    .search-container, .search-box {
+        display: flex !important;
+        width: 100% !important;
+    }
+    .search-box input {
+        flex: 1 !important;
+        padding: 10px !important;
+    }
+    .nav-actions {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 15px !important;
+        margin-top: 10px !important;
+        font-size: 13px !important;
+    }
 
+    /* ২. মেইন লেআউট ফিক্স (পাশাপাশি বসার সিস্টেম বন্ধ করে নিচে নিচে আনা) */
+    .main-layout, .container, .hero-section, .main-content {
+        display: block !important; /* ফ্লেক্স গ্রিড ভেঙে নরমাল ব্লক করা হলো */
+        width: 100% !important;
+        padding: 10px !important;
+        box-sizing: border-box !important;
+    }
+
+    /* ৩. ক্যাটাগরি সেকশন (ওখানেই থাকবে, কিন্তু নিচের ফাঁকা জায়গা ব্লক করবে না) */
+    .categories-sidebar, .sidebar {
+        width: 100% !important;
+        max-width: 100% !important;
+        display: block !important;
+        float: none !important;
+        margin-bottom: 15px !important;
+    }
+
+    /* ক্যাটাগরি বাটনগুলো ডানে-বামে স্ক্রোল করার জন্য */
+    .categories-sidebar ul, .sidebar ul {
+        display: flex !important;
+        flex-direction: row !important;
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+        gap: 8px !important;
+        padding: 5px 0 !important;
+        list-style: none !important;
+    }
+
+    /* ৪. ব্যানার এবং প্রোডাক্টগুলো বামের খালি জায়গায় চলে আসবে (Full Width) */
+    .hero-banner, .banner, .main-banner {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 0 25px 0 !important; /* নিচ থেকে প্রোডাক্টের দূরত্ব */
+        box-sizing: border-box !important;
+        display: block !important;
+    }
+
+    /* ৫. প্রোডাক্ট গ্রিড ফিক্স (স্মার্টফোন, টি-শার্ট এবং প্যাকিং মেশিনকে পুরো জায়গা দেওয়া) */
+    .product-grid, .featured-products, .products-container, .products-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important; /* মোবাইলে পাশাপাশি ২টি করে প্রোডাক্ট দেখতে চমৎকার লাগে */
+        gap: 12px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-top: 15px !important;
+        padding: 0 !important;
+    }
+    
+    /* প্রতিটি প্রোডাক্ট কার্ডের সাইজ */
+    .product-card, .featured-products .product {
+        width: 100% !important;
+        max-width: 100% !important;
+        background: #fff;
+        border-radius: 8px;
+        overflow: hidden;
+        box-sizing: border-box !important;
+    }
+
+    /* যদি প্রোডাক্ট গ্রিড ফ্লেক্সবক্স দিয়ে করা থাকে, তবে এটি ব্যাকআপ হিসেবে কাজ করবে */
+    .product-grid-flex {
+        display: flex !important;
+        flex-direction: column !important; /* অথবা সব প্রোডাক্ট নিচে নিচে এক কলামে আসবে */
+        width: 100% !important;
+    }
+}
 
 
 
