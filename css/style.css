@@ -315,10 +315,10 @@ body{
         max-width: 100% !important;
     }
 }
-/* --- আলিবাবা স্টাইল: টপ ক্যাটাগরি মেনু ও ফুল উইডথ প্রোডাক্ট লেআউট --- */
+/* --- ক্যাটাগরি উপরে ফিক্সড রেখে ফুল উইডথ লেআউট ফিক্স --- */
 @media (max-width: 768px) {
     
-    /* ১. হেডার ও সার্চবার ফিক্স */
+    /* ১. হেডার ও সার্চবার ডিজাইন */
     .main-header {
         display: flex !important;
         flex-direction: column !important;
@@ -347,79 +347,64 @@ body{
         font-size: 13px !important;
     }
 
-    /* ২. মেইন লেআউট নিচে নিচে আসবে (ক্যাটাগরি উপরে, ব্যানার নিচে) */
-    .main-layout, .hero-section {
-        display: flex !important;
-        flex-direction: column !important; /* নিচে নিচে নামিয়ে দেওয়া হলো */
-        gap: 15px !important;
-        padding: 10px !important;
+    /* ২. মেইন লেআউটকে ব্লক বা কলাম করা (যাতে বামের খালি স্পেস চলে যায়) */
+    .main-layout, .container, .hero-section, .main-container {
+        display: block !important; /* ফ্লেক্স থেকে ব্লকে পরিবর্তন করা হলো যাতে পাশাপাশি খালি জায়গা না থাকে */
         width: 100% !important;
+        padding: 10px !important;
+        box-sizing: border-box !important;
     }
 
-    /* ৩. তোমার কালো চিহ্নিত জায়গায় ক্যাটাগরি পাশাপাশি বসানোর ম্যাজিক */
+    /* ৩. ক্যাটাগরি সেকশন (যা বর্তমানে উপরে পাশাপাশি আছে, ওখানেই থাকবে) */
     .categories-sidebar, .sidebar {
         width: 100% !important;
         max-width: 100% !important;
-        background: transparent !important;
-        padding: 0 !important;
-        box-shadow: none !important;
+        float: none !important; /* কোনো বামে-ডানে চাপবে না */
+        margin-bottom: 15px !important; /* নিচ থেকে ব্যানারের দূরত্ব */
+        display: block !important;
     }
 
-    /* "Categories" মেইন টাইটেলটি মোবাইলে হাইড করে দিচ্ছি যাতে জায়গা বাঁচে */
-    .categories-sidebar h3, .sidebar h2 {
-        display: none !important;
-    }
-
-    /* ক্যাটাগরি লিস্টটিকে পাশাপাশি স্ক্রোলিং বানানো হলো */
+    /* ক্যাটাগরির ভেতরের লিস্টটি পাশাপাশিই থাকবে */
     .categories-sidebar ul, .sidebar ul {
         display: flex !important;
-        flex-direction: row !important; /* পাশাপাশি বসবে */
-        overflow-x: auto !important;    /* ডানে-বামে আঙুল দিয়ে স্ক্রোল করা যাবে */
-        white-space: nowrap !important; /* লেখা নিচে ভেঙে যাবে না */
+        flex-direction: row !important;
+        overflow-x: auto !important;
+        white-space: nowrap !important;
         gap: 8px !important;
         padding: 5px 0 !important;
         list-style: none !important;
-        -webkit-overflow-scrolling: touch; /* আইফোনে স্মুথ স্ক্রোলিং এর জন্য */
     }
 
-    /* স্ক্রোলবারটি যেন দেখতে খারাপ না লাগে তাই হাইড করা হলো */
-    .categories-sidebar ul::-webkit-scrollbar, .sidebar ul::-webkit-scrollbar {
-        display: none;
-    }
-
-    /* ভেতরের প্রতিটি ক্যাটাগরি বাটন ডিজাইন */
-    .categories-sidebar ul li a, .sidebar a {
-        display: inline-block !important;
-        padding: 8px 14px !important;
-        background: #fff !important;
-        color: #333 !important;
-        border: 1px solid #e0e0e0 !important;
-        border-radius: 20px !important; /* ক্যাপসুল আকৃতির সুন্দর বাটন */
-        font-size: 13px !important;
-        font-weight: 500 !important;
-        text-decoration: none !important;
-    }
-
-    /* ৪. ব্যানার এবং প্রোডাক্ট এখন পুরো জায়গা (Full Width) নিবে */
-    .hero-banner, .banner {
+    /* ৪. ব্যানার এবং প্রোডাক্ট এখন ফাঁকা জায়গা বন্ধ করে ১০০% জায়গা নিবে */
+    .hero-banner, .banner, .main-banner {
         width: 100% !important;
         max-width: 100% !important;
-        padding: 25px 20px !important;
-        border-radius: 8px !important;
-    }
-    .hero-banner h1, .hero-banner .main-title {
-        font-size: 22px !important; /* পুরো জায়গা পাওয়ায় লেখা একটু বড় করা হলো */
+        margin: 0 0 20px 0 !important; /* নিচে একটু গ্যাপ থাকবে */
+        box-sizing: border-box !important;
     }
 
-    /* প্রোডাক্ট গ্রিড বা লিস্টকে পুরো স্ক্রিন জুড়ে বড় করা */
-    .product-grid, .featured-products, .products-container {
+    /* প্রোডাক্ট এরিয়াকে বামে টেনে এনে ফুল উইডথ করা */
+    .product-grid, .featured-products, .products-container, .products-grid {
         width: 100% !important;
+        max-width: 100% !important;
+        clear: both !important;
         display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important; /* মোবাইলে পাশাপাশি ২টি করে প্রোডাক্ট সুন্দর দেখাবে */
-        gap: 15px !important;
+        grid-template-columns: repeat(2, 1fr) !important; /* মোবাইলে পাশাপাশি ২টি প্রোডাক্ট */
+        gap: 12px !important;
+        margin-top: 15px !important;
     }
     
-    .product-card, .featured-products img {
+    .product-card {
         width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
     }
 }
+
+
+
+
+
+
+
+
