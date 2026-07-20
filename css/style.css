@@ -205,3 +205,42 @@ body{
 .footer-links a:hover{
     color:#ff6a00;
 }
+.hero-banner h2{
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+.hero-banner p{
+    font-size:18px;
+    line-height:1.8;
+    margin-bottom:25px;
+}
+
+.hero-banner .btn-primary{
+    display:inline-block;
+    padding:14px 30px;
+    border-radius:6px;
+    background:#fff;
+    color:#ff6a00;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.hero-banner .btn-primary:hover{
+    background:#222;
+    color:#fff;
+}
+
+.side-categories li{
+    transition:.3s;
+}
+
+.side-categories li:hover{
+    transform:translateX(8px);
+}
+
+.nav-btn:hover{
+    background:#ff6a00;
+    color:#fff;
+}
