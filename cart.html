@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - BDIMarket Place</title>
+    <!-- এখানে HTML ফাইলের ভেতরেই সব ডিজাইন (CSS) দেওয়া হয়েছে -->
+    <style>
+        body {
+            background-color: #f4f4f7;
+            color: #333;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            margin: 0;
+        }
+        .cart-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+        .cart-main {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+        .cart-header {
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .cart-item {
+            display: grid;
+            grid-template-columns: 100px 2fr 1fr 1fr;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .cart-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+        .item-details h4 {
+            margin: 0 0 5px 0;
+            font-size: 16px;
+        }
+        .item-details p {
+            margin: 0;
+            color: #666;
+            font-size: 12px;
+        }
+        /* Quantity Button (+ / -) */
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            width: fit-content;
+        }
+        .quantity-control button {
+            background: #eee;
+            border: none;
+            padding: 6px 12px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .quantity-control input {
+            width: 40px;
+            text-align: center;
+            border: none;
+            background: transparent;
+            font-size: 14px;
+        }
+        .item-price {
+            font-weight: bold;
+            text-align: right;
+        }
+        /* Summary Box */
+        .cart-summary {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            height: fit-content;
+        }
+        .summary-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px solid #e0e0e0;
+            font-size: 18px;
+            font-weight: bold;
+            color: #ff6a00;
+        }
+        .btn-checkout {
+            display: block;
+            width: 100%;
+            background-color: #ff6a00;
+            color: #fff;
+            text-align: center;
+            padding: 12px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .back-home {
+            display: inline-block;
+            margin-bottom: 15px;
+            text-decoration: none;
+            color: #ff6a00;
+            font-weight: bold;
+        }
+        @media (max-width: 768px) {
+            .cart-container { grid-template-columns: 1fr; }
+            .cart-item { grid-template-columns: 80px 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cart-container">
+        <main class="cart-main">
+            <a href="index.html" class="back-home">← Continue Shopping</a>
+            <h2 class="cart-header">Shopping Cart (3 items)</h2>
+
+            <!-- প্রোডাক্ট ১ -->
+            <div class="cart-item">
+                <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=200" alt="Product">
+                <div class="item-details">
+                    <h4>Premium Next-Gen Smart Phone</h4>
+                    <p>Supplier: CN Supplier</p>
+                </div>
+                <div class="quantity-control">
+                    <button type="button">−</button>
+                    <input type="number" value="10" min="1">
+                    <button type="button">+</button>
+                </div>
+                <div class="item-price">$1,200.00</div>
+            </div>
+
+            <!-- প্রোডাক্ট ২ -->
+            <div class="cart-item">
+                <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=200" alt="Product">
+                <div class="item-details">
+                    <h4>100% Premium Cotton T-Shirt</h4>
+                    <p>Supplier: BD Supplier</p>
+                </div>
+                <div class="quantity-control">
+                    <button type="button">−</button>
+                    <input type="number" value="500" min="1">
+                    <button type="button">+</button>
+                </div>
+                <div class="item-price">$2,500.00</div>
+            </div>
+
+            <!-- প্রোডাক্ট ৩ -->
+            <div class="cart-item">
+                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=200" alt="Product">
+                <div class="item-details">
+                    <h4>High-Efficiency Packing Machine</h4>
+                    <p>Supplier: IN Supplier</p>
+                </div>
+                <div class="quantity-control">
+                    <button type="button">−</button>
+                    <input type="number" value="1" min="1">
+                    <button type="button">+</button>
+                </div>
+                <div class="item-price">$500.00</div>
+            </div>
+        </main>
+
+        <!-- সামারি বক্স -->
+        <aside class="cart-summary">
+            <div class="summary-title">Order Summary</div>
+            <div class="summary-row"><span>Subtotal</span> <span>$4,200.00</span></div>
+            <div class="summary-row"><span>Shipping Fee</span> <span>$50.00</span></div>
+            <div class="summary-row"><span>Tax</span> <span>$20.00</span></div>
+            <div class="summary-total"><span>Total Price:</span> <span>$4,270.00</span></div>
+            
+            <a href="checkout.html" class="btn-checkout">Proceed to Checkout</a>
+        </aside>
+    </div>
+
+</body>
+</html>
