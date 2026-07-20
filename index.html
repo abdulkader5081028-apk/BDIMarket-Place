@@ -3,121 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BDIMarket Place - Global B2B Marketplace</title>
-    <!-- লিঙ্কিং আওয়ার নিউ প্রফেশনাল সিএসএস ফাইল -->
+    <title>BDIMarket Place</title>
+    <!-- CSS ফাইল লিংক -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- Header Section -->
-    <header class="header-container">
-        <!-- Top Miniature Bar -->
-        <div class="top-bar">
-            <div>Welcome to BDIMarket Place!</div>
-            <div>
+    <!-- Top Header -->
+    <header class="main-header">
+        <div class="header-top">
+            <span>Welcome to BDIMarket Place!</span>
+            <div class="top-links">
                 <a href="#">Help Center</a>
                 <a href="#">English</a>
             </div>
         </div>
-
-        <!-- Main Header Bar -->
-        <div class="main-header">
-            <div class="logo">
-                <a href="index.html">BDI<span>Market</span></a>
-            </div>
-
-            <!-- Search Area -->
+        
+        <div class="header-main">
+            <h1 class="logo">BDIMarket</h1>
             <div class="search-box">
                 <input type="text" placeholder="What are you looking for...">
                 <button type="button">Search</button>
             </div>
-
-            <!-- Action Buttons -->
-            <nav class="nav-actions">
-                <a href="login.html" class="nav-btn">Sign In</a>
-                <a href="signup.html" class="nav-btn btn-primary">Join Free</a>
-                <a href="seller.html" class="nav-btn">Seller Dashboard</a>
-                <a href="#" class="nav-btn">🛒 Cart</a>
-                </nav>
+            <div class="user-actions">
+                <a href="login.html" class="btn-login">Sign In</a>
+                <a href="signup.html" class="btn-signup">Join Free</a>
+                <a href="#" class="btn-dashboard">Seller Dashboard</a>
+                <!-- কার্ট লিংক এখানে ঠিক করে দেওয়া হয়েছে -->
+                <a href="cart.html" class="btn-cart">🛒 Cart</a>
+            </div>
         </div>
     </header>
 
-    <!-- Hero / Banner Section -->
-    <section class="hero-section">
-        <!-- Left Sidebar Categories (Alibaba Style) -->
-        <aside class="side-categories">
-            <h3>Categories</h3>
-            <ul>
-                <li><a href="#">Electronics</a></li>
-                <li><a href="#">Garments & Apparel</a></li>
-                <li><a href="#">Industrial Machinery</a></li>
-                <li><a href="#">Agriculture & Food</a></li>
-                <li><a href="#">Beauty & Personal Care</a></li>
-                <li><a href="#">Home & Kitchen</a></li>
+    <!-- Main Layout -->
+    <div class="layout-container" style="display: flex; max-width: 1200px; margin: 20px auto; gap: 20px; padding: 0 15px;">
+        
+        <!-- Sidebar Categories -->
+        <aside class="sidebar" style="width: 250px; background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+            <h3 style="margin-bottom: 15px; font-size: 18px; border-bottom: 1px solid #ddd; padding-bottom: 5px;">Categories</h3>
+            <ul style="list-style: none; padding: 0; line-height: 2.2;">
+                <li><a href="#" style="text-decoration: none; color: #333;">Electronics</a></li>
+                <li><a href="#" style="text-decoration: none; color: #333;">Garments & Apparel</a></li>
+                <li><a href="#" style="text-decoration: none; color: #333;">Industrial Machinery</a></li>
+                <li><a href="#" style="text-decoration: none; color: #333;">Agriculture & Food</a></li>
+                <li><a href="#" style="text-decoration: none; color: #333;">Beauty & Personal Care</a></li>
+                <li><a href="#" style="text-decoration: none; color: #333;">Home & Kitchen</a></li>
             </ul>
         </aside>
 
-        <!-- Right Main Hero Banner -->
-        <div class="hero-banner">
-            <h2>Connecting Buyers & Sellers Globally</h2>
-            <p>Find verified global manufacturers, suppliers, and exporters right here on BDIMarket Place.</p>
-            <div>
-                <a href="signup.html" class="nav-btn btn-primary" style="display:inline-block;">Source Now</a>
+        <!-- Main Content (Products & Banner) -->
+        <main class="main-content" style="flex: 1;">
+            
+            <!-- Hero Banner -->
+            <div class="hero-banner" style="background: linear-gradient(135deg, #ff6a00, #ee5a00); color: #fff; padding: 40px; border-radius: 8px; margin-bottom: 30px;">
+                <h2 style="font-size: 32px; margin-bottom: 10px;">Connecting Buyers & Sellers Globally</h2>
+                <p style="font-size: 16px; margin-bottom: 20px;">Find verified global manufacturers, suppliers, and exporters right here on BDIMarket Place.</p>
+                <a href="#" class="btn-source" style="background: #fff; color: #ff6a00; padding: 10px 20px; border-radius: 4px; text-decoration: none; font-weight: bold;">Source Now</a>
             </div>
-        </div>
-    </section>
 
-    <!-- Main Products Section -->
-    <main class="main-content">
-        <h2 class="section-title">Featured Products</h2>
+            <h2 style="margin-bottom: 20px;">Featured Products</h2>
+            <div class="products-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px;">
 
-        <div class="products-grid">
-            <!-- Product Card 1 -->
-            <a href="#" class="product-card">
-                <div class="product-image">
-                    <img src="https://via.placeholder.com/200" alt="Smart Phone">
-                </div>
-                <div class="product-info">
-                    <h3 class="product-title">Premium Next-Gen Smart Phone (Global Version)</h3>
-                    <p class="product-price">$120.00</p>
-                    <div class="product-supplier">
-                        <span>MOQ: 10 Pcs</span>
-                        <span>CN Supplier</span>
+                <!-- Product Card 1 -->
+                <a href="#" class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=200" alt="Smart Phone">
                     </div>
-                </div>
-            </a>
-
-            <!-- Product Card 2 -->
-            <a href="#" class="product-card">
-                <div class="product-image">
-                    <img src="https://via.placeholder.com/200" alt="Garments">
-                </div>
-                <div class="product-info">
-                    <h3 class="product-title">100% Premium Cotton Export Quality T-Shirt</h3>
-                    <p class="product-price">$5.00</p>
-                    <div class="product-supplier">
-                        <span>MOQ: 500 Pcs</span>
-                        <span>BD Supplier</span>
+                    <div class="product-info">
+                        <h3 class="product-title">Premium Next-Gen Smart Phone (Global Version)</h3>
+                        <p class="product-price">$120.00</p>
+                        <div class="product-supplier">
+                            <span>MOQ: 10 Pcs</span>
+                            <span>CN Supplier</span>
+                        </div>
                     </div>
-                </div>
-            </a>
+                </a>
 
-            <!-- Product Card 3 -->
-            <a href="#" class="product-card">
-                <div class="product-image">
-                    <img src="https://via.placeholder.com/200" alt="Machine">
-                </div>
-                <div class="product-info">
-                    <h3 class="product-title">High-Efficiency Automatic Packing Machine</h3>
-                    <p class="product-price">$500.00</p>
-                    <div class="product-supplier">
-                        <span>MOQ: 1 Set</span>
-                        <span>IN Supplier</span>
+                <!-- Product Card 2 (তোমার দেওয়া কোড) -->
+                <a href="#" class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=200" alt="Garments">
                     </div>
-                </div>
-            </a>
-        </div>
-    </main>
+                    <div class="product-info">
+                        <h3 class="product-title">100% Premium Cotton Export Quality T-Shirt</h3>
+                        <p class="product-price">$5.00</p>
+                        <div class="product-supplier">
+                            <span>MOQ: 500 Pcs</span>
+                            <span>BD Supplier</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product Card 3 (তোমার দেওয়া কোড) -->
+                <a href="#" class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=200" alt="Machine">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">High-Efficiency Automatic Packing Machine</h3>
+                        <p class="product-price">$500.00</p>
+                        <div class="product-supplier">
+                            <span>MOQ: 1 Set</span>
+                            <span>IN Supplier</span>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </main>
+    </div>
 
     <!-- Professional Footer -->
     <footer class="main-footer">
@@ -134,3 +128,4 @@
 
 </body>
 </html>
+
