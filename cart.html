@@ -216,6 +216,7 @@
     </div>
 
     <!-- প্লাস-মাইনাস এবং প্রাইস লাইভ ক্যালকুলেশন করার স্ক্রিপ্ট -->
+    <!-- অত্যন্ত স্মুথ এবং ফাস্ট ক্যালকুলেশন করার আপগ্রেডেড স্ক্রিপ্ট -->
     <script>
         function updateCartTotals() {
             let subtotal = 0;
@@ -249,19 +250,30 @@
             const plusBtn = item.querySelector('.btn-plus');
             const input = item.querySelector('.qty-input');
 
-            minusBtn.addEventListener('click', () => {
+            // মোবাইলের টাচ একশনে দ্রুত কাজ করার জন্য ফাংশন
+            function handleMinus(e) {
+                e.preventDefault(); // ব্রাউজারের ডিফল্ট ৩-মিলিসেকেন্ডের লেট বন্ধ করবে
                 let val = parseInt(input.value) || 1;
                 if (val > 1) {
                     input.value = val - 1;
                     updateCartTotals();
                 }
-            });
+            }
 
-            plusBtn.addEventListener('click', () => {
+            function handlePlus(e) {
+                e.preventDefault();
                 let val = parseInt(input.value) || 1;
                 input.value = val + 1;
                 updateCartTotals();
-            });
+            }
+
+            // মাইনাস বাটনের জন্য মোবাইল টাচ ও ডেস্কটপ ক্লিক ইভেন্ট একসাথে যোগ করা
+            minusBtn.addEventListener('pointerdown', handleMinus);
+            minusBtn.addEventListener('touchstart', handleMinus, {passive: false});
+
+            // প্লাস বাটনের জন্য মোবাইল টাচ ও ডেস্কটপ ক্লিক ইভেন্ট একসাথে যোগ করা
+            plusBtn.addEventListener('pointerdown', handlePlus);
+            plusBtn.addEventListener('touchstart', handlePlus, {passive: false});
 
             input.addEventListener('input', () => {
                 updateCartTotals();
