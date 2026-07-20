@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart - BDIMarket Place</title>
-    <!-- এখানে HTML ফাইলের ভেতরেই সব ডিজাইন (CSS) দেওয়া হয়েছে -->
+    <!-- এখানে HTML ফাইলের ভেতরেই সব ডিজাইন (CSS) দেওয়া হয়েছে -->
     <style>
         body {
             background-color: #f4f4f7;
@@ -70,12 +70,21 @@
             font-weight: bold;
             font-size: 16px;
         }
+        .quantity-control button:hover {
+            background: #ddd;
+        }
         .quantity-control input {
-            width: 40px;
+            width: 50px;
             text-align: center;
             border: none;
             background: transparent;
             font-size: 14px;
+        }
+        /* ইনপুট বক্সের ডিফল্ট অ্যারো বাটন রিমুভ করার জন্য */
+        .quantity-control input::-webkit-outer-spin-button,
+        .quantity-control input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
         }
         .item-price {
             font-weight: bold;
@@ -127,6 +136,9 @@
             cursor: pointer;
             font-size: 16px;
         }
+        .btn-checkout:hover {
+            background-color: #e05500;
+        }
         .back-home {
             display: inline-block;
             margin-bottom: 15px;
@@ -147,47 +159,47 @@
             <a href="index.html" class="back-home">← Continue Shopping</a>
             <h2 class="cart-header">Shopping Cart (3 items)</h2>
 
-            <!-- প্রোডাক্ট ১ -->
-            <div class="cart-item">
+            <!-- প্রোডাক্ট ১ (এখানে ডাটা-প্রাইস ১২০ ডলার প্রতি পিস হিসেবে সেট করা) -->
+            <div class="cart-item" data-single-price="120">
                 <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=200" alt="Product">
                 <div class="item-details">
                     <h4>Premium Next-Gen Smart Phone</h4>
                     <p>Supplier: CN Supplier</p>
                 </div>
                 <div class="quantity-control">
-                    <button type="button">−</button>
-                    <input type="number" value="10" min="1">
-                    <button type="button">+</button>
+                    <button type="button" class="btn-minus">−</button>
+                    <input type="number" class="qty-input" value="10" min="1">
+                    <button type="button" class="btn-plus">+</button>
                 </div>
                 <div class="item-price">$1,200.00</div>
             </div>
 
-            <!-- প্রোডাক্ট ২ -->
-            <div class="cart-item">
+            <!-- প্রোডাক্ট ২ (এখানে ডাটা-প্রাইস ৫ ডলার প্রতি পিস হিসেবে সেট করা) -->
+            <div class="cart-item" data-single-price="5">
                 <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=200" alt="Product">
                 <div class="item-details">
                     <h4>100% Premium Cotton T-Shirt</h4>
                     <p>Supplier: BD Supplier</p>
                 </div>
                 <div class="quantity-control">
-                    <button type="button">−</button>
-                    <input type="number" value="500" min="1">
-                    <button type="button">+</button>
+                    <button type="button" class="btn-minus">−</button>
+                    <input type="number" class="qty-input" value="500" min="1">
+                    <button type="button" class="btn-plus">+</button>
                 </div>
                 <div class="item-price">$2,500.00</div>
             </div>
 
-            <!-- প্রোডাক্ট ৩ -->
-            <div class="cart-item">
+            <!-- প্রোডাক্ট ৩ (এখানে ডাটা-প্রাইস ৫০০ ডলার প্রতি পিস হিসেবে সেট করা) -->
+            <div class="cart-item" data-single-price="500">
                 <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=200" alt="Product">
                 <div class="item-details">
                     <h4>High-Efficiency Packing Machine</h4>
                     <p>Supplier: IN Supplier</p>
                 </div>
                 <div class="quantity-control">
-                    <button type="button">−</button>
-                    <input type="number" value="1" min="1">
-                    <button type="button">+</button>
+                    <button type="button" class="btn-minus">−</button>
+                    <input type="number" class="qty-input" value="1" min="1">
+                    <button type="button" class="btn-plus">+</button>
                 </div>
                 <div class="item-price">$500.00</div>
             </div>
@@ -196,14 +208,74 @@
         <!-- সামারি বক্স -->
         <aside class="cart-summary">
             <div class="summary-title">Order Summary</div>
-            <div class="summary-row"><span>Subtotal</span> <span>$4,200.00</span></div>
-            <div class="summary-row"><span>Shipping Fee</span> <span>$50.00</span></div>
-            <div class="summary-row"><span>Tax</span> <span>$20.00</span></div>
-            <div class="summary-total"><span>Total Price:</span> <span>$4,270.00</span></div>
+            <div class="summary-row"><span>Subtotal</span> <span id="subtotal-val">$4,200.00</span></div>
+            <div class="summary-row"><span>Shipping Fee</span> <span id="shipping-val">$50.00</span></div>
+            <div class="summary-row"><span>Tax</span> <span id="tax-val">$20.00</span></div>
+            <div class="summary-total"><span>Total Price:</span> <span id="total-val">$4,270.00</span></div>
             
             <a href="checkout.html" class="btn-checkout">Proceed to Checkout</a>
         </aside>
     </div>
+
+    <!-- প্লাস-মাইনাস এবং প্রাইস লাইভ ক্যালকুলেশন করার স্ক্রিপ্ট -->
+    <script>
+        function updateCartTotals() {
+            let subtotal = 0;
+            
+            // প্রতিটি আইটেম লুপ করে হিসাব করা
+            document.querySelectorAll('.cart-item').forEach(item => {
+                const singlePrice = parseFloat(item.getAttribute('data-single-price'));
+                const input = item.querySelector('.qty-input');
+                let qty = parseInt(input.value);
+                
+                if (isNaN(qty) || qty < 1) {
+                    qty = 1;
+                    input.value = 1;
+                }
+                
+                const itemTotal = singlePrice * qty;
+                subtotal += itemTotal;
+                
+                // নির্দিষ্ট প্রোডাক্টের দামের টেক্সট ফরম্যাট করা
+                item.querySelector('.item-price').innerText = '$' + itemTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            });
+            
+            // ফিক্সড চার্জসমূহ
+            const shipping = 50.00;
+            const tax = 20.00;
+            const grandTotal = subtotal + shipping + tax;
+            
+            // সামারি বক্সে মানগুলো বসানো
+            document.getElementById('subtotal-val').innerText = '$' + subtotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            document.getElementById('total-val').innerText = '$' + grandTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
+
+        // বাটনগুলোতে ক্লিক ইভেন্ট সেট করা
+        document.querySelectorAll('.cart-item').forEach(item => {
+            const minusBtn = item.querySelector('.btn-minus');
+            const plusBtn = item.querySelector('.btn-plus');
+            const input = item.querySelector('.qty-input');
+
+            minusBtn.addEventListener('click', () => {
+                let val = parseInt(input.value) || 1;
+                if (val > 1) {
+                    input.value = val - 1;
+                    updateCartTotals();
+                }
+            });
+
+            plusBtn.addEventListener('click', () => {
+                let val = parseInt(input.value) || 1;
+                input.value = val + 1;
+                updateCartTotals();
+            });
+
+            // ইউজার কিবোর্ড দিয়ে সংখ্যা লিখলেও যেন দাম আপডেট হয়
+            input.addEventListener('input', () => {
+                updateCartTotals();
+            });
+        });
+    </script>
 
 </body>
 </html>
