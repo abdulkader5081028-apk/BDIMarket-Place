@@ -1,10 +1,9 @@
-<!DOCTYPE html>
+   <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart - BDIMarket Place</title>
-    <!-- এখানে HTML ফাইলের ভেতরেই সব ডিজাইন (CSS) দেওয়া হয়েছে -->
     <style>
         body {
             background-color: #f4f4f7;
@@ -80,7 +79,6 @@
             background: transparent;
             font-size: 14px;
         }
-        /* ইনপুট বক্সের ডিফল্ট অ্যারো বাটন রিমুভ করার জন্য */
         .quantity-control input::-webkit-outer-spin-button,
         .quantity-control input::-webkit-inner-spin-button {
             -webkit-appearance: none;
@@ -159,7 +157,7 @@
             <a href="index.html" class="back-home">← Continue Shopping</a>
             <h2 class="cart-header">Shopping Cart (3 items)</h2>
 
-            <!-- প্রোডাক্ট ১ (এখানে ডাটা-প্রাইস ১২০ ডলার প্রতি পিস হিসেবে সেট করা) -->
+            <!-- প্রোডাক্ট ১ (data-single-price এবং ক্লাসগুলো খেয়াল করো) -->
             <div class="cart-item" data-single-price="120">
                 <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=200" alt="Product">
                 <div class="item-details">
@@ -174,7 +172,7 @@
                 <div class="item-price">$1,200.00</div>
             </div>
 
-            <!-- প্রোডাক্ট ২ (এখানে ডাটা-প্রাইস ৫ ডলার প্রতি পিস হিসেবে সেট করা) -->
+            <!-- প্রোডাক্ট ২ -->
             <div class="cart-item" data-single-price="5">
                 <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=200" alt="Product">
                 <div class="item-details">
@@ -189,7 +187,7 @@
                 <div class="item-price">$2,500.00</div>
             </div>
 
-            <!-- প্রোডাক্ট ৩ (এখানে ডাটা-প্রাইস ৫০০ ডলার প্রতি পিস হিসেবে সেট করা) -->
+            <!-- প্রোডাক্ট ৩ -->
             <div class="cart-item" data-single-price="500">
                 <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=200" alt="Product">
                 <div class="item-details">
@@ -222,7 +220,6 @@
         function updateCartTotals() {
             let subtotal = 0;
             
-            // প্রতিটি আইটেম লুপ করে হিসাব করা
             document.querySelectorAll('.cart-item').forEach(item => {
                 const singlePrice = parseFloat(item.getAttribute('data-single-price'));
                 const input = item.querySelector('.qty-input');
@@ -236,21 +233,17 @@
                 const itemTotal = singlePrice * qty;
                 subtotal += itemTotal;
                 
-                // নির্দিষ্ট প্রোডাক্টের দামের টেক্সট ফরম্যাট করা
                 item.querySelector('.item-price').innerText = '$' + itemTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
             });
             
-            // ফিক্সড চার্জসমূহ
             const shipping = 50.00;
             const tax = 20.00;
             const grandTotal = subtotal + shipping + tax;
             
-            // সামারি বক্সে মানগুলো বসানো
             document.getElementById('subtotal-val').innerText = '$' + subtotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
             document.getElementById('total-val').innerText = '$' + grandTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
         }
 
-        // বাটনগুলোতে ক্লিক ইভেন্ট সেট করা
         document.querySelectorAll('.cart-item').forEach(item => {
             const minusBtn = item.querySelector('.btn-minus');
             const plusBtn = item.querySelector('.btn-plus');
@@ -270,7 +263,6 @@
                 updateCartTotals();
             });
 
-            // ইউজার কিবোর্ড দিয়ে সংখ্যা লিখলেও যেন দাম আপডেট হয়
             input.addEventListener('input', () => {
                 updateCartTotals();
             });
@@ -278,4 +270,4 @@
     </script>
 
 </body>
-</html>
+</html>         
