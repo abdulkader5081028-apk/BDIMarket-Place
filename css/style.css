@@ -244,3 +244,29 @@ body{
     background:#ff6a00;
     color:#fff;
 }
+.main-header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.nav-btn{
+    transition:0.3s;
+}
+
+.logo a:hover{
+    opacity:0.9;
+}
+
+.search-box input:focus{
+    border-color:#ff4500;
+    box-shadow:0 0 8px rgba(255,106,0,.3);
+}
+
+.product-card img{
+    transition:0.3s;
+}
+
+.product-card:hover img{
+    transform:scale(1.05);
+}
