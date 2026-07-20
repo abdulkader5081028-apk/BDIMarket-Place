@@ -1,4 +1,4 @@
-   <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -64,10 +64,12 @@
         .quantity-control button {
             background: #eee;
             border: none;
-            padding: 6px 12px;
+            padding: 8px 14px;
             cursor: pointer;
             font-weight: bold;
-            font-size: 16px;
+            font-size: 18px;
+            user-select: none;
+            -webkit-user-select: none;
         }
         .quantity-control button:hover {
             background: #ddd;
@@ -78,6 +80,7 @@
             border: none;
             background: transparent;
             font-size: 14px;
+            font-weight: bold;
         }
         .quantity-control input::-webkit-outer-spin-button,
         .quantity-control input::-webkit-inner-spin-button {
@@ -157,47 +160,47 @@
             <a href="index.html" class="back-home">← Continue Shopping</a>
             <h2 class="cart-header">Shopping Cart (3 items)</h2>
 
-            <!-- প্রোডাক্ট ১ (data-single-price এবং ক্লাসগুলো খেয়াল করো) -->
-            <div class="cart-item" data-single-price="120">
+            <!-- প্রোডাক্ট ১ -->
+            <div class="cart-item" id="item-1" data-single-price="120">
                 <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=200" alt="Product">
                 <div class="item-details">
                     <h4>Premium Next-Gen Smart Phone</h4>
                     <p>Supplier: CN Supplier</p>
                 </div>
                 <div class="quantity-control">
-                    <button type="button" class="btn-minus">−</button>
-                    <input type="number" class="qty-input" value="10" min="1">
-                    <button type="button" class="btn-plus">+</button>
+                    <button type="button" onclick="changeQty('item-1', -1)">−</button>
+                    <input type="number" class="qty-input" value="10" min="1" oninput="updateCartTotals()">
+                    <button type="button" onclick="changeQty('item-1', 1)">+</button>
                 </div>
                 <div class="item-price">$1,200.00</div>
             </div>
 
             <!-- প্রোডাক্ট ২ -->
-            <div class="cart-item" data-single-price="5">
+            <div class="cart-item" id="item-2" data-single-price="5">
                 <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=200" alt="Product">
                 <div class="item-details">
                     <h4>100% Premium Cotton T-Shirt</h4>
                     <p>Supplier: BD Supplier</p>
                 </div>
                 <div class="quantity-control">
-                    <button type="button" class="btn-minus">−</button>
-                    <input type="number" class="qty-input" value="500" min="1">
-                    <button type="button" class="btn-plus">+</button>
+                    <button type="button" onclick="changeQty('item-2', -1)">−</button>
+                    <input type="number" class="qty-input" value="500" min="1" oninput="updateCartTotals()">
+                    <button type="button" onclick="changeQty('item-2', 1)">+</button>
                 </div>
                 <div class="item-price">$2,500.00</div>
             </div>
 
             <!-- প্রোডাক্ট ৩ -->
-            <div class="cart-item" data-single-price="500">
+            <div class="cart-item" id="item-3" data-single-price="500">
                 <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=200" alt="Product">
                 <div class="item-details">
                     <h4>High-Efficiency Packing Machine</h4>
                     <p>Supplier: IN Supplier</p>
                 </div>
                 <div class="quantity-control">
-                    <button type="button" class="btn-minus">−</button>
-                    <input type="number" class="qty-input" value="1" min="1">
-                    <button type="button" class="btn-plus">+</button>
+                    <button type="button" onclick="changeQty('item-3', -1)">−</button>
+                    <input type="number" class="qty-input" value="1" min="1" oninput="updateCartTotals()">
+                    <button type="button" onclick="changeQty('item-3', 1)">+</button>
                 </div>
                 <div class="item-price">$500.00</div>
             </div>
@@ -215,9 +218,20 @@
         </aside>
     </div>
 
-    <!-- প্লাস-মাইনাস এবং প্রাইস লাইভ ক্যালকুলেশন করার স্ক্রিপ্ট -->
-    <!-- অত্যন্ত স্মুথ এবং ফাস্ট ক্যালকুলেশন করার আপগ্রেডেড স্ক্রিপ্ট -->
+    <!-- ডাইরেক্ট ইনলাইন মেথড স্ক্রিপ্ট -->
     <script>
+        function changeQty(itemId, amount) {
+            const item = document.getElementById(itemId);
+            const input = item.querySelector('.qty-input');
+            let currentVal = parseInt(input.value) || 1;
+            
+            let newVal = currentVal + amount;
+            if (newVal < 1) newVal = 1;
+            
+            input.value = newVal;
+            updateCartTotals();
+        }
+
         function updateCartTotals() {
             let subtotal = 0;
             
@@ -244,42 +258,9 @@
             document.getElementById('subtotal-val').innerText = '$' + subtotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
             document.getElementById('total-val').innerText = '$' + grandTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
         }
-
-        document.querySelectorAll('.cart-item').forEach(item => {
-            const minusBtn = item.querySelector('.btn-minus');
-            const plusBtn = item.querySelector('.btn-plus');
-            const input = item.querySelector('.qty-input');
-
-            // মোবাইলের টাচ একশনে দ্রুত কাজ করার জন্য ফাংশন
-            function handleMinus(e) {
-                e.preventDefault(); // ব্রাউজারের ডিফল্ট ৩-মিলিসেকেন্ডের লেট বন্ধ করবে
-                let val = parseInt(input.value) || 1;
-                if (val > 1) {
-                    input.value = val - 1;
-                    updateCartTotals();
-                }
-            }
-
-            function handlePlus(e) {
-                e.preventDefault();
-                let val = parseInt(input.value) || 1;
-                input.value = val + 1;
-                updateCartTotals();
-            }
-
-            // মাইনাস বাটনের জন্য মোবাইল টাচ ও ডেস্কটপ ক্লিক ইভেন্ট একসাথে যোগ করা
-            minusBtn.addEventListener('pointerdown', handleMinus);
-            minusBtn.addEventListener('touchstart', handleMinus, {passive: false});
-
-            // প্লাস বাটনের জন্য মোবাইল টাচ ও ডেস্কটপ ক্লিক ইভেন্ট একসাথে যোগ করা
-            plusBtn.addEventListener('pointerdown', handlePlus);
-            plusBtn.addEventListener('touchstart', handlePlus, {passive: false});
-
-            input.addEventListener('input', () => {
-                updateCartTotals();
-            });
-        });
     </script>
 
 </body>
-</html>         
+</html>               
+        
+                
