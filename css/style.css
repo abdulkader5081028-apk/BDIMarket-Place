@@ -270,3 +270,48 @@ body{
 .product-card:hover img{
     transform:scale(1.05);
 }
+/* --- মোবাইল রেসপন্সিভ ফিক্স (গ্যারান্টিড) --- */
+@media (max-width: 768px) {
+    /* হেডারের ভেতরের সব উপাদান নিচে নিচে আসবে */
+    .main-header, .top-nav, .header-container { 
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        padding: 10px !important;
+        height: auto !important;
+        text-align: center;
+    }
+
+    /* সার্চ বার ফুল উইডথ হবে */
+    .search-box, .search-container {
+        width: 100% !important;
+        display: flex !important;
+        margin: 15px 0 !important;
+    }
+    
+    .search-box input, input[type="text"] {
+        width: 100% !important;
+    }
+
+    /* লিংকগুলো (Sign In, Cart, Seller Dashboard) এক লাইনে সুন্দরভাবে বসবে */
+    .nav-actions, .header-links {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 10px !important;
+        margin-top: 5px;
+    }
+
+    /* মেইন কন্টেন্ট এরিয়া (ক্যাটাগরি ও ব্যানার পাশাপাশি না বসে নিচে নিচে বসবে) */
+    .main-layout, .container, .hero-section {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+
+    /* ক্যাটাগরি বক্স এবং ব্যানার বক্স দুটোই ১০০% চওড়া হবে */
+    .categories-sidebar, .sidebar, .hero-banner, .banner {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
