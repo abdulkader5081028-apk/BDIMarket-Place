@@ -1,69 +1,289 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Upload Product | BDIMarket-Place</title>
+
+<title>Upload Product | BDIMarket Place</title>
 
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="upload.css">
+
 </head>
 
 <body>
 
-<div class="main-header">
+<!-- TOP BAR -->
+
+<div class="top-bar">
+
+<div class="container">
+
+<span>Seller Center</span>
+
+<div class="top-right">
+
+<a href="index.html">Home</a>
+
+<a href="seller.html">Dashboard</a>
+
+<a href="#">Help</a>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- HEADER -->
+
+<header class="header">
+
+<div class="container header-wrapper">
 
 <div class="logo">
-<a href="index.html">BDI<span>Market</span></a>
+
+<a href="index.html">
+
+BDI<span>Market</span>
+
+</a>
+
 </div>
 
-<nav class="nav-actions">
-<a href="index.html" class="nav-btn">Home</a>
-<a href="seller.html" class="nav-btn">Dashboard</a>
-</nav>
+<div class="header-buttons">
+
+<a href="seller.html">Dashboard</a>
+
+<a href="products.html">Products</a>
+
+<a href="cart.html" class="cart-btn">Cart</a>
 
 </div>
 
-<div style="max-width:700px;margin:40px auto;background:white;padding:30px;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.1);">
+</div>
 
-<h2>Upload New Product</h2>
+</header>
 
-<br>
+<!-- UPLOAD SECTION -->
 
-<label>Product Name</label><br>
-<input type="text" placeholder="Product Name" style="width:100%;padding:12px;"><br><br>
+<section class="upload-page">
 
-<label>Price</label><br>
-<input type="number" placeholder="Price" style="width:100%;padding:12px;"><br><br>
+<div class="container">
 
-<label>Category</label><br>
+<h1 class="upload-title">
 
-<select style="width:100%;padding:12px;">
+Upload New Product
+
+</h1>
+
+<p class="upload-subtitle">
+
+Fill in the product information below.
+
+</p>
+
+<form class="upload-form">
+<!-- Product Name -->
+
+<div class="form-group">
+
+<label>Product Name</label>
+
+<input
+type="text"
+placeholder="Enter product name"
+required>
+
+</div>
+
+<!-- Category -->
+
+<div class="form-group">
+
+<label>Category</label>
+
+<select required>
+
+<option value="">Select Category</option>
+
 <option>Electronics</option>
-<option>Garments</option>
+
+<option>Garments & Apparel</option>
+
 <option>Industrial Machinery</option>
-<option>Agriculture</option>
-<option>Beauty</option>
+
+<option>Agriculture & Food</option>
+
+<option>Beauty & Personal Care</option>
+
+<option>Home & Kitchen</option>
+
+<option>Construction Materials</option>
+
+<option>Sports & Outdoor</option>
+
 </select>
 
-<br><br>
+</div>
 
-<label>MOQ</label><br>
+<!-- Price -->
 
-<input type="number" placeholder="Minimum Order Quantity" style="width:100%;padding:12px;">
+<div class="form-group">
 
-<br><br>
+<label>Price (USD)</label>
 
-<label>Description</label><br>
+<input
+type="number"
+placeholder="Enter product price"
+required>
 
-<textarea style="width:100%;height:120px;padding:12px;"></textarea>
+</div>
 
-<br><br>
+<!-- MOQ -->
 
-<button class="btn-primary" style="padding:15px 35px;border:none;border-radius:6px;">
-Upload Product
+<div class="form-group">
+
+<label>Minimum Order Quantity (MOQ)</label>
+
+<input
+type="number"
+placeholder="Minimum quantity"
+required>
+
+</div>
+
+<!-- Country -->
+
+<div class="form-group">
+
+<label>Country</label>
+
+<input
+type="text"
+placeholder="Country of Origin">
+
+</div>
+
+<!-- Company Name -->
+
+<div class="form-group">
+
+<label>Company Name</label>
+
+<input
+type="text"
+placeholder="Your company name">
+
+</div>
+<!-- Product Image -->
+
+<div class="form-group">
+
+<label>Product Image</label>
+
+<input
+type="file"
+accept="image/*">
+
+</div>
+
+<!-- Description -->
+
+<div class="form-group">
+
+<label>Product Description</label>
+
+<textarea
+rows="6"
+placeholder="Write a detailed product description..."></textarea>
+
+</div>
+
+<!-- Publish Button -->
+
+<div class="form-group">
+
+<button type="submit" class="btn btn-primary publish-btn">
+
+🚀 Publish Product
+
 </button>
 
 </div>
 
+</form>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+<div class="container">
+
+<div class="footer-grid">
+
+<div>
+
+<h3>BDIMarket Place</h3>
+
+<p>
+The complete B2B marketplace for buyers and sellers.
+</p>
+
+</div>
+
+<div>
+
+<h4>Quick Links</h4>
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="seller.html">Seller Dashboard</a></li>
+
+<li><a href="products.html">Products</a></li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h4>Support</h4>
+
+<ul>
+
+<li><a href="#">Help Center</a></li>
+
+<li><a href="#">Privacy Policy</a></li>
+
+<li><a href="#">Terms & Conditions</a></li>
+
+</ul>
+
+</div>
+
+</div>
+
+<hr>
+
+<p class="copyright">
+
+© 2026 BDIMarket Place. All Rights Reserved.
+
+</p>
+
+</div>
+
+</footer>
+
 </body>
+
 </html>
