@@ -1,78 +1,306 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seller Dashboard | BDIMarket-Place</title>
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/dashboard.css">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Seller Dashboard | BDIMarket Place</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="dashboard.css">
+
 </head>
+
 <body>
 
-<header class="header-container">
+<!-- TOP HEADER -->
 
-    <div class="main-header">
+<div class="top-bar">
 
-        <div class="logo">
-            <a href="index.html">BDI<span>Market</span></a>
-        </div>
+<div class="container">
 
-        <nav class="nav-actions">
-            <a href="index.html" class="nav-btn">Home</a>
-            <a href="products.html" class="nav-btn">Products</a>
-            <a href="upload.html" class="nav-btn btn-primary">Upload Product</a>
-        </nav>
+<span>Welcome Seller 👋</span>
 
-    </div>
+<div class="top-right">
+
+<a href="index.html">Home</a>
+
+<a href="#">Help Center</a>
+
+<a href="#">Support</a>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- HEADER -->
+
+<header class="header">
+
+<div class="container header-wrapper">
+
+<div class="logo">
+
+<a href="index.html">BDI<span>Market</span></a>
+
+</div>
+
+<div class="header-buttons">
+
+<a href="upload.html" class="btn btn-primary">+ Upload Product</a>
+
+<a href="index.html">Home</a>
+
+</div>
+
+</div>
 
 </header>
 
-<main>
+<!-- DASHBOARD -->
 
-<h2 class="section-title">Seller Dashboard</h2>
+<section class="dashboard">
 
-<div class="dashboard-container">
+<div class="container">
 
-    <div class="dashboard-card">
-        <h2>Total Products</h2>
-        <h1>12</h1>
-    </div>
+<h1 class="dashboard-title">
 
-    <div class="dashboard-card">
-        <h2>Total Orders</h2>
-        <h1>38</h1>
-    </div>
+Seller Dashboard
 
-    <div class="dashboard-card">
-        <h2>Total Revenue</h2>
-        <h1>$4,580</h1>
-    </div>
+</h1>
 
-    <div class="dashboard-card">
-        <h2>Pending Orders</h2>
-        <h1>5</h1>
-    </div>
+<p class="dashboard-subtitle">
+
+Manage your products, orders and business from one place.
+
+</p>
+
+<div class="dashboard-cards">
+ <!-- Dashboard Card 1 -->
+
+<div class="dashboard-card">
+
+<div class="card-icon">📦</div>
+
+<h2>Total Products</h2>
+
+<h1>24</h1>
+
+<p>Products Uploaded</p>
 
 </div>
 
-<h2 class="section-title">Quick Actions</h2>
+<!-- Dashboard Card 2 -->
+
+<div class="dashboard-card">
+
+<div class="card-icon">🛒</div>
+
+<h2>Total Orders</h2>
+
+<h1>156</h1>
+
+<p>Orders Received</p>
+
+</div>
+
+<!-- Dashboard Card 3 -->
+
+<div class="dashboard-card">
+
+<div class="card-icon">💰</div>
+
+<h2>Total Revenue</h2>
+
+<h1>$8,450</h1>
+
+<p>Total Earnings</p>
+
+</div>
+
+<!-- Dashboard Card 4 -->
+
+<div class="dashboard-card">
+
+<div class="card-icon">⏳</div>
+
+<h2>Pending Orders</h2>
+
+<h1>12</h1>
+
+<p>Waiting for Delivery</p>
+
+</div>
+
+</div>
+
+<!-- Quick Actions -->
 
 <div class="dashboard-actions">
 
-    <a href="upload.html" class="nav-btn btn-primary">➕ Upload Product</a>
+<a href="upload.html" class="btn btn-primary">
 
-    <a href="products.html" class="nav-btn">📦 View Products</a>
+➕ Upload Product
 
-    <a href="my-products.html" class="nav-btn">📋 My Products</a>
+</a>
 
-    <a href="cart.html" class="nav-btn">🛒 Orders</a>
+<a href="products.html" class="btn btn-outline">
 
-    <a href="checkout.html" class="nav-btn">💰 Earnings</a>
+📦 My Products
+
+</a>
+
+<a href="cart.html" class="btn btn-outline">
+
+🛒 Orders
+
+</a>
+
+<a href="checkout.html" class="btn btn-outline">
+
+💰 Earnings
+
+</a>
+
+</div>
+<!-- ================= RECENT ORDERS ================= -->
+
+<h2 class="section-title">Recent Orders</h2>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Order ID</th>
+
+<th>Product</th>
+
+<th>Status</th>
+
+<th>Amount</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>#1001</td>
+
+<td>Premium Smartphone</td>
+
+<td><span class="badge">Delivered</span></td>
+
+<td>$120</td>
+
+</tr>
+
+<tr>
+
+<td>#1002</td>
+
+<td>Wireless Headphone</td>
+
+<td><span class="badge">Pending</span></td>
+
+<td>$45</td>
+
+</tr>
+
+<tr>
+
+<td>#1003</td>
+
+<td>Sports Shoes</td>
+
+<td><span class="badge">Processing</span></td>
+
+<td>$60</td>
+
+</tr>
+
+</tbody>
+
+</table>
 
 </div>
 
-</main>
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+<div class="container">
+
+<div class="footer-grid">
+
+<div>
+
+<h3>BDIMarket Place</h3>
+
+<p>
+The complete B2B marketplace for buyers and sellers.
+</p>
+
+</div>
+
+<div>
+
+<h4>Quick Links</h4>
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="products.html">Products</a></li>
+
+<li><a href="upload.html">Upload Product</a></li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h4>Support</h4>
+
+<ul>
+
+<li><a href="#">Help Center</a></li>
+
+<li><a href="#">Privacy Policy</a></li>
+
+<li><a href="#">Terms & Conditions</a></li>
+
+</ul>
+
+</div>
+
+</div>
+
+<hr>
+
+<p class="copyright">
+
+© 2026 BDIMarket Place. All Rights Reserved.
+
+</p>
+
+</div>
+
+</footer>
 
 </body>
+
 </html>
+
