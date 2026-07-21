@@ -1,3 +1,7 @@
+import {
+onAuthStateChanged,
+signOut
+} from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
 import { auth } from "./firebase.js";
 import {
   createUserWithEmailAndPassword
@@ -72,3 +76,20 @@ alert(error.message);
 });
 
 }
+// ========================
+// Login Session
+// ========================
+
+onAuthStateChanged(auth, (user) => {
+
+if(user){
+
+console.log("User Logged In:", user.email);
+
+}else{
+
+console.log("No User Logged In");
+
+}
+
+});
