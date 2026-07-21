@@ -1,62 +1,300 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Product Details | BDIMarket-Place</title>
+
+<title>Products | BDIMarket Place</title>
+
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="products.css">
+
 </head>
 
 <body>
 
-<div class="main-header">
+<!-- TOP BAR -->
+
+<div class="top-bar">
+
+<div class="container">
+
+<span>Explore Products</span>
+
+<div class="top-right">
+
+<a href="index.html">Home</a>
+
+<a href="seller.html">Seller Dashboard</a>
+
+<a href="upload.html">Upload Product</a>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- HEADER -->
+
+<header class="header">
+
+<div class="container header-wrapper">
 
 <div class="logo">
-<a href="index.html">BDI<span>Market</span></a>
-</div>
 
-<nav class="nav-actions">
-<a href="index.html" class="nav-btn">Home</a>
-<a href="products.html" class="nav-btn">Products</a>
-<a href="#" class="nav-btn">🛒 Cart</a>
-</nav>
+<a href="index.html">
+
+BDI<span>Market</span>
+
+</a>
 
 </div>
 
-<div style="max-width:1100px;margin:40px auto;display:flex;gap:40px;flex-wrap:wrap;">
+<div class="search-box">
 
-<div style="flex:1;">
-<img src="https://via.placeholder.com/450" style="width:100%;border-radius:10px;">
-</div>
+<input
+type="text"
+placeholder="Search Products...">
 
-<div style="flex:1;">
+<button>
 
-<h1>Premium Smart Phone</h1>
+Search
 
-<h2 style="color:#ff6a00;">$120</h2>
-
-<p><b>Category:</b> Electronics</p>
-
-<p><b>MOQ:</b> 10 Pieces</p>
-
-<p><b>Supplier:</b> BDIMarket Supplier</p>
-
-<br>
-
-<p>
-High-quality smartphone with premium display,
-fast processor and long battery life.
-</p>
-
-<br>
-
-<button class="btn-primary" style="padding:15px 35px;border:none;border-radius:6px;">
-Add To Cart
 </button>
 
 </div>
 
+<div class="header-buttons">
+
+<a href="login.html">
+
+Sign In
+
+</a>
+
+<a href="cart.html" class="cart-btn">
+
+🛒 Cart
+
+</a>
+
 </div>
 
+</div>
+
+</header>
+
+<!-- PRODUCTS -->
+
+<section class="products-page">
+
+<div class="container">
+
+<h1 class="page-title">
+
+All Products
+
+</h1>
+
+<p class="page-subtitle">
+
+Discover products from trusted suppliers around the world.
+
+</p>
+
+<div class="products-grid">
+<!-- Product 1 -->
+
+<div class="product-card">
+
+<div class="product-image">
+<img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600" alt="Phone">
+</div>
+
+<div class="product-info">
+<h3 class="product-title">Premium Smartphone</h3>
+<p class="product-price">$120</p>
+<p class="product-supplier">🇧🇩 Bangladesh Supplier</p>
+<a href="#" class="product-btn">View Details</a>
+</div>
+
+</div>
+
+<!-- Product 2 -->
+
+<div class="product-card">
+
+<div class="product-image">
+<img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600" alt="T-Shirt">
+</div>
+
+<div class="product-info">
+<h3 class="product-title">Cotton T-Shirt</h3>
+<p class="product-price">$8</p>
+<p class="product-supplier">🇧🇩 Bangladesh Supplier</p>
+<a href="#" class="product-btn">View Details</a>
+</div>
+
+</div>
+
+<!-- Product 3 -->
+
+<div class="product-card">
+
+<div class="product-image">
+<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600" alt="Shoes">
+</div>
+
+<div class="product-info">
+<h3 class="product-title">Sports Shoes</h3>
+<p class="product-price">$60</p>
+<p class="product-supplier">🇻🇳 Vietnam Supplier</p>
+<a href="#" class="product-btn">View Details</a>
+</div>
+
+</div>
+
+<!-- Product 4 -->
+
+<div class="product-card">
+
+<div class="product-image">
+<img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600" alt="Headphone">
+</div>
+
+<div class="product-info">
+<h3 class="product-title">Wireless Headphone</h3>
+<p class="product-price">$45</p>
+<p class="product-supplier">🇯🇵 Japan Supplier</p>
+<a href="#" class="product-btn">View Details</a>
+</div>
+
+</div>
+
+<!-- Product 5 -->
+
+<div class="product-card">
+
+<div class="product-image">
+<img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600" alt="Watch">
+</div>
+
+<div class="product-info">
+<h3 class="product-title">Luxury Smart Watch</h3>
+<p class="product-price">$180</p>
+<p class="product-supplier">🇰🇷 Korea Supplier</p>
+<a href="#" class="product-btn">View Details</a>
+</div>
+
+</div>
+
+<!-- Product 6 -->
+
+<div class="product-card">
+
+<div class="product-image">
+<img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600" alt="Machine">
+</div>
+
+<div class="product-info">
+<h3 class="product-title">Industrial Machine</h3>
+<p class="product-price">$650</p>
+<p class="product-supplier">🇨🇳 China Supplier</p>
+<a href="#" class="product-btn">View Details</a>
+</div>
+
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+<div class="container">
+
+<div class="footer-grid">
+
+<div>
+
+<h3>BDIMarket Place</h3>
+
+<p>
+The complete B2B marketplace connecting buyers and sellers worldwide.
+</p>
+
+</div>
+
+<div>
+
+<h4>Quick Links</h4>
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="seller.html">Seller Dashboard</a></li>
+
+<li><a href="upload.html">Upload Product</a></li>
+
+<li><a href="cart.html">Cart</a></li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h4>Support</h4>
+
+<ul>
+
+<li><a href="#">Help Center</a></li>
+
+<li><a href="#">Privacy Policy</a></li>
+
+<li><a href="#">Terms & Conditions</a></li>
+
+<li><a href="#">Contact Us</a></li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h4>Follow Us</h4>
+
+<p>Facebook</p>
+
+<p>Instagram</p>
+
+<p>LinkedIn</p>
+
+<p>YouTube</p>
+
+</div>
+
+</div>
+
+<hr>
+
+<p class="copyright">
+
+© 2026 BDIMarket Place. All Rights Reserved.
+
+</p>
+
+</div>
+
+</footer>
+
 </body>
+
 </html>
