@@ -15,7 +15,7 @@
 
 <body>
 
-<!-- TOP BAR -->
+<!-- ================= TOP BAR ================= -->
 
 <div class="top-bar">
 
@@ -29,7 +29,7 @@
 
 <a href="seller.html">Dashboard</a>
 
-<a href="#">Help</a>
+<a href="#">Help Center</a>
 
 </div>
 
@@ -37,7 +37,7 @@
 
 </div>
 
-<!-- HEADER -->
+<!-- ================= HEADER ================= -->
 
 <header class="header">
 
@@ -59,7 +59,7 @@ BDI<span>Market</span>
 
 <a href="products.html">Products</a>
 
-<a href="cart.html" class="cart-btn">Cart</a>
+<a href="cart.html">Cart</a>
 
 </div>
 
@@ -67,7 +67,7 @@ BDI<span>Market</span>
 
 </header>
 
-<!-- UPLOAD SECTION -->
+<!-- ================= UPLOAD SECTION ================= -->
 
 <section class="upload-page">
 
@@ -81,12 +81,19 @@ Upload New Product
 
 <p class="upload-subtitle">
 
-Fill in the product information below.
+Publish your products to millions of buyers around the world.
 
 </p>
 
-<form class="upload-form">
-<!-- Product Name -->
+<form id="upload-form" class="upload-form">
+
+<!-- Product Information -->
+
+<h2 class="form-title">
+
+📦 Product Information
+
+</h2>
 
 <div class="form-group">
 
@@ -94,18 +101,17 @@ Fill in the product information below.
 
 <input
 type="text"
+id="product-name"
 placeholder="Enter product name"
 required>
 
 </div>
 
-<!-- Category -->
-
 <div class="form-group">
 
 <label>Category</label>
 
-<select required>
+<select id="category" required>
 
 <option value="">Select Category</option>
 
@@ -129,7 +135,35 @@ required>
 
 </div>
 
-<!-- Price -->
+<div class="form-group">
+
+<label>Brand Name</label>
+
+<input
+type="text"
+id="brand"
+placeholder="Brand name">
+
+</div>
+
+<div class="form-group">
+
+<label>Product Description</label>
+
+<textarea
+id="description"
+rows="6"
+placeholder="Write complete product description"></textarea>
+
+</div>
+  
+<!-- ================= BUSINESS INFORMATION ================= -->
+
+<h2 class="form-title">
+
+💰 Business Information
+
+</h2>
 
 <div class="form-group">
 
@@ -137,12 +171,11 @@ required>
 
 <input
 type="number"
+id="price"
 placeholder="Enter product price"
 required>
 
 </div>
-
-<!-- MOQ -->
 
 <div class="form-group">
 
@@ -150,24 +183,30 @@ required>
 
 <input
 type="number"
-placeholder="Minimum quantity"
+id="moq"
+placeholder="Minimum order quantity"
 required>
 
 </div>
 
-<!-- Country -->
-
 <div class="form-group">
 
-<label>Country</label>
+<label>Available Stock</label>
 
 <input
-type="text"
-placeholder="Country of Origin">
+type="number"
+id="stock"
+placeholder="Available stock">
 
 </div>
 
-<!-- Company Name -->
+<!-- ================= COMPANY INFORMATION ================= -->
+
+<h2 class="form-title">
+
+🏢 Company Information
+
+</h2>
 
 <div class="form-group">
 
@@ -175,38 +214,155 @@ placeholder="Country of Origin">
 
 <input
 type="text"
-placeholder="Your company name">
+id="company"
+placeholder="Company name"
+required>
 
 </div>
-<!-- Product Image -->
 
 <div class="form-group">
 
-<label>Product Image</label>
+<label>Seller Name</label>
 
 <input
-type="file"
-accept="image/*">
+type="text"
+id="seller"
+placeholder="Seller name"
+required>
 
 </div>
 
-<!-- Description -->
-
 <div class="form-group">
 
-<label>Product Description</label>
+<label>Country</label>
 
-<textarea
-rows="6"
-placeholder="Write a detailed product description..."></textarea>
+<input
+type="text"
+id="country"
+placeholder="Country"
+required>
 
 </div>
 
-<!-- Publish Button -->
+<div class="form-group">
+
+<label>City</label>
+
+<input
+type="text"
+id="city"
+placeholder="City">
+
+</div>
 
 <div class="form-group">
 
-<button type="submit" class="btn btn-primary publish-btn">
+<label>Contact Email</label>
+
+<input
+type="email"
+id="email"
+placeholder="Business email">
+
+</div>
+
+<div class="form-group">
+
+<label>Phone Number</label>
+
+<input
+type="tel"
+id="phone"
+placeholder="+8801XXXXXXXXX">
+
+</div>
+<!-- ================= PRODUCT IMAGE ================= -->
+
+<h2 class="form-title">
+
+🖼️ Product Image
+
+</h2>
+
+<div class="form-group">
+
+<label>Image URL</label>
+
+<input
+type="url"
+id="image"
+placeholder="https://example.com/product.jpg"
+required>
+
+</div>
+
+<!-- ================= SHIPPING INFORMATION ================= -->
+
+<h2 class="form-title">
+
+🚚 Shipping Information
+
+</h2>
+
+<div class="form-group">
+
+<label>Shipping Time</label>
+
+<input
+type="text"
+id="shipping"
+placeholder="Example: 5-10 Days">
+
+</div>
+
+<div class="form-group">
+
+<label>Delivery Method</label>
+
+<select id="delivery">
+
+<option>Air Freight</option>
+
+<option>Sea Freight</option>
+
+<option>Courier</option>
+
+<option>Pickup</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+<label>Official Website (Optional)</label>
+
+<input
+type="url"
+id="website"
+placeholder="https://yourcompany.com">
+
+</div>
+
+<div class="form-group">
+
+<label>Product Status</label>
+
+<select id="status">
+
+<option value="Active">Active</option>
+
+<option value="Inactive">Inactive</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+<button
+type="submit"
+class="btn btn-primary publish-btn">
 
 🚀 Publish Product
 
@@ -219,8 +375,7 @@ placeholder="Write a detailed product description..."></textarea>
 </div>
 
 </section>
-
-<!-- FOOTER -->
+<!-- ================= FOOTER ================= -->
 
 <footer class="footer">
 
@@ -233,7 +388,7 @@ placeholder="Write a detailed product description..."></textarea>
 <h3>BDIMarket Place</h3>
 
 <p>
-The complete B2B marketplace for buyers and sellers.
+The complete B2B Marketplace for Buyers & Sellers.
 </p>
 
 </div>
@@ -283,6 +438,10 @@ The complete B2B marketplace for buyers and sellers.
 </div>
 
 </footer>
+
+<script type="module" src="js/firebase.js"></script>
+
+<script type="module" src="js/upload.js"></script>
 
 </body>
 
