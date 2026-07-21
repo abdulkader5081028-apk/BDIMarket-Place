@@ -1,1 +1,117 @@
-/* Upload Page CSS */
+/* ===================================
+   Upload Product Page V3.0
+=================================== */
+
+.upload-page{
+padding:60px 0;
+background:#f5f7fb;
+min-height:100vh;
+}
+
+.upload-title{
+font-size:38px;
+font-weight:700;
+color:#1f2937;
+margin-bottom:10px;
+text-align:center;
+}
+
+.upload-subtitle{
+font-size:16px;
+color:#6b7280;
+margin-bottom:35px;
+text-align:center;
+}
+
+.upload-form{
+max-width:850px;
+margin:auto;
+background:#ffffff;
+padding:35px;
+border-radius:16px;
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.form-group{
+margin-bottom:22px;
+}
+
+.form-group label{
+display:block;
+margin-bottom:8px;
+font-weight:600;
+color:#374151;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+width:100%;
+padding:14px;
+font-size:15px;
+border:1px solid #d1d5db;
+border-radius:10px;
+outline:none;
+transition:.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+border-color:#ff6b00;
+box-shadow:0 0 0 3px rgba(255,107,0,.15);
+}
+/* ================= FILE INPUT ================= */
+
+.form-group input[type="file"]{
+padding:12px;
+background:#fafafa;
+cursor:pointer;
+}
+
+/* ================= BUTTON ================= */
+
+.publish-btn{
+width:100%;
+padding:16px;
+font-size:18px;
+font-weight:700;
+border:none;
+border-radius:10px;
+cursor:pointer;
+transition:.3s;
+}
+
+.publish-btn:hover{
+transform:translateY(-2px);
+box-shadow:0 8px 20px rgba(255,107,0,.25);
+}
+
+/* ================= FORM HOVER ================= */
+
+.upload-form:hover{
+box-shadow:0 12px 30px rgba(0,0,0,.12);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+.upload-page{
+padding:35px 15px;
+}
+
+.upload-title{
+font-size:30px;
+}
+
+.upload-form{
+padding:22px;
+}
+
+.publish-btn{
+font-size:16px;
+}
+
+}
+
