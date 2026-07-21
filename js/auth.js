@@ -1,49 +1,42 @@
-// js/auth.js
 import { auth } from "./firebase.js";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+import {
+  createUserWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
 
-// --- সাইনআপ (Sign Up) লজিক ---
-const signupForm = document.querySelector('#signup-form');
+const signupForm = document.getElementById("signup-form");
+
 if (signupForm) {
-    signupForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        const email = document.querySelector('#email').value;
-        const password = document.querySelector('#password').value;
-        const confirmPassword = document.querySelector('#confirm-password').value;
 
-        if (password !== confirmPassword) {
-            alert("Passwords do not match!");
-            return;
-        }
+signupForm.addEventListener("submit", async (e) => {
 
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                alert("Account created successfully!");
-                window.location.href = "login.html"; // সফল হলে লগইন পেজে নিয়ে যাবে
-            })
-            .catch((error) => {
-                alert("Error: " + error.message);
-            });
-    });
+e.preventDefault();
+
+const name = document.getElementById("name").value.trim();
+const email = document.getElementById("email").value.trim();
+const password = document.getElementById("password").value;
+const confirmPassword = document.getElementById("confirm-password").value;
+
+if(password !== confirmPassword){
+
+alert("Passwords do not match!");
+return;
+
 }
 
-// --- লগইন (Log In) লজিক ---
-const loginForm = document.querySelector('#login-form');
-if (loginForm) {
-    loginForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        const email = document.querySelector('#email').value;
-        const password = document.querySelector('#password').value;
+try{
 
-        signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                alert("Logged in successfully!");
-                window.location.href = "seller-dashboard.html"; // সফল হলে ড্যাশবোর্ডে নিয়ে যাবে
-            })
-            .catch((error) => {
-                alert("Error: " + error.message);
-            });
-    });
+await createUserWithEmailAndPassword(auth,email,password);
+
+alert("Account created successfully!");
+
+window.location.href="login.html";
+
+}catch(error){
+
+alert(error.message);
+
+}
+
+});
+
 }
