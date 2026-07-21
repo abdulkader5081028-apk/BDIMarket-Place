@@ -1,18 +1,26 @@
-// js/firebase.js
-// Firebase SDK modules import (CDN version)
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+// Firebase SDK
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+import { getStorage } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-storage.js";
 
-// ফায়ারবেস কনফিগারেশন (আমরা পরে Firebase Console থেকে আসল কীগুলো এখানে বসাবো)
+// Firebase Config
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_AUTH_DOMAIN",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_STORAGE_BUCKET",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyCMf4KF-TyCu5rDXZDsgj5OE95gjN0UMYY",
+  authDomain: "bdimarket-place-f95e6.firebaseapp.com",
+  projectId: "bdimarket-place-f95e6",
+  storageBucket: "bdimarket-place-f95e6.firebasestorage.app",
+  messagingSenderId: "1021566476793",
+  appId: "1:1021566476793:web:8fd31e3551093f58ec1d28"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
+
+// Services
+const auth = getAuth(app);
+const db = getFirestore(app);
+const storage = getStorage(app);
+
+// Export
+export { app, auth, db, storage };
