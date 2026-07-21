@@ -1,117 +1,138 @@
-/* ===================================
-   Upload Product Page V3.0
-=================================== */
+/* ===============================
+   Upload Page
+================================= */
 
 .upload-page{
-padding:60px 0;
-background:#f5f7fb;
-min-height:100vh;
+    padding:60px 0;
+    background:#f5f7fb;
+    min-height:100vh;
+}
+
+.upload-page .container{
+    max-width:900px;
+    margin:auto;
 }
 
 .upload-title{
-font-size:38px;
-font-weight:700;
-color:#1f2937;
-margin-bottom:10px;
-text-align:center;
+    text-align:center;
+    font-size:36px;
+    font-weight:700;
+    color:#222;
+    margin-bottom:10px;
 }
 
 .upload-subtitle{
-font-size:16px;
-color:#6b7280;
-margin-bottom:35px;
-text-align:center;
+    text-align:center;
+    color:#666;
+    margin-bottom:40px;
+    font-size:16px;
 }
 
 .upload-form{
-max-width:850px;
-margin:auto;
-background:#ffffff;
-padding:35px;
-border-radius:16px;
-box-shadow:0 8px 20px rgba(0,0,0,.08);
+    background:#fff;
+    padding:40px;
+    border-radius:14px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.form-title{
+    font-size:22px;
+    color:#0d6efd;
+    margin:35px 0 20px;
+    border-left:5px solid #0d6efd;
+    padding-left:12px;
 }
 
 .form-group{
-margin-bottom:22px;
+    margin-bottom:20px;
 }
 
 .form-group label{
-display:block;
-margin-bottom:8px;
-font-weight:600;
-color:#374151;
+    display:block;
+    font-weight:600;
+    color:#333;
+    margin-bottom:8px;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea{
-width:100%;
-padding:14px;
-font-size:15px;
-border:1px solid #d1d5db;
-border-radius:10px;
-outline:none;
-transition:.3s;
+    width:100%;
+    padding:14px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    font-size:15px;
+    outline:none;
+    transition:.3s;
+    box-sizing:border-box;
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus{
-border-color:#ff6b00;
-box-shadow:0 0 0 3px rgba(255,107,0,.15);
-}
-/* ================= FILE INPUT ================= */
-
-.form-group input[type="file"]{
-padding:12px;
-background:#fafafa;
-cursor:pointer;
+    border-color:#0d6efd;
+    box-shadow:0 0 0 3px rgba(13,110,253,.15);
 }
 
-/* ================= BUTTON ================= */
+.form-group textarea{
+    resize:vertical;
+    min-height:140px;
+}
+/* ===============================
+   Publish Button
+================================= */
 
 .publish-btn{
-width:100%;
-padding:16px;
-font-size:18px;
-font-weight:700;
-border:none;
-border-radius:10px;
-cursor:pointer;
-transition:.3s;
+    width:100%;
+    padding:16px;
+    background:#0d6efd;
+    color:#fff;
+    border:none;
+    border-radius:10px;
+    font-size:18px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
 }
 
 .publish-btn:hover{
-transform:translateY(-2px);
-box-shadow:0 8px 20px rgba(255,107,0,.25);
+    background:#0b5ed7;
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(13,110,253,.25);
 }
 
-/* ================= FORM HOVER ================= */
+/* ===============================
+   Responsive
+================================= */
 
-.upload-form:hover{
-box-shadow:0 12px 30px rgba(0,0,0,.12);
-}
-
-/* ================= RESPONSIVE ================= */
-
-@media(max-width:768px){
+@media (max-width:768px){
 
 .upload-page{
-padding:35px 15px;
-}
-
-.upload-title{
-font-size:30px;
+    padding:30px 15px;
 }
 
 .upload-form{
-padding:22px;
+    padding:20px;
+}
+
+.upload-title{
+    font-size:28px;
+}
+
+.form-title{
+    font-size:20px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    font-size:14px;
 }
 
 .publish-btn{
-font-size:16px;
+    font-size:16px;
 }
 
 }
+
 
