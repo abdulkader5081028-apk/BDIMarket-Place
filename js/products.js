@@ -11,7 +11,7 @@ const container = document.getElementById("products-container");
 
 async function loadProducts() {
 
-    container.innerHTML = `
+    container.innerHTML += `
         <div class="loading">
             Loading Products...
         </div>
