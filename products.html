@@ -1,70 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Products | BDIMarket-Place</title>
+
+<title>Products | BDIMarket Place</title>
+
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="products.css">
+
 </head>
 
 <body>
 
-<div class="main-header">
+<!-- HEADER -->
+
+<header class="main-header">
+
 <div class="logo">
-<a href="index.html">BDI<span>Market</span></a>
+<a href="index.html">
+BDI<span>Market</span>
+</a>
 </div>
 
 <nav class="nav-actions">
-<a href="index.html" class="nav-btn">Home</a>
-<a href="seller.html" class="nav-btn">Dashboard</a>
-<a href="upload.html" class="nav-btn btn-primary">Upload Product</a>
-</nav>
-</div>
 
-<h2 class="section-title">All Products</h2>
-
-<div class="products-grid">
-
-<a href="product.html" class="product-card">
-<div class="product-image">
-<img src="https://via.placeholder.com/250" alt="">
+<a href="index.html" class="nav-btn">
+Home
 </a>
 
-<div class="product-info">
-<h3 class="product-title">Premium Smart Phone</h3>
-<p class="product-price">$120</p>
-<p>MOQ: 10 pcs</p>
-</div>
+<a href="seller.html" class="nav-btn">
+Seller Dashboard
+</a>
 
-</div>
+<a href="upload.html" class="nav-btn btn-primary">
+Upload Product
+</a>
 
-<div class="product-card">
-<div class="product-image">
-<img src="https://via.placeholder.com/250" alt="">
-</div>
+</nav>
 
-<div class="product-info">
-<h3 class="product-title">Cotton T-Shirt</h3>
-<p class="product-price">$5</p>
-<p>MOQ: 500 pcs</p>
-</div>
+</header>
 
-</div>
+<!-- PAGE TITLE -->
 
-<div class="product-card">
-<div class="product-image">
-<img src="https://via.placeholder.com/250" alt="">
-</div>
+<section class="main-content">
 
-<div class="product-info">
-<h3 class="product-title">Packing Machine</h3>
-<p class="product-price">$500</p>
-<p>MOQ: 1 Set</p>
-</div>
+<h2 class="section-title">
+All Products
+</h2>
+
+<!-- Dynamic Products -->
+
+<div id="products-container" class="products-grid">
+
+<div style="text-align:center;padding:40px;">
+
+Loading Products...
 
 </div>
 
 </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="main-footer">
+
+<div class="footer-links">
+
+<a href="index.html">Home</a>
+
+<a href="seller.html">Seller</a>
+
+<a href="upload.html">Upload</a>
+
+</div>
+
+<div class="footer-bottom">
+
+© 2026 BDIMarket Place
+
+</div>
+
+</footer>
+
+<!-- Firebase -->
+
+<script type="module" src="js/firebase.js"></script>
+
+<!-- Products -->
+
+<script type="module" src="js/products.js"></script>
 
 </body>
+
 </html>
