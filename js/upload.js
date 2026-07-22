@@ -1,24 +1,15 @@
-import { auth, db } from "./firebase.js";
+import { db } from "./firebase.js";
 
 import {
 addDoc,
-collection,
-serverTimestamp
+collection
 } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
 
-const uploadForm = document.getElementById("upload-form");
+const form = document.getElementById("upload-form");
 
-uploadForm.addEventListener("submit", async (e) => {
+form.addEventListener("submit", async (e) => {
 
 e.preventDefault();
-
-const user = auth.currentUser;
-
-if (!user) {
-alert("Please login first!");
-window.location.href = "login.html";
-return;
-}
 
 const product = {
 
@@ -58,25 +49,23 @@ website: document.getElementById("website").value,
 
 status: document.getElementById("status").value,
 
-sellerId: user.uid,
-
-createdAt: serverTimestamp()
+createdAt: new Date()
 
 };
 
-try {
+try{
 
-await addDoc(collection(db, "products"), product);
+await addDoc(collection(db,"products"),product);
 
-alert("✅ Product Published Successfully!");
+alert("✅ Product Uploaded Successfully!");
 
-uploadForm.reset();
+form.reset();
 
-} catch (error) {
+}catch(err){
 
-console.error(error);
+console.error(err);
 
-alert("❌ " + error.message);
+alert("❌ Upload Failed!");
 
 }
 
