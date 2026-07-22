@@ -14,6 +14,43 @@ orderBy
 
 const container = document.getElementById("products-container");
 
+// =========================
+// CART FUNCTIONS
+// =========================
+
+function addToCart(productId, product){
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+const existing = cart.find(item => item.id === productId);
+
+if(existing){
+
+existing.quantity++;
+
+}else{
+
+cart.push({
+
+id: productId,
+
+name: product.name,
+
+price: Number(product.price),
+
+image: product.image,
+
+quantity: 1
+
+});
+
+}
+
+localStorage.setItem("cart", JSON.stringify(cart));
+
+alert("✅ Product Added To Cart");
+
+}
 async function loadProducts(){
 
 container.innerHTML=`
@@ -135,11 +172,13 @@ View Details
 
 </a>
 
-<a href="#"
-
-class="cart-small-btn">
+<button
+class="cart-small-btn"
+onclick='addToCart("${docSnap.id}", ${JSON.stringify(product)})'>
 
 🛒
+
+</button>
 
 </a>
 
