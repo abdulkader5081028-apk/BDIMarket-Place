@@ -9,13 +9,13 @@
 <title>Products | BDIMarket Place</title>
 
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="products.css">
+<link rel="stylesheet" href="css/products.css">
 
 </head>
 
 <body>
 
-<!-- TOP BAR -->
+<!-- ================= TOP BAR ================= -->
 
 <div class="top-bar">
 
@@ -37,7 +37,7 @@
 
 </div>
 
-<!-- HEADER -->
+<!-- ================= HEADER ================= -->
 
 <header class="header">
 
@@ -57,9 +57,10 @@ BDI<span>Market</span>
 
 <input
 type="text"
+id="search-input"
 placeholder="Search Products...">
 
-<button>
+<button id="search-btn">
 
 Search
 
@@ -75,7 +76,19 @@ Sign In
 
 </a>
 
-<a href="cart.html" class="cart-btn">
+<a href="signup.html">
+
+Join Free
+
+</a>
+
+<a href="seller.html">
+
+Seller Dashboard
+
+</a>
+
+<a class="cart-btn" href="cart.html">
 
 🛒 Cart
 
@@ -87,7 +100,7 @@ Sign In
 
 </header>
 
-<!-- PRODUCTS -->
+<!-- ================= PRODUCTS ================= -->
 
 <section class="products-page">
 
@@ -105,115 +118,87 @@ Discover products from trusted suppliers around the world.
 
 </p>
 
-<div class="products-grid">
-<!-- Product 1 -->
+<div id="products-grid" class="products-grid">
+  <!-- Dynamic Products will load here -->
 
-<div class="product-card">
+<div id="loading" class="loading-message">
 
-<div class="product-image">
-<img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600" alt="Phone">
-</div>
-
-<div class="product-info">
-<h3 class="product-title">Premium Smartphone</h3>
-<p class="product-price">$120</p>
-<p class="product-supplier">🇧🇩 Bangladesh Supplier</p>
-<a href="#" class="product-btn">View Details</a>
-</div>
+Loading products...
 
 </div>
 
-<!-- Product 2 -->
-
-<div class="product-card">
-
-<div class="product-image">
-<img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600" alt="T-Shirt">
-</div>
-
-<div class="product-info">
-<h3 class="product-title">Cotton T-Shirt</h3>
-<p class="product-price">$8</p>
-<p class="product-supplier">🇧🇩 Bangladesh Supplier</p>
-<a href="#" class="product-btn">View Details</a>
-</div>
-
-</div>
-
-<!-- Product 3 -->
-
-<div class="product-card">
-
-<div class="product-image">
-<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600" alt="Shoes">
-</div>
-
-<div class="product-info">
-<h3 class="product-title">Sports Shoes</h3>
-<p class="product-price">$60</p>
-<p class="product-supplier">🇻🇳 Vietnam Supplier</p>
-<a href="#" class="product-btn">View Details</a>
-</div>
-
-</div>
-
-<!-- Product 4 -->
-
-<div class="product-card">
-
-<div class="product-image">
-<img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600" alt="Headphone">
-</div>
-
-<div class="product-info">
-<h3 class="product-title">Wireless Headphone</h3>
-<p class="product-price">$45</p>
-<p class="product-supplier">🇯🇵 Japan Supplier</p>
-<a href="#" class="product-btn">View Details</a>
-</div>
-
-</div>
-
-<!-- Product 5 -->
-
-<div class="product-card">
-
-<div class="product-image">
-<img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600" alt="Watch">
-</div>
-
-<div class="product-info">
-<h3 class="product-title">Luxury Smart Watch</h3>
-<p class="product-price">$180</p>
-<p class="product-supplier">🇰🇷 Korea Supplier</p>
-<a href="#" class="product-btn">View Details</a>
-</div>
-
-</div>
-
-<!-- Product 6 -->
-
-<div class="product-card">
-
-<div class="product-image">
-<img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600" alt="Machine">
-</div>
-
-<div class="product-info">
-<h3 class="product-title">Industrial Machine</h3>
-<p class="product-price">$650</p>
-<p class="product-supplier">🇨🇳 China Supplier</p>
-<a href="#" class="product-btn">View Details</a>
-</div>
-
-</div>
 </div>
 
 </div>
 
 </section>
 
-<!-- ================= FOOTER ================= -->
+<!-- ================= WHY BUY FROM US ================= -->
+
+<section class="why-us">
+
+<div class="container">
+
+<div class="section-header">
+
+<h2>Why Buy From BDIMarket Place?</h2>
+
+<p>
+
+Trusted suppliers, secure business and global opportunities.
+
+</p>
+
+</div>
+
+<div class="features-grid">
+
+<div class="feature-card">
+
+<div class="feature-icon">🛡️</div>
+
+<h3>Verified Sellers</h3>
+
+<p>Trade confidently with verified suppliers.</p>
+
+</div>
+
+<div class="feature-card">
+
+<div class="feature-icon">🌍</div>
+
+<h3>Global Marketplace</h3>
+
+<p>Buy and sell products worldwide.</p>
+
+</div>
+
+<div class="feature-card">
+
+<div class="feature-icon">🚚</div>
+
+<h3>Fast Delivery</h3>
+
+<p>Reliable shipping with trusted logistics.</p>
+
+</div>
+
+<div class="feature-card">
+
+<div class="feature-icon">💬</div>
+
+<h3>24/7 Support</h3>
+
+<p>Our support team is always here to help.</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+  <!-- ================= FOOTER ================= -->
 
 <footer class="footer">
 
@@ -239,11 +224,11 @@ The complete B2B marketplace connecting buyers and sellers worldwide.
 
 <li><a href="index.html">Home</a></li>
 
-<li><a href="seller.html">Seller Dashboard</a></li>
+<li><a href="products.html">Products</a></li>
 
 <li><a href="upload.html">Upload Product</a></li>
 
-<li><a href="cart.html">Cart</a></li>
+<li><a href="seller.html">Seller Dashboard</a></li>
 
 </ul>
 
@@ -295,6 +280,9 @@ The complete B2B marketplace connecting buyers and sellers worldwide.
 
 </footer>
 
-</body>
+<script type="module" src="js/firebase.js"></script>
+<script type="module" src="js/products.js"></script>
 
+</body>
 </html>
+
