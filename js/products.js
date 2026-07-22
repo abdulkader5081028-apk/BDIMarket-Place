@@ -1,90 +1,102 @@
 import { db } from "./firebase.js";
 
 import {
-  collection,
-  getDocs
+  doc,
+  getDoc
 } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
 
-const container = document.getElementById("products-container");
+// URL থেকে Product ID নেওয়া
+const params = new URLSearchParams(window.location.search);
+const productId = params.get("id");
 
-async function loadProducts() {
+const container = document.getElementById("product-details");
 
-    container.innerHTML = `
-        <div class="loading">
-            Loading Products...
-        </div>
-    `;
+async function loadProduct() {
+
+    if (!productId) {
+        container.innerHTML = `
+            <h2 style="text-align:center;">
+                Product Not Found
+            </h2>
+        `;
+        return;
+    }
 
     try {
 
-        const snapshot = await getDocs(collection(db, "products"));
+        const docRef = doc(db, "products", productId);
+        const docSnap = await getDoc(docRef);
 
-        container.innerHTML = "";
-
-        if (snapshot.empty) {
+        if (!docSnap.exists()) {
 
             container.innerHTML = `
                 <h2 style="text-align:center;">
-                    No Products Found
+                    Product Not Found
                 </h2>
             `;
-
             return;
+
         }
 
-        snapshot.forEach((doc) => {
+        const product = docSnap.data();
 
-            const product = doc.data();
+        container.innerHTML = `
 
-            container.innerHTML += `
+<div class="product-details-card">
 
-            <div class="product-card">
+<div class="product-details-image">
 
-                <div class="product-image">
+<img src="${product.image}" alt="${product.name}">
 
-                    <img src="${product.image}" alt="${product.name}">
+</div>
 
-                </div>
+<div class="product-details-info">
 
-                <div class="product-info">
+<h1>${product.name}</h1>
 
-                    <h3 class="product-title">
-                        ${product.name}
-                    </h3>
+<h2>$${product.price}</h2>
 
-                    <p class="product-price">
-                        $${product.price}
-                    </p>
+<p><strong>Brand:</strong> ${product.brand}</p>
 
-                    <p>
-                        ${product.company}
-                    </p>
+<p><strong>Company:</strong> ${product.company}</p>
 
-                    <p>
-                        ${product.country}
-                    </p>
+<p><strong>Seller:</strong> ${product.seller}</p>
 
-                    <a href="product.html?id=${doc.id}" class="product-btn">
-                        View Details
-                    </a>
+<p><strong>Country:</strong> ${product.country}</p>
 
-                </div>
+<p><strong>City:</strong> ${product.city}</p>
 
-            </div>
+<p><strong>MOQ:</strong> ${product.moq}</p>
 
-            `;
+<p><strong>Stock:</strong> ${product.stock}</p>
 
-        });
+<p><strong>Shipping:</strong> ${product.shipping}</p>
 
-    }
+<p><strong>Delivery:</strong> ${product.delivery}</p>
 
-    catch(error){
+<p><strong>Email:</strong> ${product.email}</p>
+
+<p><strong>Phone:</strong> ${product.phone}</p>
+
+<p><strong>Website:</strong> ${product.website}</p>
+
+<p><strong>Description:</strong></p>
+
+<p>${product.description}</p>
+
+</div>
+
+</div>
+
+        `;
+
+    } catch (error) {
 
         console.error(error);
 
         container.innerHTML = `
             <h2 style="text-align:center;color:red;">
-                Failed to load products.
+                Failed to load product.
             </h2>
         `;
 
@@ -92,4 +104,4 @@ async function loadProducts() {
 
 }
 
-loadProducts();
+loadProduct();
