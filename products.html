@@ -2,13 +2,14 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Products | BDIMarket Place</title>
+<title>Product Details | BDIMarket Place</title>
 
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="products.css">
+<link rel="stylesheet" href="css/product.css">
 
 </head>
 
@@ -30,33 +31,31 @@ BDI<span>Market</span>
 Home
 </a>
 
-<a href="seller.html" class="nav-btn">
-Seller Dashboard
+<a href="products.html" class="nav-btn">
+Products
+</a>
+
+<a href="cart.html" class="nav-btn">
+Cart
 </a>
 
 <a href="upload.html" class="nav-btn btn-primary">
-Upload Product
+Upload
 </a>
 
 </nav>
 
 </header>
 
-<!-- PAGE TITLE -->
+<!-- PRODUCT DETAILS -->
 
 <section class="main-content">
 
-<h2 class="section-title">
-All Products
-</h2>
+<div id="product-details">
 
-<!-- Dynamic Products -->
+<div style="text-align:center;padding:60px;">
 
-<div id="products-container" class="products-grid">
-
-<div style="text-align:center;padding:40px;">
-
-Loading Products...
+<h2>Loading Product...</h2>
 
 </div>
 
@@ -72,6 +71,8 @@ Loading Products...
 
 <a href="index.html">Home</a>
 
+<a href="products.html">Products</a>
+
 <a href="seller.html">Seller</a>
 
 <a href="upload.html">Upload</a>
@@ -86,109 +87,8 @@ Loading Products...
 
 </footer>
 
-<!-- Firebase -->
-
 <script type="module" src="js/firebase.js"></script>
 
-<!-- Products -->
-
-<script type="module" src="js/products.js"></script>
-
-</body>
-
-</html>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Product Details | BDIMarket Place</title>
-
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/products.css">
-
-</head>
-
-<body>
-
-<!-- Header -->
-
-<header class="main-header">
-
-<div class="logo">
-
-<a href="index.html">
-
-BDI<span>Market</span>
-
-</a>
-
-</div>
-
-<nav class="nav-actions">
-
-<a href="index.html" class="nav-btn">
-Home
-</a>
-
-<a href="products.html" class="nav-btn">
-Products
-</a>
-
-<a href="seller.html" class="nav-btn">
-Seller
-</a>
-
-<a href="upload.html" class="nav-btn btn-primary">
-Upload
-</a>
-
-</nav>
-
-</header>
-
-<!-- Product Details -->
-
-<section class="main-content">
-
-<div id="product-details">
-
-<div style="text-align:center;padding:60px;">
-
-Loading Product...
-
-</div>
-
-</div>
-
-</section>
-
-<!-- Footer -->
-
-<footer class="main-footer">
-
-<div class="footer-links">
-
-<a href="index.html">Home</a>
-
-<a href="products.html">Products</a>
-
-<a href="upload.html">Upload</a>
-
-</div>
-
-<div class="footer-bottom">
-
-© 2026 BDIMarket Place
-
-</div>
-
-</footer>
-
-<script type="module" src="js/firebase.js"></script>
 <script type="module" src="js/product.js"></script>
 
 </body>
