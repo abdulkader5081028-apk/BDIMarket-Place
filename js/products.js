@@ -92,11 +92,28 @@ No Products Found
 return;
 
 }
-snapshot.forEach((docSnap)=>{
+let productsHTML = "";
+  snapshot.forEach(docSnap)  container.innerHTML = productsHTML;
 
+document.querySelectorAll(".add-cart-btn").forEach(button=>{
+
+button.addEventListener("click",()=>{
+
+const id = button.dataset.id;
+
+const docData = snapshot.docs.find(d=>d.id===id);
+
+const product = docData.data();
+
+addToCart(id, product);
+
+});
+
+});
+=>{
 const product=docSnap.data();
 
-container.innerHTML+=`
+productsHTML +=`
 
 <div class="product-card">
 
