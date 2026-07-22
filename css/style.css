@@ -367,3 +367,149 @@ body {
         padding: 15px;
     }
 }
+/* ============================= */
+/* BDIMarket UI Kit v1.0 */
+/* ============================= */
+
+.container{
+    width:95%;
+    max-width:1400px;
+    margin:auto;
+}
+
+.header{
+    background:#fff;
+    position:sticky;
+    top:0;
+    z-index:999;
+    box-shadow:0 2px 15px rgba(0,0,0,.08);
+}
+
+.header-wrapper{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    padding:15px 0;
+}
+
+.logo a{
+    text-decoration:none;
+    font-size:32px;
+    font-weight:800;
+    color:#ff6a00;
+}
+
+.logo span{
+    color:#222;
+}
+
+.search-box{
+    flex:1;
+    display:flex;
+    max-width:650px;
+}
+
+.search-box input{
+    flex:1;
+    padding:14px;
+    border:2px solid #ff6a00;
+    border-right:none;
+    border-radius:10px 0 0 10px;
+    font-size:16px;
+}
+
+.search-box button{
+    background:#ff6a00;
+    color:#fff;
+    border:none;
+    padding:0 28px;
+    cursor:pointer;
+    font-size:16px;
+    border-radius:0 10px 10px 0;
+}
+
+.search-box button:hover{
+    background:#e65c00;
+}
+
+.header-buttons{
+    display:flex;
+    gap:12px;
+    align-items:center;
+}
+
+.header-buttons a{
+    text-decoration:none;
+    color:#222;
+    font-weight:600;
+}
+
+.cart-btn{
+    background:#ff6a00;
+    color:#fff!important;
+    padding:10px 18px;
+    border-radius:8px;
+}
+
+.hero{
+    padding:40px 0;
+}
+
+.hero-layout{
+    display:grid;
+    grid-template-columns:260px 1fr;
+    gap:25px;
+}
+
+.categories{
+    background:#fff;
+    border-radius:12px;
+    padding:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.categories h3{
+    margin-bottom:15px;
+}
+
+.categories ul{
+    list-style:none;
+}
+
+.categories li{
+    margin:12px 0;
+}
+
+.categories a{
+    text-decoration:none;
+    color:#333;
+}
+
+.hero-banner{
+    background:linear-gradient(135deg,#ff8a00,#ff5500);
+    color:#fff;
+    padding:50px;
+    border-radius:15px;
+}
+
+.hero-banner h1{
+    font-size:46px;
+    margin-bottom:15px;
+}
+
+.hero-banner p{
+    font-size:18px;
+    max-width:650px;
+}
+
+.hero-btn{
+    display:inline-block;
+    margin-top:25px;
+    background:#fff;
+    color:#ff6600;
+    padding:14px 28px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:700;
+}
