@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Products | BDIMarket Place</title>
+<title>All Products | BDIMarket Place</title>
 
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/products.css">
@@ -15,29 +15,7 @@
 
 <body>
 
-<!-- ================= TOP BAR ================= -->
-
-<div class="top-bar">
-
-<div class="container">
-
-<span>Explore Products</span>
-
-<div class="top-right">
-
-<a href="index.html">Home</a>
-
-<a href="seller.html">Seller Dashboard</a>
-
-<a href="upload.html">Upload Product</a>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- ================= HEADER ================= -->
+<!-- HEADER -->
 
 <header class="header">
 
@@ -57,12 +35,12 @@ BDI<span>Market</span>
 
 <input
 type="text"
-id="search-input"
+id="searchInput"
 placeholder="Search Products...">
 
-<button id="search-btn">
+<button id="searchBtn">
 
-Search
+🔍
 
 </button>
 
@@ -70,27 +48,22 @@ Search
 
 <div class="header-buttons">
 
-<a href="login.html">
+<a href="index.html">
 
-Sign In
-
-</a>
-
-<a href="signup.html">
-
-Join Free
+Home
 
 </a>
 
 <a href="seller.html">
 
-Seller Dashboard
+Seller
 
 </a>
 
-<a class="cart-btn" href="cart.html">
+<a href="upload.html"
+class="btn btn-primary">
 
-🛒 Cart
+Upload
 
 </a>
 
@@ -100,7 +73,7 @@ Seller Dashboard
 
 </header>
 
-<!-- ================= PRODUCTS ================= -->
+<!-- PAGE -->
 
 <section class="products-page">
 
@@ -118,78 +91,15 @@ Discover products from trusted suppliers around the world.
 
 </p>
 
-<div id="products-grid" class="products-grid">
-  <!-- Dynamic Products will load here -->
+<!-- Products -->
 
-<div id="loading" class="loading-message">
+<div
+id="products-container"
+class="products-grid">
 
-Loading products...
+<div class="loading">
 
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ================= WHY BUY FROM US ================= -->
-
-<section class="why-us">
-
-<div class="container">
-
-<div class="section-header">
-
-<h2>Why Buy From BDIMarket Place?</h2>
-
-<p>
-
-Trusted suppliers, secure business and global opportunities.
-
-</p>
-
-</div>
-
-<div class="features-grid">
-
-<div class="feature-card">
-
-<div class="feature-icon">🛡️</div>
-
-<h3>Verified Sellers</h3>
-
-<p>Trade confidently with verified suppliers.</p>
-
-</div>
-
-<div class="feature-card">
-
-<div class="feature-icon">🌍</div>
-
-<h3>Global Marketplace</h3>
-
-<p>Buy and sell products worldwide.</p>
-
-</div>
-
-<div class="feature-card">
-
-<div class="feature-icon">🚚</div>
-
-<h3>Fast Delivery</h3>
-
-<p>Reliable shipping with trusted logistics.</p>
-
-</div>
-
-<div class="feature-card">
-
-<div class="feature-icon">💬</div>
-
-<h3>24/7 Support</h3>
-
-<p>Our support team is always here to help.</p>
+Loading Products...
 
 </div>
 
@@ -198,81 +108,16 @@ Trusted suppliers, secure business and global opportunities.
 </div>
 
 </section>
-  <!-- ================= FOOTER ================= -->
+
+<!-- FOOTER -->
 
 <footer class="footer">
 
 <div class="container">
 
-<div class="footer-grid">
-
-<div>
-
-<h3>BDIMarket Place</h3>
-
 <p>
-The complete B2B marketplace connecting buyers and sellers worldwide.
-</p>
 
-</div>
-
-<div>
-
-<h4>Quick Links</h4>
-
-<ul>
-
-<li><a href="index.html">Home</a></li>
-
-<li><a href="products.html">Products</a></li>
-
-<li><a href="upload.html">Upload Product</a></li>
-
-<li><a href="seller.html">Seller Dashboard</a></li>
-
-</ul>
-
-</div>
-
-<div>
-
-<h4>Support</h4>
-
-<ul>
-
-<li><a href="#">Help Center</a></li>
-
-<li><a href="#">Privacy Policy</a></li>
-
-<li><a href="#">Terms & Conditions</a></li>
-
-<li><a href="#">Contact Us</a></li>
-
-</ul>
-
-</div>
-
-<div>
-
-<h4>Follow Us</h4>
-
-<p>Facebook</p>
-
-<p>Instagram</p>
-
-<p>LinkedIn</p>
-
-<p>YouTube</p>
-
-</div>
-
-</div>
-
-<hr>
-
-<p class="copyright">
-
-© 2026 BDIMarket Place. All Rights Reserved.
+© 2026 BDIMarket Place
 
 </p>
 
@@ -281,8 +126,10 @@ The complete B2B marketplace connecting buyers and sellers worldwide.
 </footer>
 
 <script type="module" src="js/firebase.js"></script>
+
 <script type="module" src="js/products.js"></script>
 
 </body>
+
 </html>
 
