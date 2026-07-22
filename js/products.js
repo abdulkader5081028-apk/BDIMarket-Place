@@ -2,39 +2,33 @@ import { db } from "./firebase.js";
 
 import {
   collection,
-  getDocs,
-  orderBy,
-  query
+  getDocs
 } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
 
-const productsContainer = document.getElementById("products-container");
+const container = document.getElementById("products-container");
 
 async function loadProducts() {
 
-    productsContainer.innerHTML = `
-    <div class="loading">
-        Loading Products...
-    </div>
+    container.innerHTML = `
+        <div class="loading">
+            Loading Products...
+        </div>
     `;
 
     try {
 
-        const q = query(
-            collection(db, "products"),
-            orderBy("createdAt", "desc")
-        );
+        const snapshot = await getDocs(collection(db, "products"));
 
-        const snapshot = await getDocs(q);
-
-        productsContainer.innerHTML = "";
+        container.innerHTML = "";
 
         if (snapshot.empty) {
 
-            productsContainer.innerHTML = `
-            <h2 style="text-align:center">
-            No Products Found
-            </h2>
+            container.innerHTML = `
+                <h2 style="text-align:center;">
+                    No Products Found
+                </h2>
             `;
+
             return;
         }
 
@@ -42,46 +36,56 @@ async function loadProducts() {
 
             const product = doc.data();
 
-            productsContainer.innerHTML += `
+            container.innerHTML += `
 
-<div class="product-card">
+            <div class="product-card">
 
-<div class="product-image">
+                <div class="product-image">
 
-<img src="${product.image}" alt="${product.name}">
+                    <img src="${product.image}" alt="${product.name}">
 
-</div>
+                </div>
 
-<div class="product-info">
+                <div class="product-info">
 
-<h3>${product.name}</h3>
+                    <h3 class="product-title">
+                        ${product.name}
+                    </h3>
 
-<p class="product-price">$${product.price}</p>
+                    <p class="product-price">
+                        $${product.price}
+                    </p>
 
-<p>${product.company}</p>
+                    <p>
+                        ${product.company}
+                    </p>
 
-<p>${product.country}</p>
+                    <p>
+                        ${product.country}
+                    </p>
 
-<a href="product.html?id=${doc.id}" class="product-btn">
-View Details
-</a>
+                    <a href="product.html?id=${doc.id}" class="product-btn">
+                        View Details
+                    </a>
 
-</div>
+                </div>
 
-</div>
+            </div>
 
-`;
+            `;
 
         });
 
-    } catch (error) {
+    }
+
+    catch(error){
 
         console.error(error);
 
-        productsContainer.innerHTML = `
-        <h2>
-        Failed to load products.
-        </h2>
+        container.innerHTML = `
+            <h2 style="text-align:center;color:red;">
+                Failed to load products.
+            </h2>
         `;
 
     }
