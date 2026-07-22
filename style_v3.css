@@ -1,0 +1,286 @@
+/* ==========================================
+   BDIMarket Place v3
+   Amazon + Alibaba Premium UI
+========================================== */
+
+/* Google Font */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* Reset */
+
+*{
+
+margin:0;
+
+padding:0;
+
+box-sizing:border-box;
+
+font-family:'Poppins',sans-serif;
+
+}
+
+html{
+
+scroll-behavior:smooth;
+
+}
+
+body{
+
+background:#f6f7fb;
+
+color:#222;
+
+overflow-x:hidden;
+
+}
+
+/* Variables */
+
+:root{
+
+--primary:#ff6a00;
+
+--secondary:#232f3e;
+
+--light:#f7f8fa;
+
+--border:#e6e6e6;
+
+--white:#fff;
+
+--text:#333;
+
+--shadow:0 10px 35px rgba(0,0,0,.08);
+
+}
+
+/* Container */
+
+.container{
+
+width:95%;
+
+max-width:1450px;
+
+margin:auto;
+
+}
+
+/* Links */
+
+a{
+
+text-decoration:none;
+
+color:inherit;
+
+}
+
+/* Image */
+
+img{
+
+max-width:100%;
+
+display:block;
+
+}
+
+/* ==========================================
+TOP BAR
+========================================== */
+
+.top-bar{
+
+background:#232f3e;
+
+color:white;
+
+font-size:14px;
+
+padding:10px 0;
+
+}
+
+.top-bar .container{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+}
+
+.top-right{
+
+display:flex;
+
+gap:20px;
+
+}
+
+.top-right a{
+
+transition:.3s;
+
+}
+
+.top-right a:hover{
+
+color:#ff9900;
+
+}
+
+/* ==========================================
+HEADER
+========================================== */
+
+.header{
+
+background:white;
+
+position:sticky;
+
+top:0;
+
+z-index:999;
+
+box-shadow:var(--shadow);
+
+}
+
+.header-wrapper{
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+padding:18px 0;
+
+gap:25px;
+
+}
+
+/* Logo */
+
+.logo{
+
+font-size:34px;
+
+font-weight:800;
+
+color:var(--primary);
+
+}
+
+.logo span{
+
+color:#222;
+
+}
+
+/* Search */
+
+.search-box{
+
+flex:1;
+
+display:flex;
+
+height:54px;
+
+}
+
+.search-box input{
+
+flex:1;
+
+border:2px solid var(--primary);
+
+border-right:none;
+
+padding:0 18px;
+
+font-size:15px;
+
+outline:none;
+
+border-radius:10px 0 0 10px;
+
+}
+
+.search-box button{
+
+width:75px;
+
+border:none;
+
+background:var(--primary);
+
+color:white;
+
+font-size:18px;
+
+border-radius:0 10px 10px 0;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.search-box button:hover{
+
+background:#e95d00;
+
+}
+
+/* Header Buttons */
+
+.header-buttons{
+
+display:flex;
+
+gap:12px;
+
+align-items:center;
+
+}
+
+.header-buttons a{
+
+padding:11px 18px;
+
+font-weight:600;
+
+border-radius:8px;
+
+transition:.3s;
+
+}
+
+.header-buttons a:hover{
+
+background:#f5f5f5;
+
+}
+
+.cart-btn{
+
+background:var(--primary);
+
+color:white!important;
+
+}
+
+.cart-btn:hover{
+
+background:#e95d00!important;
+
+}
