@@ -1,25 +1,20 @@
-
-{ db } from "./firebase.js";
+import { db } from "./firebase.js";
 
 import {
-
 collection,
-
 getDocs,
-
 query,
-
 orderBy
-
 } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
 
 const container = document.getElementById("products-container");
 const searchInput = document.getElementById("searchInput");
 
 let allProducts = [];
-// =========================
+
+// ==========================
 // CART FUNCTIONS
-// =========================
+// ==========================
 
 function addToCart(productId, product){
 
@@ -36,13 +31,9 @@ existing.quantity++;
 cart.push({
 
 id: productId,
-
 name: product.name,
-
 price: Number(product.price),
-
 image: product.image,
-
 quantity: 1
 
 });
@@ -51,63 +42,12 @@ quantity: 1
 
 localStorage.setItem("cart", JSON.stringify(cart));
 
-alert("✅ Product Added To Cart");
+updateCartCount();
+
+showToast("✅ Product Added To Cart");
 
 }
-async function loadProducts(){
 
-container.innerHTML=`
-
-<div class="loading">
-
-Loading Products...
-
-</div>
-
-`;
-
-try{
-
-const q=query(
-
-collection(db,"products"),
-
-orderBy("createdAt","desc")
-
-);
-
-const snapshot=await getDocs(q);
-allProducts = snapshot.docs;
-container.innerHTML="";
-
-if(snapshot.empty){
-
-container.innerHTML=`
-
-<h2 class="error-message">
-
-No Products Found
-
-</h2>
-
-`;
-
-return;
-
-}
-let productsHTML = "";
-  
-renderProducts(allProducts);
-return;
-
-
-const id = button.dataset.id;
-
-const docData = snapshot.docs.find(d=>d.id===id);
-
-const product = docData.data();
-
-addToCart(id, product);
 function updateCartCount(){
 
 const cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -126,11 +66,19 @@ cartBtn.innerHTML = `🛒 Cart (${total})`;
 
 function showToast(message){
 
+const oldToast = document.querySelector(".toast-message");
+
+if(oldToast){
+
+oldToast.remove();
+
+}
+
 const toast = document.createElement("div");
 
 toast.className = "toast-message";
 
-toast.innerHTML = message;
+toast.textContent = message;
 
 document.body.appendChild(toast);
 
@@ -142,284 +90,16 @@ toast.classList.add("show");
 
 setTimeout(()=>{
 
+toast.classList.remove("show");
+
+setTimeout(()=>{
+
 toast.remove();
+
+},300);
 
 },2500);
 
 }
-  
-});
 
-});
-=>{
-const product=docSnap.data();
 
-productsHTML +=`
-
-<div class="product-card">
-
-<div class="discount-badge">
-
-NEW
-
-</div>
-
-<div class="wishlist-btn">
-
-❤
-
-</div>
-
-<div class="product-image">
-
-<img src="${product.image}" alt="${product.name}">
-
-</div>
-
-<div class="product-info">
-
-<h3 class="product-title">
-
-${product.name}
-
-</h3>
-
-<div class="product-rating">
-
-⭐⭐⭐⭐⭐
-
-<span class="rating-count">
-
-(4.8)
-
-</span>
-
-</div>
-
-<p class="product-price">
-
-$${product.price}
-
-</p>
-
-<p class="product-company">
-
-🏢 ${product.company || "Unknown Company"}
-
-</p>
-
-<p class="product-country">
-
-🌍 ${product.country || "Unknown Country"}
-
-</p>
-
-<p>
-
-MOQ: ${product.moq || 1}
-
-</p>
-
-<div class="product-actions">
-
-<a href="product.html?id=${docSnap.id}"
-
-class="product-btn">
-
-View Details
-
-</a>
-
-<button
-class="cart-small-btn"
-onclick='addToCart("${docSnap.id}", ${JSON.stringify(product)})'>
-
-🛒
-
-</button>
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-`;
-
-});
-  
-}catch(error){
-
-console.error("Error Loading Products:",error);
-
-container.innerHTML=`
-
-<div class="error-message">
-
-<h2>
-
-❌ Failed to Load Products
-
-</h2>
-
-<p>
-
-Please try again later.
-
-</p>
-
-</div>
-
-`;
-
-}
-
-}
-
-loadProducts();
-function renderProducts(products){
-
-container.innerHTML="";
-
-if(products.length===0){
-
-container.innerHTML=`
-
-<div class="error-message">
-
-<h2>
-
-No Products Found
-
-</h2>
-
-</div>
-
-`;
-
-return;
-
-}
-
-let productsHTML="";
-
-products.forEach((docSnap)=>{
-
-const product=docSnap.data();
-
-productsHTML+=`
-
-<div class="product-card">
-
-<div class="discount-badge">
-
-NEW
-
-</div>
-
-<div class="wishlist-btn">
-
-❤
-
-</div>
-
-<div class="product-image">
-
-<img src="${product.image}" alt="${product.name}">
-
-</div>
-
-<div class="product-info">
-
-<h3 class="product-title">
-
-${product.name}
-
-</h3>
-
-<div class="product-rating">
-
-⭐⭐⭐⭐⭐
-
-<span class="rating-count">
-
-(4.8)
-
-</span>
-
-</div>
-
-<p class="product-price">
-
-$${product.price}
-
-</p>
-
-<p class="product-company">
-
-🏢 ${product.company || "Unknown Company"}
-
-</p>
-
-<p class="product-country">
-
-🌍 ${product.country || "Unknown Country"}
-
-</p>
-
-<p>
-
-MOQ: ${product.moq || 1}
-
-</p>
-
-<div class="product-actions">
-
-<a href="product.html?id=${docSnap.id}"
-
-class="product-btn">
-
-View Details
-
-</a>
-
-<button
-
-class="cart-small-btn add-cart-btn"
-
-data-id="${docSnap.id}">
-
-🛒
-
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-`;
-
-});
-
-container.innerHTML=productsHTML;
-
-document.querySelectorAll(".add-cart-btn").forEach(button=>{
-
-button.addEventListener("click",()=>{
-
-const id=button.dataset.id;
-
-const docData=allProducts.find(d=>d.id===id);
-
-addToCart(id,docData.data());
-
-});
-
-});
-
-}
-updateCartCount();
