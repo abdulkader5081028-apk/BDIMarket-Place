@@ -106,7 +106,46 @@ const docData = snapshot.docs.find(d=>d.id===id);
 const product = docData.data();
 
 addToCart(id, product);
+function updateCartCount(){
 
+const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+const total = cart.reduce((sum,item)=>sum+item.quantity,0);
+
+const cartBtn = document.querySelector(".cart-btn");
+
+if(cartBtn){
+
+cartBtn.innerHTML = `🛒 Cart (${total})`;
+
+}
+
+}
+
+function showToast(message){
+
+const toast = document.createElement("div");
+
+toast.className = "toast-message";
+
+toast.innerHTML = message;
+
+document.body.appendChild(toast);
+
+setTimeout(()=>{
+
+toast.classList.add("show");
+
+},100);
+
+setTimeout(()=>{
+
+toast.remove();
+
+},2500);
+
+}
+  
 });
 
 });
@@ -238,3 +277,4 @@ Please try again later.
 }
 
 loadProducts();
+updateCartCount();
