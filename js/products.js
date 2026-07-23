@@ -1,4 +1,5 @@
-import { db } from "./firebase.js";
+
+{ db } from "./firebase.js";
 
 import {
 collection,
@@ -101,5 +102,253 @@ toast.remove();
 },2500);
 
 }
+// ==========================
+// LOAD PRODUCTS
+// ==========================
 
+async function loadProducts(){
 
+container.innerHTML = `
+
+<div class="loading">
+
+Loading Products...
+
+</div>
+
+`;
+
+try{
+
+const q = query(
+
+collection(db,"products"),
+
+orderBy("createdAt","desc")
+
+);
+
+const snapshot = await getDocs(q);
+
+allProducts = snapshot.docs;
+
+renderProducts(allProducts);
+
+}catch(error){
+
+console.error(error);
+
+container.innerHTML = `
+
+<div class="error-message">
+
+<h2>
+
+❌ Failed To Load Products
+
+</h2>
+
+<p>
+
+Please try again later.
+
+</p>
+
+</div>
+
+`;
+
+}
+
+}
+// ==========================
+// RENDER PRODUCTS
+// ==========================
+
+function renderProducts(products){
+
+container.innerHTML = "";
+
+if(products.length===0){
+
+container.innerHTML = `
+
+<div class="error-message">
+
+<h2>
+
+No Products Found
+
+</h2>
+
+</div>
+
+`;
+
+return;
+
+}
+
+let html = "";
+
+products.forEach((docSnap)=>{
+
+const product = docSnap.data();
+
+html += `
+
+<div class="product-card">
+
+<div class="discount-badge">
+
+NEW
+
+</div>
+
+<div class="wishlist-btn">
+
+❤
+
+</div>
+
+<div class="product-image">
+
+<img src="${product.image}" alt="${product.name}">
+
+</div>
+
+<div class="product-info">
+
+<h3 class="product-title">
+
+${product.name}
+
+</h3>
+
+<div class="product-rating">
+
+⭐⭐⭐⭐⭐
+
+<span class="rating-count">
+
+(4.8)
+
+</span>
+
+</div>
+
+<p class="product-price">
+
+$${product.price}
+
+</p>
+
+<p class="product-company">
+
+🏢 ${product.company || "Unknown Company"}
+
+</p>
+
+<p class="product-country">
+
+🌍 ${product.country || "Unknown Country"}
+
+</p>
+
+<p>
+
+MOQ: ${product.moq || 1}
+
+</p>
+
+<div class="product-actions">
+
+<a href="product.html?id=${docSnap.id}"
+
+class="product-btn">
+
+View Details
+
+</a>
+
+<button
+
+class="cart-small-btn add-cart-btn"
+
+data-id="${docSnap.id}">
+
+🛒
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+container.innerHTML = html;
+
+document.querySelectorAll(".add-cart-btn").forEach(button=>{
+
+button.addEventListener("click",()=>{
+
+const id = button.dataset.id;
+
+const docData = allProducts.find(item=>item.id===id);
+
+if(docData){
+
+addToCart(id,docData.data());
+
+}
+
+});
+
+});
+
+}
+
+// ==========================
+// LIVE SEARCH
+// ==========================
+
+if(searchInput){
+
+searchInput.addEventListener("input",()=>{
+
+const keyword = searchInput.value.toLowerCase().trim();
+
+const filtered = allProducts.filter((docSnap)=>{
+
+const product = docSnap.data();
+
+return(
+
+(product.name || "").toLowerCase().includes(keyword) ||
+
+(product.company || "").toLowerCase().includes(keyword) ||
+
+(product.country || "").toLowerCase().includes(keyword)
+
+);
+
+});
+
+renderProducts(filtered);
+
+});
+
+}
+
+// ==========================
+// INITIAL LOAD
+// ==========================
+
+loadProducts();
+
+updateCartCount();
