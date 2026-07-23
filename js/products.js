@@ -76,7 +76,7 @@ orderBy("createdAt","desc")
 );
 
 const snapshot=await getDocs(q);
-
+allProducts = snapshot.docs;
 container.innerHTML="";
 
 if(snapshot.empty){
@@ -95,11 +95,10 @@ return;
 
 }
 let productsHTML = "";
-  snapshot.forEach(docSnap)  container.innerHTML = productsHTML;
+  
+renderProducts(allProducts);
+return;
 
-document.querySelectorAll(".add-cart-btn").forEach(button=>{
-
-button.addEventListener("click",()=>{
 
 const id = button.dataset.id;
 
