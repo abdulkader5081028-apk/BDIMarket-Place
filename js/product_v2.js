@@ -1,16 +1,20 @@
 import { db } from "./firebase.js";
-
 import {
-    doc,
-    getDoc
-    collection,
-getDocs
-} from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+doc,
+getDoc,
+getDocs,
+collection,
+addDoc,
+serverTimestamp
+}
+from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+
+ from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
 
 // ======================
 // Get Product ID
 // ======================
-
+let currentProduct = null;
 const params = new URLSearchParams(window.location.search);
 
 const productId = params.get("id");
@@ -32,9 +36,9 @@ const productDescription = document.getElementById("productDescription");
 const productStock = document.getElementById("productStock");
 
 // ======================
-// Load Product
+// const product = productSnap.data();
 // ======================
-
+currentProduct = product;
 async function loadProduct() {
 
     if (!productId) {
@@ -246,3 +250,67 @@ if (navigator.share) {
 }
 
 console.log("Product Details Loaded Successfully");
+// ======================
+// Add To Cart
+// ======================
+
+const addToCartBtn =
+document.getElementById("addToCart");
+
+if (addToCartBtn) {
+
+    addToCartBtn.addEventListener("click", async () => {
+
+        const user = auth.currentUser;
+
+        if (!user) {
+
+            alert("Please login first.");
+
+            return;
+
+        }
+
+        if (!currentProduct) {
+
+            alert("Product not loaded.");
+
+            return;
+
+        }
+
+        try {
+
+            await addDoc(collection(db, "cart"), {
+
+                userId: user.uid,
+
+                productId: productId,
+
+                name: currentProduct.name,
+
+                image: currentProduct.image,
+
+                price: currentProduct.price,
+
+                quantity: 1,
+
+                createdAt: serverTimestamp()
+
+            });
+
+            alert("Product added to cart successfully.");
+
+        }
+
+        catch (error) {
+
+            console.error(error);
+
+            alert("Failed to add product.");
+
+        }
+
+    });
+
+}
