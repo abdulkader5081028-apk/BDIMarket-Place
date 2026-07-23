@@ -13,7 +13,9 @@ orderBy
 } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
 
 const container = document.getElementById("products-container");
+const searchInput = document.getElementById("searchInput");
 
+let allProducts = [];
 // =========================
 // CART FUNCTIONS
 // =========================
