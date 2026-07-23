@@ -1,3 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
 
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+
+BDIMarket Place | Global B2B Marketplace
+
+</title>
+
+<meta name="description"
+content="BDIMarket Place connects buyers and sellers around the world.">
+
+<link rel="stylesheet"
+href="css/style_v4.css">
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- ======================
+TOP BAR
+====================== -->
+
+<div class="top-bar">
+
+<div class="container">
+
+<div class="top-left">
+
+🌍 Welcome To BDIMarket Place
+
+</div>
+
+<div class="top-right">
+
+<a href="#">
+
+Help Center
+
+</a>
+
+<a href="#">
+
+English
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ======================
+HEADER
+====================== -->
+
+<header class="header">
+
+<div class="container header-wrapper">
+
+<div class="logo">
+
+<a href="index_v2.html">
+
+BDI<span>Market Place</span>
+
+</a>
+
+</div>
+
+<div class="search-box">
+
+<input
+type="text"
+placeholder="Search Products, Suppliers, Categories...">
+
+<button>
+
+Search
+
+</button>
+
+</div>
+
+<div class="header-buttons">
+
+<a href="login.html">
+
+Sign In
+
+</a>
+
+<a href="signup.html">
+
+Join Free
+
+</a>
+
+<a href="seller.html">
+
+Seller
+
+</a>
+
+<a href="cart_v2.html"
+class="cart-btn">
+
+🛒 Cart
+
+</a>
+
+</div>
+
+</div>
+
+</header>
+
+<!-- ======================
+HERO
+====================== -->
+
+<section class="hero">
+
+<div class="container hero-wrapper">
+
+<div class="hero-left">
+
+<h1>
+
+Global B2B Marketplace For Modern Business
+
+</h1>
+
+<p>
+
+Buy and sell with verified suppliers from Bangladesh and around the world.
+
+</p>
+
+<a
+href="products_v2.html"
+class="hero-btn">
+
+Explore Products
+
+</a>
+
+</div>
+
+<div class="hero-right">
+
+<img
+src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=900"
+alt="Marketplace">
+
+</div>
+
+</div>
+
+</section>
+<!-- ======================
+TRENDING CATEGORIES
+====================== -->
+
+<section class="categories">
+
+<div class="container">
+
+<div class="section-header">
+
+<h2>
+
+Trending Categories
+
+</h2>
+
+<p>
+
+Browse products by popular business categories.
+
+</p>
+
+</div>
+
+<div class="category-grid">
+
+<div class="category-card">
+
+📱
+
+<h3>Electronics</h3>
+
+</div>
+
+<div class="category-card">
+
+👕
+
+<h3>Fashion</h3>
+
+</div>
+
+<div class="category-card">
+
+🏭
+
+<h3>Machinery</h3>
+
+</div>
+
+<div class="category-card">
+
+🌾
+
+<h3>Agriculture</h3>
+
+</div>
+
+<div class="category-card">
+
+💄
+
+<h3>Beauty</h3>
+
+</div>
+
+<div class="category-card">
+
+🛋️
+
+<h3>Home & Kitchen</h3>
+
+</div>
+
+<div class="category-card">
+
+⚽
+
+<h3>Sports</h3>
+
+</div>
+
+<div class="category-card">
+
+🚗
+
+<h3>Automobile</h3>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ======================
+FEATURED PRODUCTS
+====================== -->
+
+<section class="featured-products">
+
+<div class="container">
+
+<div class="section-header">
+
+<h2>
+
+Featured Products
+
+</h2>
+
+<p>
+
+Latest products from trusted suppliers.
+
+</p>
+
+</div>
+
+<div
+class="products-grid"
+id="featured-products">
+
+<div class="loading">
+
+Loading Products...
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ======================
+FLASH DEALS
+====================== -->
+
+<section class="flash-deals">
+
+<div class="container">
+
+<div class="section-header">
+
+<h2>
+
+Flash Deals
+
+</h2>
+
+<p>
+
+Limited-time offers from verified suppliers.
+
+</p>
+
+</div>
+
+<div class="deal-banner">
+
+<h2>
+
+🔥 Up to 60% OFF on Selected Products
+
+</h2>
+
+<p>
+
+Today's special business offers.
+
+</p>
+
+<a
+href="products_v2.html"
+class="hero-btn">
+
+Shop Now
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+<!-- ======================
+FEATURED BRANDS
+====================== -->
+
+<section class="featured-brands">
+
+<div class="container">
+
+<div class="section-header">
+
+<h2>
+
+Featured Brands
+
+</h2>
+
+<p>
+
+World's trusted manufacturers & brands.
+
+</p>
+
+</div>
+
+<div class="brands-grid">
+
+<div class="brand-card">
+
+🍎
+
+<h3>Apple</h3>
+
+</div>
+
+<div class="brand-card">
+
+📱
+
+<h3>Samsung</h3>
+
+</div>
+
+<div class="brand-card">
+
+💻
+
+<h3>Dell</h3>
+
+</div>
+
+<div class="brand-card">
+
+👟
+
+<h3>Nike</h3>
+
+</div>
+
+<div class="brand-card">
+
+⌚
+
+<h3>Rolex</h3>
+
+</div>
+
+<div class="brand-card">
+
+🚜
+
+<h3>Caterpillar</h3>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ======================
+POPULAR COUNTRIES
+====================== -->
+
+<section class="popular-countries">
+
+<div class="container">
+
+<div class="section-header">
+
+<h2>
+
+Popular Supplier Countries
+
+</h2>
+
+<p>
+
+Explore suppliers from top exporting countries.
+
+</p>
+
+</div>
+
+<div class="country-grid">
+
+<div class="country-card">
+
+🇧🇩
+
+<h3>Bangladesh</h3>
+
+<p>
+
+5200+ Suppliers
+
+</p>
+
+</div>
+
+<div class="country-card">
+
+🇨🇳
+
+<h3>China</h3>
+
+<p>
+
+12000+ Suppliers
+
+</p>
+
+</div>
+
+<div class="country-card">
+
+🇯🇵
+
+<h3>Japan</h3>
+
+<p>
+
+3400+ Suppliers
+
+</p>
+
+</div>
+
+<div class="country-card">
+
+🇰🇷
+
+<h3>South Korea</h3>
+
+<p>
+
+2800+ Suppliers
+
+</p>
+
+</div>
+
+<div class="country-card">
+
+🇮🇳
+
+<h3>India</h3>
+
+<p>
+
+4100+ Suppliers
+
+</p>
+
+</div>
+
+<div class="country-card">
+
+🇻🇳
+
+<h3>Vietnam</h3>
+
+<p>
+
+1900+ Suppliers
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ======================
+WHY CHOOSE US
+====================== -->
+
+<section class="why-us">
+
+<div class="container">
+
+<div class="section-header">
+
+<h2>
+
+Why Choose BDIMarket Place?
+
+</h2>
+
+<p>
+
+Grow your business with trusted global partners.
+
+</p>
+
+</div>
+
+<div class="features-grid">
+
+<div class="feature-card">
+
+<div class="feature-icon">
+
+🛡️
+
+</div>
+
+<h3>
+
+Trade Assurance
+
+</h3>
+
+<p>
+
+Secure business transactions.
+
+</p>
+
+</div>
+
+<div class="feature-card">
+
+<div class="feature-icon">
+
+🚚
+
+</div>
+
+<h3>
+
+Fast Shipping
+
+</h3>
+
+<p>
+
+Worldwide delivery support.
+
+</p>
+
+</div>
+
+<div class="feature-card">
+
+<div class="feature-icon">
+
+🏭
+
+</div>
+
+<h3>
+
+Verified Suppliers
+
+</h3>
+
+<p>
+
+Only trusted manufacturers.
+
+</p>
+
+</div>
+
+<div class="feature-card">
+
+<div class="feature-icon">
+
+💳
+
+</div>
+
+<h3>
+
+Secure Payment
+
+</h3>
+
+<p>
+
+Safe payment methods.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- ======================
+NEWSLETTER
+====================== -->
+
+<section class="newsletter">
+
+<div class="container">
+
+<div class="newsletter-box">
+
+<h2>
+
+Subscribe To Our Newsletter
+
+</h2>
+
+<p>
+
+Get the latest products, suppliers and business offers.
+
+</p>
+
+<div class="newsletter-form">
+
+<input
+type="email"
+placeholder="Enter Your Email">
+
+<button>
+
+Subscribe
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ======================
+DOWNLOAD APP
+====================== -->
+
+<section class="download-app">
+
+<div class="container">
+
+<div class="download-wrapper">
+
+<div>
+
+<h2>
+
+Download BDIMarket Place App
+
+</h2>
+
+<p>
+
+Buy and sell anytime from your mobile.
+
+</p>
+
+</div>
+
+<div class="download-buttons">
+
+<a href="#">
+
+📱 Google Play
+
+</a>
+
+<a href="#">
+
+🍎 App Store
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ======================
+FOOTER
+====================== -->
+
+<footer class="footer">
+
+<div class="container">
+
+<div class="footer-grid">
+
+<div>
+
+<h3>
+
+BDIMarket Place
+
+</h3>
+
+<p>
+
+Your trusted Global B2B Marketplace.
+
+</p>
+
+</div>
+
+<div>
+
+<h4>
+
+Marketplace
+
+</h4>
+
+<ul>
+
+<li><a href="index_v2.html">Home</a></li>
+
+<li><a href="products_v2.html">Products</a></li>
+
+<li><a href="seller.html">Seller Dashboard</a></li>
+
+<li><a href="upload.html">Upload Product</a></li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h4>
+
+Support
+
+</h4>
+
+<ul>
+
+<li><a href="#">Help Center</a></li>
+
+<li><a href="#">Privacy Policy</a></li>
+
+<li><a href="#">Terms</a></li>
+
+<li><a href="#">Contact</a></li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h4>
+
+Follow Us
+
+</h4>
+
+<p>Facebook</p>
+
+<p>Instagram</p>
+
+<p>LinkedIn</p>
+
+<p>YouTube</p>
+
+</div>
+
+</div>
+
+<hr>
+
+<p class="copyright">
+
+© 2026 BDIMarket Place. All Rights Reserved.
+
+</p>
+
+</div>
+
+</footer>
+
+<script type="module" src="js/firebase.js"></script>
+
+<script type="module" src="js/auth.js"></script>
+
+</body>
+
+</html>
   
+
