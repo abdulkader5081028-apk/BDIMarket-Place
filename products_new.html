@@ -5,14 +5,16 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>
 
 Products | BDIMarket Place
 
 </title>
+
+<meta name="description"
+content="Explore products from trusted suppliers around the world.">
 
 <link rel="stylesheet"
 href="css/style_v3.css">
@@ -41,7 +43,7 @@ TOP BAR
 
 <div class="top-left">
 
-🌍 Global Marketplace
+🌍 Global B2B Marketplace
 
 </div>
 
@@ -80,7 +82,7 @@ BDI<span>Market</span>
 <input
 type="text"
 id="searchInput"
-placeholder="Search Products, Company, Country...">
+placeholder="Search Products, Suppliers, Categories...">
 
 <button>
 
@@ -110,8 +112,8 @@ Seller
 
 </a>
 
-<a class="cart-btn"
-href="cart.html">
+<a href="cart.html"
+class="cart-btn">
 
 🛒 Cart
 
@@ -124,7 +126,7 @@ href="cart.html">
 </header>
 
 <!-- ======================
-PAGE TITLE
+PAGE HERO
 ====================== -->
 
 <section class="products-page">
@@ -133,19 +135,113 @@ PAGE TITLE
 
 <h1 class="section-title">
 
-All Products
+Explore Products
 
 </h1>
 
-<p
-style="text-align:center;color:#777;margin-bottom:40px;">
+<p class="section-subtitle">
 
-Discover thousands of products from verified suppliers.
+Discover trusted suppliers and premium products from around the world.
 
 </p>
+<!-- ======================
+FILTER BAR
+====================== -->
 
-<div class="products-grid"
+<div class="filter-bar">
 
+<div class="category-filter">
+
+<button class="category-btn active" data-category="all">
+
+All
+
+</button>
+
+<button class="category-btn" data-category="Electronics">
+
+Electronics
+
+</button>
+
+<button class="category-btn" data-category="Fashion">
+
+Fashion
+
+</button>
+
+<button class="category-btn" data-category="Machinery">
+
+Machinery
+
+</button>
+
+<button class="category-btn" data-category="Agriculture">
+
+Agriculture
+
+</button>
+
+<button class="category-btn" data-category="Beauty">
+
+Beauty
+
+</button>
+
+<button class="category-btn" data-category="Home">
+
+Home
+
+</button>
+
+</div>
+
+<div class="sort-filter">
+
+<select id="sortProducts">
+
+<option value="newest">
+
+Newest
+
+</option>
+
+<option value="low">
+
+Price: Low → High
+
+</option>
+
+<option value="high">
+
+Price: High → Low
+
+</option>
+
+<option value="az">
+
+Name: A → Z
+
+</option>
+
+<option value="za">
+
+Name: Z → A
+
+</option>
+
+</select>
+
+</div>
+
+</div>
+
+<!-- ======================
+PRODUCT GRID
+====================== -->
+
+<div
+class="products-grid"
 id="products-container">
 
 <div class="loading">
@@ -153,7 +249,7 @@ id="products-container">
 Loading Products...
 
 </div>
-  
+
 </div>
 
 </div>
@@ -161,10 +257,10 @@ Loading Products...
 </section>
 
 <!-- ======================
-POPULAR SUPPLIERS
+FEATURED BRANDS
 ====================== -->
 
-<section class="verified-suppliers">
+<section class="featured-brands">
 
 <div class="container">
 
@@ -172,13 +268,180 @@ POPULAR SUPPLIERS
 
 <div>
 
-<h2>Verified Suppliers</h2>
+<h2>Featured Brands</h2>
 
-<p>Trade safely with trusted suppliers.</p>
+<p>Trusted brands from around the world.</p>
 
 </div>
 
-<a href="#">View All →</a>
+<a href="#">
+
+View All →
+
+</a>
+
+</div>
+
+<div class="brands-grid">
+
+<div class="brand-card">
+
+🍎
+
+<h3>Apple</h3>
+
+</div>
+
+<div class="brand-card">
+
+📱
+
+<h3>Samsung</h3>
+
+</div>
+
+<div class="brand-card">
+
+💻
+
+<h3>Dell</h3>
+
+</div>
+
+<div class="brand-card">
+
+👟
+
+<h3>Nike</h3>
+
+</div>
+
+<div class="brand-card">
+
+⌚
+
+<h3>Rolex</h3>
+
+</div>
+
+<div class="brand-card">
+
+🚜
+
+<h3>Caterpillar</h3>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ======================
+POPULAR COUNTRIES
+====================== -->
+
+<section class="popular-countries">
+
+<div class="container">
+
+<div class="section-header">
+
+<div>
+
+<h2>Popular Supplier Countries</h2>
+
+<p>Browse products by country.</p>
+
+</div>
+
+</div>
+
+<div class="country-grid">
+
+<div class="country-card">
+
+🇧🇩
+
+<h3>Bangladesh</h3>
+
+<p>5,200+ Suppliers</p>
+
+</div>
+
+<div class="country-card">
+
+🇨🇳
+
+<h3>China</h3>
+
+<p>12,000+ Suppliers</p>
+
+</div>
+
+<div class="country-card">
+
+🇯🇵
+
+<h3>Japan</h3>
+
+<p>3,400+ Suppliers</p>
+
+</div>
+
+<div class="country-card">
+
+🇰🇷
+
+<h3>South Korea</h3>
+
+<p>2,800+ Suppliers</p>
+
+</div>
+
+<div class="country-card">
+
+🇮🇳
+
+<h3>India</h3>
+
+<p>4,100+ Suppliers</p>
+
+</div>
+
+<div class="country-card">
+
+🇻🇳
+
+<h3>Vietnam</h3>
+
+<p>1,900+ Suppliers</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- ======================
+WHY CHOOSE US
+====================== -->
+
+<section class="why-us">
+
+<div class="container">
+
+<div class="section-header">
+
+<div>
+
+<h2>Why Choose BDIMarket Place?</h2>
+
+<p>Safe, fast and reliable global B2B trading.</p>
+
+</div>
 
 </div>
 
@@ -186,41 +449,131 @@ POPULAR SUPPLIERS
 
 <div class="feature-card">
 
-<div class="feature-icon">🇧🇩</div>
+<div class="feature-icon">
 
-<h3>Bangladesh</h3>
+🛡️
 
-<p>5200+ Suppliers</p>
+</div>
+
+<h3>
+
+Trade Assurance
+
+</h3>
+
+<p>
+
+Your orders are protected with secure transactions.
+
+</p>
 
 </div>
 
 <div class="feature-card">
 
-<div class="feature-icon">🇨🇳</div>
+<div class="feature-icon">
 
-<h3>China</h3>
+🚚
 
-<p>12000+ Suppliers</p>
+</div>
+
+<h3>
+
+Fast Shipping
+
+</h3>
+
+<p>
+
+Global shipping with trusted logistics partners.
+
+</p>
 
 </div>
 
 <div class="feature-card">
 
-<div class="feature-icon">🇯🇵</div>
+<div class="feature-icon">
 
-<h3>Japan</h3>
+🏭
 
-<p>3400+ Suppliers</p>
+</div>
+
+<h3>
+
+Verified Suppliers
+
+</h3>
+
+<p>
+
+Buy only from verified manufacturers and exporters.
+
+</p>
 
 </div>
 
 <div class="feature-card">
 
-<div class="feature-icon">🇰🇷</div>
+<div class="feature-icon">
 
-<h3>Korea</h3>
+💳
 
-<p>2800+ Suppliers</p>
+</div>
+
+<h3>
+
+Secure Payment
+
+</h3>
+
+<p>
+
+Multiple secure payment methods for every buyer.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ======================
+NEWSLETTER
+====================== -->
+
+<section class="newsletter">
+
+<div class="container">
+
+<div class="newsletter-box">
+
+<h2>
+
+Stay Updated
+
+</h2>
+
+<p>
+
+Get the latest products and supplier offers directly in your inbox.
+
+</p>
+
+<div class="newsletter-form">
+
+<input
+type="email"
+placeholder="Enter your email">
+
+<button>
+
+Subscribe
+
+</button>
 
 </div>
 
@@ -242,11 +595,15 @@ FOOTER
 
 <div>
 
-<h3>BDIMarket Place</h3>
+<h3>
+
+BDIMarket Place
+
+</h3>
 
 <p>
 
-Global B2B Marketplace connecting buyers and sellers worldwide.
+Your trusted global B2B marketplace connecting buyers and suppliers worldwide.
 
 </p>
 
@@ -254,7 +611,11 @@ Global B2B Marketplace connecting buyers and sellers worldwide.
 
 <div>
 
-<h4>Marketplace</h4>
+<h4>
+
+Marketplace
+
+</h4>
 
 <ul>
 
@@ -272,7 +633,11 @@ Global B2B Marketplace connecting buyers and sellers worldwide.
 
 <div>
 
-<h4>Support</h4>
+<h4>
+
+Support
+
+</h4>
 
 <ul>
 
@@ -290,7 +655,11 @@ Global B2B Marketplace connecting buyers and sellers worldwide.
 
 <div>
 
-<h4>Follow Us</h4>
+<h4>
+
+Follow Us
+
+</h4>
 
 <p>Facebook</p>
 
@@ -316,11 +685,7 @@ Global B2B Marketplace connecting buyers and sellers worldwide.
 
 </footer>
 
-<!-- Firebase -->
-
 <script type="module" src="js/firebase.js"></script>
-
-<!-- Products -->
 
 <script type="module" src="js/products.js"></script>
 
