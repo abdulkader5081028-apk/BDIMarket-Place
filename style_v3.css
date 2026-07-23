@@ -1658,3 +1658,42 @@ color:#fff;
 transition:all .3s ease;
 
 }
+/* Toast */
+
+.toast-message{
+
+position:fixed;
+
+bottom:30px;
+
+right:30px;
+
+background:#232f3e;
+
+color:#fff;
+
+padding:16px 22px;
+
+border-radius:10px;
+
+font-weight:600;
+
+box-shadow:0 10px 25px rgba(0,0,0,.2);
+
+opacity:0;
+
+transform:translateY(30px);
+
+transition:.35s;
+
+z-index:99999;
+
+}
+
+.toast-message.show{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
