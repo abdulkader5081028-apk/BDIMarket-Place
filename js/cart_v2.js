@@ -1,4 +1,5 @@
-import { auth, db } from "./firebase.js";
+
+{ auth, db } from "./firebase.js";
 
 import {
     collection,
@@ -249,3 +250,44 @@ if (checkoutBtn) {
 }
 
 console.log("Cart System Loaded Successfully");
+// ================================
+// Initialize Cart
+// ================================
+
+document.addEventListener("DOMContentLoaded", () => {
+    loadCart();
+});
+
+// ================================
+// Clear Cart (Optional)
+// ================================
+
+const clearCartBtn = document.getElementById("clearCart");
+
+if (clearCartBtn) {
+    clearCartBtn.addEventListener("click", async () => {
+
+        if (!confirm("Are you sure you want to clear your cart?")) return;
+
+        try {
+
+            const snapshot = await getDocs(collection(db, "cart"));
+
+            for (const docItem of snapshot.docs) {
+                await deleteDoc(doc(db, "cart", docItem.id));
+            }
+
+            alert("Cart cleared successfully.");
+
+            loadCart();
+
+        } catch (error) {
+
+            console.error(error);
+
+            alert("Failed to clear cart.");
+
+        }
+
+    });
+}
