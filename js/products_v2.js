@@ -231,3 +231,130 @@ categoryFilter.addEventListener("change", () => {
 });
 
 loadProducts();
+// ======================
+// Price Filter
+// ======================
+
+const priceFilter = document.getElementById("priceFilter");
+
+priceFilter.addEventListener("change", () => {
+
+    const value = priceFilter.value;
+
+    if (value === "") {
+
+        renderProducts(allProducts);
+
+        return;
+
+    }
+
+    const filtered = allProducts.filter(product => {
+
+        const price = Number(product.price);
+
+        switch (value) {
+
+            case "1":
+                return price < 50;
+
+            case "2":
+                return price >= 50 && price <= 100;
+
+            case "3":
+                return price > 100 && price <= 500;
+
+            case "4":
+                return price > 500;
+
+            default:
+                return true;
+
+        }
+
+    });
+
+    renderProducts(filtered);
+
+});
+
+// ======================
+// Apply Filter Button
+// ======================
+
+const applyFilter =
+document.getElementById("applyFilter");
+
+applyFilter.addEventListener("click", () => {
+
+    const keyword =
+        searchInput.value.toLowerCase();
+
+    const category =
+        categoryFilter.value;
+
+    const priceRange =
+        priceFilter.value;
+
+    let filtered = [...allProducts];
+
+    // Search
+
+    if (keyword !== "") {
+
+        filtered = filtered.filter(product =>
+            product.name.toLowerCase().includes(keyword)
+        );
+
+    }
+
+    // Category
+
+    if (category !== "") {
+
+        filtered = filtered.filter(product =>
+            product.category === category
+        );
+
+    }
+
+    // Price
+
+    if (priceRange !== "") {
+
+        filtered = filtered.filter(product => {
+
+            const price = Number(product.price);
+
+            switch (priceRange) {
+
+                case "1":
+                    return price < 50;
+
+                case "2":
+                    return price >= 50 && price <= 100;
+
+                case "3":
+                    return price > 100 && price <= 500;
+
+                case "4":
+                    return price > 500;
+
+                default:
+                    return true;
+
+            }
+
+        });
+
+    }
+
+    renderProducts(filtered);
+
+});
+
+// ======================
+// Ready
+// ======================
+
+console.log("BDIMarket Place Products Loaded Successfully");
