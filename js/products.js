@@ -1,4 +1,5 @@
-import { db } from "./firebase.js";
+
+{ db } from "./firebase.js";
 
 import {
 
@@ -278,4 +279,147 @@ Please try again later.
 }
 
 loadProducts();
+function renderProducts(products){
+
+container.innerHTML="";
+
+if(products.length===0){
+
+container.innerHTML=`
+
+<div class="error-message">
+
+<h2>
+
+No Products Found
+
+</h2>
+
+</div>
+
+`;
+
+return;
+
+}
+
+let productsHTML="";
+
+products.forEach((docSnap)=>{
+
+const product=docSnap.data();
+
+productsHTML+=`
+
+<div class="product-card">
+
+<div class="discount-badge">
+
+NEW
+
+</div>
+
+<div class="wishlist-btn">
+
+❤
+
+</div>
+
+<div class="product-image">
+
+<img src="${product.image}" alt="${product.name}">
+
+</div>
+
+<div class="product-info">
+
+<h3 class="product-title">
+
+${product.name}
+
+</h3>
+
+<div class="product-rating">
+
+⭐⭐⭐⭐⭐
+
+<span class="rating-count">
+
+(4.8)
+
+</span>
+
+</div>
+
+<p class="product-price">
+
+$${product.price}
+
+</p>
+
+<p class="product-company">
+
+🏢 ${product.company || "Unknown Company"}
+
+</p>
+
+<p class="product-country">
+
+🌍 ${product.country || "Unknown Country"}
+
+</p>
+
+<p>
+
+MOQ: ${product.moq || 1}
+
+</p>
+
+<div class="product-actions">
+
+<a href="product.html?id=${docSnap.id}"
+
+class="product-btn">
+
+View Details
+
+</a>
+
+<button
+
+class="cart-small-btn add-cart-btn"
+
+data-id="${docSnap.id}">
+
+🛒
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+container.innerHTML=productsHTML;
+
+document.querySelectorAll(".add-cart-btn").forEach(button=>{
+
+button.addEventListener("click",()=>{
+
+const id=button.dataset.id;
+
+const docData=allProducts.find(d=>d.id===id);
+
+addToCart(id,docData.data());
+
+});
+
+});
+
+}
 updateCartCount();
