@@ -4,40 +4,52 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Upload Product | BDIMarket Place</title>
 
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="upload.css">
+<link rel="stylesheet" href="css/style_v4.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
-<!-- ================= TOP BAR ================= -->
+<!-- ======================
+TOP BAR
+====================== -->
 
 <div class="top-bar">
 
 <div class="container">
 
-<span>Seller Center</span>
+<div class="top-left">
+
+🌍 Welcome To BDIMarket Place
+
+</div>
 
 <div class="top-right">
 
-<a href="index.html">Home</a>
-
-<a href="seller.html">Dashboard</a>
-
 <a href="#">Help Center</a>
 
-</div>
+<a href="#">English</a>
 
 </div>
 
 </div>
 
-<!-- ================= HEADER ================= -->
+</div>
+
+<!-- ======================
+HEADER
+====================== -->
 
 <header class="header">
 
@@ -47,7 +59,7 @@
 
 <a href="index.html">
 
-BDI<span>Market</span>
+BDI<span>Market Place</span>
 
 </a>
 
@@ -55,11 +67,11 @@ BDI<span>Market</span>
 
 <div class="header-buttons">
 
-<a href="seller.html">Dashboard</a>
-
 <a href="products.html">Products</a>
 
-<a href="cart.html">Cart</a>
+<a href="seller.html">Seller Dashboard</a>
+
+<a href="cart.html" class="cart-btn">🛒 Cart</a>
 
 </div>
 
@@ -67,33 +79,17 @@ BDI<span>Market</span>
 
 </header>
 
-<!-- ================= UPLOAD SECTION ================= -->
+<!-- ======================
+UPLOAD FORM
+====================== -->
 
-<section class="upload-page">
+<section class="upload-section">
 
 <div class="container">
 
-<h1 class="upload-title">
+<h1>Upload New Product</h1>
 
-Upload New Product
-
-</h1>
-
-<p class="upload-subtitle">
-
-Publish your products to millions of buyers around the world.
-
-</p>
-
-<form id="upload-form" class="upload-form">
-
-<!-- Product Information -->
-
-<h2 class="form-title">
-
-📦 Product Information
-
-</h2>
+<form id="uploadForm">
 
 <div class="form-group">
 
@@ -101,8 +97,18 @@ Publish your products to millions of buyers around the world.
 
 <input
 type="text"
-id="product-name"
-placeholder="Enter product name"
+id="productName"
+required>
+
+</div>
+
+<div class="form-group">
+
+<label>Price (USD)</label>
+
+<input
+type="number"
+id="productPrice"
 required>
 
 </div>
@@ -111,25 +117,25 @@ required>
 
 <label>Category</label>
 
-<select id="category" required>
+<select id="productCategory" required>
 
 <option value="">Select Category</option>
 
 <option>Electronics</option>
 
-<option>Garments & Apparel</option>
+<option>Fashion</option>
 
-<option>Industrial Machinery</option>
+<option>Machinery</option>
 
-<option>Agriculture & Food</option>
+<option>Agriculture</option>
 
-<option>Beauty & Personal Care</option>
+<option>Beauty</option>
 
 <option>Home & Kitchen</option>
 
-<option>Construction Materials</option>
+<option>Sports</option>
 
-<option>Sports & Outdoor</option>
+<option>Automobile</option>
 
 </select>
 
@@ -137,76 +143,26 @@ required>
 
 <div class="form-group">
 
-<label>Brand Name</label>
+<label>Product Image</label>
 
 <input
-type="text"
-id="brand"
-placeholder="Brand name">
+type="file"
+id="productImage"
+accept="image/*"
+required>
 
 </div>
-
-<div class="form-group">
+  <div class="form-group">
 
 <label>Product Description</label>
 
 <textarea
-id="description"
-rows="6"
-placeholder="Write complete product description"></textarea>
+id="productDescription"
+rows="5"
+placeholder="Write product description..."
+required></textarea>
 
 </div>
-  
-<!-- ================= BUSINESS INFORMATION ================= -->
-
-<h2 class="form-title">
-
-💰 Business Information
-
-</h2>
-
-<div class="form-group">
-
-<label>Price (USD)</label>
-
-<input
-type="number"
-id="price"
-placeholder="Enter product price"
-required>
-
-</div>
-
-<div class="form-group">
-
-<label>Minimum Order Quantity (MOQ)</label>
-
-<input
-type="number"
-id="moq"
-placeholder="Minimum order quantity"
-required>
-
-</div>
-
-<div class="form-group">
-
-<label>Available Stock</label>
-
-<input
-type="number"
-id="stock"
-placeholder="Available stock">
-
-</div>
-
-<!-- ================= COMPANY INFORMATION ================= -->
-
-<h2 class="form-title">
-
-🏢 Company Information
-
-</h2>
 
 <div class="form-group">
 
@@ -214,20 +170,8 @@ placeholder="Available stock">
 
 <input
 type="text"
-id="company"
-placeholder="Company name"
-required>
-
-</div>
-
-<div class="form-group">
-
-<label>Seller Name</label>
-
-<input
-type="text"
-id="seller"
-placeholder="Seller name"
+id="companyName"
+placeholder="Your company name"
 required>
 
 </div>
@@ -246,115 +190,27 @@ required>
 
 <div class="form-group">
 
-<label>City</label>
+<label>Minimum Order Quantity (MOQ)</label>
 
 <input
-type="text"
-id="city"
-placeholder="City">
-
-</div>
-
-<div class="form-group">
-
-<label>Contact Email</label>
-
-<input
-type="email"
-id="email"
-placeholder="Business email">
-
-</div>
-
-<div class="form-group">
-
-<label>Phone Number</label>
-
-<input
-type="tel"
-id="phone"
-placeholder="+8801XXXXXXXXX">
-
-</div>
-<!-- ================= PRODUCT IMAGE ================= -->
-
-<h2 class="form-title">
-
-🖼️ Product Image
-
-</h2>
-
-<div class="form-group">
-
-<label>Image URL</label>
-
-<input
-type="url"
-id="image"
-placeholder="https://example.com/product.jpg"
+type="number"
+id="moq"
+value="1"
+min="1"
 required>
 
 </div>
 
-<!-- ================= SHIPPING INFORMATION ================= -->
-
-<h2 class="form-title">
-
-🚚 Shipping Information
-
-</h2>
-
 <div class="form-group">
 
-<label>Shipping Time</label>
+<label>Available Stock</label>
 
 <input
-type="text"
-id="shipping"
-placeholder="Example: 5-10 Days">
-
-</div>
-
-<div class="form-group">
-
-<label>Delivery Method</label>
-
-<select id="delivery">
-
-<option>Air Freight</option>
-
-<option>Sea Freight</option>
-
-<option>Courier</option>
-
-<option>Pickup</option>
-
-</select>
-
-</div>
-
-<div class="form-group">
-
-<label>Official Website (Optional)</label>
-
-<input
-type="url"
-id="website"
-placeholder="https://yourcompany.com">
-
-</div>
-
-<div class="form-group">
-
-<label>Product Status</label>
-
-<select id="status">
-
-<option value="Active">Active</option>
-
-<option value="Inactive">Inactive</option>
-
-</select>
+type="number"
+id="stock"
+value="1"
+min="1"
+required>
 
 </div>
 
@@ -362,9 +218,9 @@ placeholder="https://yourcompany.com">
 
 <button
 type="submit"
-class="btn btn-primary publish-btn">
+class="hero-btn">
 
-🚀 Publish Product
+📤 Upload Product
 
 </button>
 
@@ -375,7 +231,44 @@ class="btn btn-primary publish-btn">
 </div>
 
 </section>
-<!-- ================= FOOTER ================= -->
+  
+<!-- ======================
+NEWSLETTER
+====================== -->
+
+<section class="newsletter">
+
+<div class="container">
+
+<div class="newsletter-box">
+
+<h2>Subscribe To Our Newsletter</h2>
+
+<p>Get the latest products, suppliers and business offers.</p>
+
+<div class="newsletter-form">
+
+<input
+type="email"
+placeholder="Enter Your Email">
+
+<button>
+
+Subscribe
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ======================
+FOOTER
+====================== -->
 
 <footer class="footer">
 
@@ -387,23 +280,23 @@ class="btn btn-primary publish-btn">
 
 <h3>BDIMarket Place</h3>
 
-<p>
-The complete B2B Marketplace for Buyers & Sellers.
-</p>
+<p>Your trusted Global B2B Marketplace.</p>
 
 </div>
 
 <div>
 
-<h4>Quick Links</h4>
+<h4>Marketplace</h4>
 
 <ul>
 
 <li><a href="index.html">Home</a></li>
 
+<li><a href="products.html">Products</a></li>
+
 <li><a href="seller.html">Seller Dashboard</a></li>
 
-<li><a href="products.html">Products</a></li>
+<li><a href="upload.html">Upload Product</a></li>
 
 </ul>
 
@@ -421,7 +314,23 @@ The complete B2B Marketplace for Buyers & Sellers.
 
 <li><a href="#">Terms & Conditions</a></li>
 
+<li><a href="#">Contact Us</a></li>
+
 </ul>
+
+</div>
+
+<div>
+
+<h4>Follow Us</h4>
+
+<p>Facebook</p>
+
+<p>Instagram</p>
+
+<p>LinkedIn</p>
+
+<p>YouTube</p>
 
 </div>
 
@@ -439,7 +348,13 @@ The complete B2B Marketplace for Buyers & Sellers.
 
 </footer>
 
+<!-- ======================
+SCRIPTS
+====================== -->
+
 <script type="module" src="js/firebase.js"></script>
+
+<script type="module" src="js/auth.js"></script>
 
 <script type="module" src="js/upload.js"></script>
 
