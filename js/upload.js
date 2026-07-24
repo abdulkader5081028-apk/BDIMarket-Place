@@ -1,72 +1,223 @@
-import { db } from "./firebase.js";
+// ======================================
+// BDIMarket Place - upload.js
+// Part 1
+// ======================================
+
+import { auth, db, storage } from "./firebase.js";
 
 import {
-addDoc,
-collection
+    onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
+
+import {
+    collection,
+    addDoc,
+    serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
 
-const form = document.getElementById("upload-form");
+import {
+    ref,
+    uploadBytes,
+    getDownloadURL
+} from "https://www.gstatic.com/firebasejs/10.13.2/firebase-storage.js";
+
+// ======================================
+// Login Check
+// ======================================
+
+let currentUser = null;
+
+onAuthStateChanged(auth, (user) => {
+
+    if (!user) {
+
+        alert("Please login first.");
+
+        window.location.href = "login.html";
+
+        return;
+
+    }
+
+    currentUser = user;
+
+});
+
+// ======================================
+// Form Elements
+// ======================================
+
+const form =
+document.getElementById("uploadForm");
+
+const submitBtn =
+form.querySelector("button[type='submit']");
+// ======================================
+// Upload Product
+// ======================================
 
 form.addEventListener("submit", async (e) => {
 
-e.preventDefault();
+    e.preventDefault();
 
-const product = {
+    submitBtn.disabled = true;
 
-name: document.getElementById("product-name").value,
+    submitBtn.textContent = "Uploading...";
 
-category: document.getElementById("category").value,
+    try {
 
-brand: document.getElementById("brand").value,
+        const name =
+        document.getElementById("productName").value.trim();
 
-description: document.getElementById("description").value,
+        const price =
+        Number(document.getElementById("productPrice").value);
 
-price: Number(document.getElementById("price").value),
+        const category =
+        document.getElementById("productCategory").value;
 
-moq: Number(document.getElementById("moq").value),
+        const description =
+        document.getElementById("productDescription").value.trim();
 
-stock: Number(document.getElementById("stock").value),
+        const company =
+        document.getElementById("companyName").value.trim();
 
-company: document.getElementById("company").value,
+        const country =
+        document.getElementById("country").value.trim();
 
-seller: document.getElementById("seller").value,
+        const moq =
+        Number(document.getElementById("moq").value);
 
-country: document.getElementById("country").value,
+        const stock =
+        Number(document.getElementById("stock").value);
 
-city: document.getElementById("city").value,
+        const imageFile =
+        document.getElementById("productImage").files[0];
 
-email: document.getElementById("email").value,
+        if (!imageFile) {
 
-phone: document.getElementById("phone").value,
+            alert("Please select an image.");
 
-image: document.getElementById("image").value,
+            submitBtn.disabled = false;
 
-shipping: document.getElementById("shipping").value,
+            submitBtn.textContent = "📤 Upload Product";
 
-delivery: document.getElementById("delivery").value,
+            return;
 
-website: document.getElementById("website").value,
+        }
 
-status: document.getElementById("status").value,
+        // Upload Image
 
-createdAt: new Date()
+        const imageRef = ref(
+            storage,
+            `products/${Date.now()}_${imageFile.name}`
+        );
 
-};
+        await uploadBytes(imageRef, imageFile);
 
-try{
+        const imageUrl =
+        await getDownloadURL(imageRef);
+      // ======================================
+// Save Product To Firestore
+// ======================================
 
-await addDoc(collection(db,"products"),product);
+        await addDoc(collection(db, "products"), {
 
-alert("✅ Product Uploaded Successfully!");
+            name,
+            price,
+            category,
+            description,
 
-form.reset();
+            company,
+            country,
 
-}catch(err){
+            moq,
+            stock,
 
-console.error(err);
+            image: imageUrl,
 
-alert("❌ Upload Failed!");
+            sellerId: currentUser.uid,
 
-}
+            sellerEmail: currentUser.email,
+
+            createdAt: serverTimestamp()
+
+        });
+
+        alert("✅ Product uploaded successfully.");
+
+        form.reset();
+
+        window.location.href = "seller.html";
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        alert("❌ " + error.message);
+
+    }
+
+    finally {
+
+        submitBtn.disabled = false;
+
+        submitBtn.textContent = "📤 Upload Product";
+
+    }
 
 });
+// ======================================
+// Validation
+// ======================================
+
+        if (!name) {
+            throw new Error("Product name is required.");
+        }
+
+        if (price <= 0) {
+            throw new Error("Enter a valid price.");
+        }
+
+        if (!category) {
+            throw new Error("Please select a category.");
+        }
+
+        if (!description) {
+            throw new Error("Product description is required.");
+        }
+
+        if (!company) {
+            throw new Error("Company name is required.");
+        }
+
+        if (!country) {
+            throw new Error("Country is required.");
+        }
+
+        if (stock < 1) {
+            throw new Error("Stock must be at least 1.");
+        }
+
+        if (moq < 1) {
+            throw new Error("MOQ must be at least 1.");
+        }
+
+        const allowedTypes = [
+            "image/jpeg",
+            "image/png",
+            "image/webp"
+        ];
+
+        if (!allowedTypes.includes(imageFile.type)) {
+            throw new Error(
+                "Only JPG, PNG and WEBP images are allowed."
+            );
+        }
+
+        if (imageFile.size > 2 * 1024 * 1024) {
+            throw new Error(
+                "Image size must be under 2 MB."
+            );
+        }
