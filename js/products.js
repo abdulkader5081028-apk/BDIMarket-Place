@@ -1,114 +1,46 @@
+// =====================================
+// BDIMarket Place
+// products.js (Version 5)
+// =====================================
 
-{ db } from "./firebase.js";
+import { db } from "./firebase.js";
 
 import {
 collection,
-getDocs,
-query,
-orderBy
-} from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+getDocs
+} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-const container = document.getElementById("products-container");
-const searchInput = document.getElementById("searchInput");
+// ===============================
+// HTML Elements
+// ===============================
+
+const productsContainer =
+document.getElementById("products-container");
+
+const searchInput =
+document.getElementById("searchInput");
+
+const searchBtn =
+document.getElementById("searchBtn");
+
+const sortProducts =
+document.getElementById("sortProducts");
+
+// ===============================
+// Global Product Array
+// ===============================
 
 let allProducts = [];
 
-// ==========================
-// CART FUNCTIONS
-// ==========================
-
-function addToCart(productId, product){
-
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-const existing = cart.find(item => item.id === productId);
-
-if(existing){
-
-existing.quantity++;
-
-}else{
-
-cart.push({
-
-id: productId,
-name: product.name,
-price: Number(product.price),
-image: product.image,
-quantity: 1
-
-});
-
-}
-
-localStorage.setItem("cart", JSON.stringify(cart));
-
-updateCartCount();
-
-showToast("✅ Product Added To Cart");
-
-}
-
-function updateCartCount(){
-
-const cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-const total = cart.reduce((sum,item)=>sum+item.quantity,0);
-
-const cartBtn = document.querySelector(".cart-btn");
-
-if(cartBtn){
-
-cartBtn.innerHTML = `🛒 Cart (${total})`;
-
-}
-
-}
-
-function showToast(message){
-
-const oldToast = document.querySelector(".toast-message");
-
-if(oldToast){
-
-oldToast.remove();
-
-}
-
-const toast = document.createElement("div");
-
-toast.className = "toast-message";
-
-toast.textContent = message;
-
-document.body.appendChild(toast);
-
-setTimeout(()=>{
-
-toast.classList.add("show");
-
-},100);
-
-setTimeout(()=>{
-
-toast.classList.remove("show");
-
-setTimeout(()=>{
-
-toast.remove();
-
-},300);
-
-},2500);
-
-}
-// ==========================
-// LOAD PRODUCTS
-// ==========================
+// ===============================
+// Load Products
+// ===============================
 
 async function loadProducts(){
 
-container.innerHTML = `
+if(!productsContainer) return;
+
+productsContainer.innerHTML = `
 
 <div class="loading">
 
@@ -120,17 +52,22 @@ Loading Products...
 
 try{
 
-const q = query(
-
-collection(db,"products"),
-
-orderBy("createdAt","desc")
-
+const snapshot = await getDocs(
+collection(db,"products")
 );
 
-const snapshot = await getDocs(q);
+allProducts = [];
 
-allProducts = snapshot.docs;
+snapshot.forEach((doc)=>{
+
+allProducts.push({
+
+id:doc.id,
+...doc.data()
+
+});
+
+});
 
 renderProducts(allProducts);
 
@@ -138,21 +75,11 @@ renderProducts(allProducts);
 
 console.error(error);
 
-container.innerHTML = `
+productsContainer.innerHTML = `
 
-<div class="error-message">
+<div class="loading">
 
-<h2>
-
-❌ Failed To Load Products
-
-</h2>
-
-<p>
-
-Please try again later.
-
-</p>
+Failed to load products.
 
 </div>
 
@@ -161,25 +88,28 @@ Please try again later.
 }
 
 }
-// ==========================
-// RENDER PRODUCTS
-// ==========================
+
+// ===============================
+// Start
+// ===============================
+
+
+
+// ===============================
+// Render Products
+// ===============================
 
 function renderProducts(products){
 
-container.innerHTML = "";
+if(!productsContainer) return;
 
 if(products.length===0){
 
-container.innerHTML = `
+productsContainer.innerHTML=`
 
-<div class="error-message">
+<div class="loading">
 
-<h2>
-
-No Products Found
-
-</h2>
+No products found.
 
 </div>
 
@@ -189,31 +119,19 @@ return;
 
 }
 
-let html = "";
+productsContainer.innerHTML="";
 
-products.forEach((docSnap)=>{
+products.forEach(product=>{
 
-const product = docSnap.data();
+const card=document.createElement("div");
 
-html += `
+card.className="product-card";
 
-<div class="product-card">
-
-<div class="discount-badge">
-
-NEW
-
-</div>
-
-<div class="wishlist-btn">
-
-❤
-
-</div>
+card.innerHTML=`
 
 <div class="product-image">
 
-<img src="${product.image}" alt="${product.name}">
+<img src="${product.image || 'images/no-image.png'}" alt="${product.name || 'Product'}">
 
 </div>
 
@@ -221,67 +139,39 @@ NEW
 
 <h3 class="product-title">
 
-${product.name}
+${product.name || "Unnamed Product"}
 
 </h3>
 
-<div class="product-rating">
+<p class="product-company">
 
-⭐⭐⭐⭐⭐
+${product.company || "BDIMarket Seller"}
 
-<span class="rating-count">
-
-(4.8)
-
-</span>
-
-</div>
+</p>
 
 <p class="product-price">
 
-$${product.price}
-
-</p>
-
-<p class="product-company">
-
-🏢 ${product.company || "Unknown Company"}
-
-</p>
-
-<p class="product-country">
-
-🌍 ${product.country || "Unknown Country"}
-
-</p>
-
-<p>
-
-MOQ: ${product.moq || 1}
+$${product.price || 0}
 
 </p>
 
 <div class="product-actions">
 
-<a href="product.html?id=${docSnap.id}"
+<button
+class="product-btn add-cart-btn"
+data-id="${product.id}">
 
+🛒 Add to Cart
+
+</button>
+
+<a
+href="product.html?id=${product.id}"
 class="product-btn">
 
 View Details
 
 </a>
-
-<button
-
-class="cart-small-btn add-cart-btn"
-
-data-id="${docSnap.id}">
-
-🛒
-
-</button>
-
-</div>
 
 </div>
 
@@ -289,66 +179,227 @@ data-id="${docSnap.id}">
 
 `;
 
+productsContainer.appendChild(card);
+
 });
 
-container.innerHTML = html;
+attachCartEvents();
 
-document.querySelectorAll(".add-cart-btn").forEach(button=>{
+}
+
+// ===============================
+// Cart Button
+// ===============================
+
+function attachCartEvents(){
+
+const buttons=document.querySelectorAll(".add-cart-btn");
+
+buttons.forEach(button=>{
 
 button.addEventListener("click",()=>{
 
-const id = button.dataset.id;
+const id=button.dataset.id;
 
-const docData = allProducts.find(item=>item.id===id);
-
-if(docData){
-
-addToCart(id,docData.data());
-
-}
+addToCart(id);
 
 });
 
 });
 
 }
+// ===============================
+// Add To Cart
+// ===============================
 
-// ==========================
-// LIVE SEARCH
-// ==========================
+function addToCart(productId){
 
-if(searchInput){
+const product = allProducts.find(
 
-searchInput.addEventListener("input",()=>{
-
-const keyword = searchInput.value.toLowerCase().trim();
-
-const filtered = allProducts.filter((docSnap)=>{
-
-const product = docSnap.data();
-
-return(
-
-(product.name || "").toLowerCase().includes(keyword) ||
-
-(product.company || "").toLowerCase().includes(keyword) ||
-
-(product.country || "").toLowerCase().includes(keyword)
+item => item.id === productId
 
 );
 
-});
+if(!product) return;
 
-renderProducts(filtered);
+let cart = JSON.parse(
+
+localStorage.getItem("cart")
+
+) || [];
+
+const existing = cart.find(
+
+item => item.id === productId
+
+);
+
+if(existing){
+
+existing.quantity += 1;
+
+}else{
+
+cart.push({
+
+id: product.id,
+
+name: product.name,
+
+price: product.price,
+
+image: product.image || "",
+
+quantity: 1
 
 });
 
 }
 
-// ==========================
-// INITIAL LOAD
-// ==========================
+localStorage.setItem(
+
+"cart",
+
+JSON.stringify(cart)
+
+);
+
+alert("✅ Product added to cart!");
+
+}
+
+// ===============================
+// Search Products
+// ===============================
+
+function searchProducts(){
+
+const keyword = searchInput.value
+
+.trim()
+
+.toLowerCase();
+
+const filtered = allProducts.filter(product =>
+
+(product.name || "")
+
+.toLowerCase()
+
+.includes(keyword)
+
+);
+
+renderProducts(filtered);
+
+}
+
+if(searchBtn){
+
+searchBtn.addEventListener(
+
+"click",
+
+searchProducts
+
+);
+
+}
+
+if(searchInput){
+
+searchInput.addEventListener(
+
+"keyup",
+
+searchProducts
+
+);
+
+}
+
+// ===============================
+// Sort Products
+// ===============================
+
+if(sortProducts){
+
+sortProducts.addEventListener(
+
+"change",
+
+()=>{
+
+let products = [...allProducts];
+
+switch(sortProducts.value){
+
+case "low":
+
+products.sort(
+
+(a,b)=>
+
+(a.price||0)-(b.price||0)
+
+);
+
+break;
+
+case "high":
+
+products.sort(
+
+(a,b)=>
+
+(b.price||0)-(a.price||0)
+
+);
+
+break;
+
+case "name":
+
+products.sort(
+
+(a,b)=>
+
+(a.name||"")
+
+.localeCompare(b.name||"")
+
+);
+
+break;
+
+default:
+
+break;
+
+}
+
+renderProducts(products);
+
+}
+
+);
+
+}
+
+// ===============================
+// Ready
+// ===============================
+
+document.addEventListener(
+
+"DOMContentLoaded",
+
+()=>{
 
 loadProducts();
 
-updateCartCount();
+console.log("✅ Products Page Ready");
+
+}
+
+);
