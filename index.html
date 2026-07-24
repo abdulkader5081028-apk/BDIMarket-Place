@@ -1,227 +1,375 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>BDIMarket Place</title>
-
-<link rel="stylesheet" href="css/style_v4.css">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-</head>
-
 <body>
 
-<!-- ======================
-TOP BAR
-====================== -->
+<!-- ================= TOP BAR ================= -->
 
 <div class="top-bar">
 
-<div class="container">
+    <div class="container top-container">
 
-<div class="top-left">
+        <div class="delivery-location">
+            🌍 Deliver to Bangladesh
+        </div>
 
-🌍 Deliver to Bangladesh
+        <div class="top-links">
 
-</div>
+            <a href="login.html">Login</a>
 
-<div class="top-right">
+            <a href="signup.html">Sign Up</a>
 
-<a href="login.html">Login</a>
+        </div>
 
-<a href="signup.html">Sign Up</a>
-
-</div>
-
-</div>
+    </div>
 
 </div>
 
-<!-- ======================
-HEADER
-====================== -->
+<!-- ================= HEADER ================= -->
 
 <header class="header">
 
-<div class="container header-wrapper">
+    <div class="container header-container">
 
-<button id="menuToggle" class="menu-btn">
+        <button id="menuBtn" class="menu-btn">
+            ☰
+        </button>
 
-☰
+        <a href="index.html" class="logo">
+            <span class="logo-dark">BDI</span><span class="logo-orange">Market</span>
+        </a>
 
-</button>
+        <a href="cart.html" class="cart-btn">
+            🛒
+            <span id="cartCount">0</span>
+        </a>
 
-<div class="logo">
-
-<a href="index.html">
-
-BDI<span>Market</span>
-
-</a>
-
-</div>
-
-<div class="search-box">
-
-<input
-type="text"
-id="searchInput"
-placeholder="Search products...">
-
-<button>
-
-🔍
-
-</button>
-
-</div>
-
-<a href="cart.html" class="cart-btn">
-
-🛒 Cart
-
-</a>
-
-</div>
+    </div>
 
 </header>
 
-<!-- ======================
-SIDE MENU
-====================== -->
+<!-- ================= SEARCH ================= -->
 
-<div id="sideMenu" class="side-menu">
+<section class="search-section">
 
-<div class="side-header">
+    <div class="container">
 
-<h2>Browse</h2>
+        <div class="search-box">
 
-<button id="closeMenu">✕</button>
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search products, suppliers..."
+            >
 
-</div>
+            <button id="searchBtn">
+                🔍
+            </button>
 
-<a href="index.html">🏠 Home</a>
+        </div>
 
-<a href="products.html">📦 Products</a>
+    </div>
 
-<a href="upload.html">⬆ Upload Product</a>
+</section>
 
-<a href="seller.html">🏪 Seller Dashboard</a>
+<!-- ================= CATEGORY MENU ================= -->
 
-<a href="cart.html">🛒 Cart</a>
+<nav class="category-nav">
 
-<a href="wishlist.html">❤ Wishlist</a>
+    <div class="container category-scroll">
 
-<a href="login.html">👤 Login</a>
+        <a href="#">Electronics</a>
 
-</div>
+        <a href="#">Fashion</a>
+
+        <a href="#">Home</a>
+
+        <a href="#">Beauty</a>
+
+        <a href="#">Sports</a>
+
+        <a href="#">Industrial</a>
+
+        <a href="#">More</a>
+
+    </div>
+
+</nav>
+
+<!-- ================= SIDE MENU ================= -->
 
 <div id="overlay" class="overlay"></div>
 
-<!-- ======================
-HERO
-====================== -->
+<aside id="sideMenu" class="side-menu">
 
-<section class="hero">
+    <div class="side-header">
+
+        <h2>Browse BDIMarket</h2>
+
+        <button id="closeMenu">✕</button>
+
+    </div>
+
+    <a href="index.html">🏠 Home</a>
+
+    <a href="products.html">📦 Products</a>
+
+    <a href="upload.html">⬆ Upload Product</a>
+
+    <a href="seller.html">🏪 Seller Dashboard</a>
+
+    <a href="cart.html">🛒 Cart</a>
+
+    <a href="wishlist.html">❤ Wishlist</a>
+
+    <a href="login.html">👤 Login</a>
+
+</aside>
+
+<!-- Banner, Product Grid, Categories, Footer -->
+  <!-- ================= HERO SLIDER ================= -->
+
+<section class="hero-section">
+
+    <div class="hero-slider">
+
+        <div class="hero-slide hero-orange">
+
+            <div class="hero-content">
+
+                <span class="hero-tag">
+                    Back To Business
+                </span>
+
+                <h1>
+                    Buy Wholesale
+                    Directly From
+                    Manufacturers
+                </h1>
+
+                <p>
+                    Best B2B Marketplace for Global Trade
+                </p>
+
+                <a href="products.html" class="hero-btn">
+
+                    Explore Products
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= LOGIN CARD ================= -->
+
+<section class="signin-section">
+
+    <div class="container">
+
+        <div class="signin-card">
+
+            <h3>
+
+                Sign in for the best experience
+
+            </h3>
+
+            <a href="login.html" class="signin-btn">
+
+                Sign in Securely
+
+            </a>
+
+            <p>
+
+                <a href="signup.html">
+
+                    Create an account
+
+                </a>
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= SHOPPING GRID ================= -->
+
+<section class="shopping-grid">
 
 <div class="container">
 
-<h1>
+<div class="grid-card">
 
-Global B2B Marketplace
+<h2>Electronics</h2>
 
-</h1>
+<div class="grid-images">
 
-<p>
+<div>
 
-Buy directly from manufacturers and suppliers worldwide.
+<img src="images/electronics1.jpg">
 
-</p>
+<p>Headphones</p>
 
-<a href="products.html" class="hero-btn">
+</div>
 
-Explore Products
+<div>
+
+<img src="images/electronics2.jpg">
+
+<p>Tablet</p>
+
+</div>
+
+<div>
+
+<img src="images/electronics3.jpg">
+
+<p>Gaming</p>
+
+</div>
+
+<div>
+
+<img src="images/electronics4.jpg">
+
+<p>Speaker</p>
+
+</div>
+
+</div>
+
+<a href="products.html">
+
+Shop More →
 
 </a>
+
+</div>
+
+<div class="grid-card">
+
+<h2>Computers</h2>
+
+<div class="grid-images">
+
+<div>
+
+<img src="images/computer1.jpg">
+
+<p>Desktop</p>
+
+</div>
+
+<div>
+
+<img src="images/computer2.jpg">
+
+<p>Laptop</p>
+
+</div>
+
+<div>
+
+<img src="images/computer3.jpg">
+
+<p>Hard Disk</p>
+
+</div>
+
+<div>
+
+<img src="images/computer4.jpg">
+
+<p>Accessories</p>
+
+</div>
+
+</div>
+
+<a href="products.html">
+
+See More →
+
+</a>
+
+</div>
 
 </div>
 
 </section>
-  <!-- ======================
-POPULAR CATEGORIES
-====================== -->
+  <!-- ================= FASHION SECTION ================= -->
 
-<section class="categories">
+<section class="shopping-grid">
 
 <div class="container">
 
-<div class="section-header">
+<div class="grid-card">
 
-<h2>Popular Categories</h2>
+<h2>Fashion Collection</h2>
 
-<a href="products.html">View All →</a>
+<div class="grid-images">
+
+<div>
+<img src="images/fashion1.jpg" alt="">
+<p>Men</p>
+</div>
+
+<div>
+<img src="images/fashion2.jpg" alt="">
+<p>Women</p>
+</div>
+
+<div>
+<img src="images/fashion3.jpg" alt="">
+<p>Kids</p>
+</div>
+
+<div>
+<img src="images/fashion4.jpg" alt="">
+<p>Shoes</p>
+</div>
 
 </div>
 
-<div class="category-slider">
+<a href="products.html">See More →</a>
 
-<a href="products.html?category=Electronics" class="category-card">
+</div>
 
-📱
+<div class="grid-card">
 
-<span>Electronics</span>
+<h2>Home & Living</h2>
 
-</a>
+<div class="grid-images">
 
-<a href="products.html?category=Fashion" class="category-card">
+<div>
+<img src="images/home1.jpg" alt="">
+<p>Kitchen</p>
+</div>
 
-👕
+<div>
+<img src="images/home2.jpg" alt="">
+<p>Furniture</p>
+</div>
 
-<span>Fashion</span>
+<div>
+<img src="images/home3.jpg" alt="">
+<p>Decoration</p>
+</div>
 
-</a>
+<div>
+<img src="images/home4.jpg" alt="">
+<p>Lighting</p>
+</div>
 
-<a href="products.html?category=Machinery" class="category-card">
+</div>
 
-🏭
-
-<span>Machinery</span>
-
-</a>
-
-<a href="products.html?category=Furniture" class="category-card">
-
-🪑
-
-<span>Furniture</span>
-
-</a>
-
-<a href="products.html?category=Food" class="category-card">
-
-🍎
-
-<span>Food</span>
-
-</a>
-
-<a href="products.html?category=Beauty" class="category-card">
-
-💄
-
-<span>Beauty</span>
-
-</a>
+<a href="products.html">Shop Now →</a>
 
 </div>
 
@@ -229,9 +377,7 @@ POPULAR CATEGORIES
 
 </section>
 
-<!-- ======================
-FEATURED PRODUCTS
-====================== -->
+<!-- ================= FEATURED PRODUCTS ================= -->
 
 <section class="featured-products">
 
@@ -241,19 +387,13 @@ FEATURED PRODUCTS
 
 <h2>Featured Products</h2>
 
-<a href="products.html">See More →</a>
+<a href="products.html">View All →</a>
 
 </div>
 
-<div
-id="featuredProducts"
-class="products-grid">
+<div id="featuredProducts" class="product-grid">
 
-<div class="loading">
-
-Loading Products...
-
-</div>
+<!-- Firebase Products এখানে Load হবে -->
 
 </div>
 
@@ -261,11 +401,9 @@ Loading Products...
 
 </section>
 
-<!-- ======================
-TOP SUPPLIERS
-====================== -->
+<!-- ================= TOP SUPPLIERS ================= -->
 
-<section class="suppliers">
+<section class="supplier-section">
 
 <div class="container">
 
@@ -273,101 +411,41 @@ TOP SUPPLIERS
 
 <h2>Top Suppliers</h2>
 
+<a href="#">View All →</a>
+
 </div>
 
 <div class="supplier-grid">
 
 <div class="supplier-card">
 
-🏭
+<h3>🇨🇳 China Supplier</h3>
 
-<h3>Verified Suppliers</h3>
-
-<p>Trusted manufacturers from around the world.</p>
+<p>Electronics & Machinery</p>
 
 </div>
 
 <div class="supplier-card">
 
-🚢
+<h3>🇧🇩 Bangladesh Supplier</h3>
 
-<h3>Fast Shipping</h3>
-
-<p>International delivery with reliable logistics.</p>
+<p>Garments & Textile</p>
 
 </div>
 
 <div class="supplier-card">
 
-🛡️
+<h3>🇮🇳 India Supplier</h3>
 
-<h3>Secure Trade</h3>
-
-<p>Safe payments and buyer protection.</p>
+<p>Industrial Equipment</p>
 
 </div>
 
-</div>
+<div class="supplier-card">
 
-</div>
+<h3>🇹🇷 Turkey Supplier</h3>
 
-</section>
-  
-<!-- ======================
-WHY CHOOSE US
-====================== -->
-
-<section class="why-us">
-
-<div class="container">
-
-<div class="section-header">
-
-<h2>Why Choose BDIMarket Place?</h2>
-
-<p>Everything you need for global B2B trade.</p>
-
-</div>
-
-<div class="features-grid">
-
-<div class="feature-card">
-
-<div class="feature-icon">🛡️</div>
-
-<h3>Verified Suppliers</h3>
-
-<p>Work with trusted manufacturers and exporters.</p>
-
-</div>
-
-<div class="feature-card">
-
-<div class="feature-icon">💳</div>
-
-<h3>Secure Payments</h3>
-
-<p>Safe transactions with buyer protection.</p>
-
-</div>
-
-<div class="feature-card">
-
-<div class="feature-icon">🚚</div>
-
-<h3>Fast Delivery</h3>
-
-<p>Reliable local and international shipping.</p>
-
-</div>
-
-<div class="feature-card">
-
-<div class="feature-icon">🌍</div>
-
-<h3>Global Marketplace</h3>
-
-<p>Connect buyers and sellers worldwide.</p>
+<p>Fashion & Leather</p>
 
 </div>
 
@@ -377,118 +455,25 @@ WHY CHOOSE US
 
 </section>
 
-<!-- ======================
-MARKETPLACE STATS
-====================== -->
+<!-- ================= APP DOWNLOAD ================= -->
 
-<section class="stats">
+<section class="download-app">
 
 <div class="container">
 
-<div class="stats-grid">
-
-<div class="stat-card">
-
-<h2>10K+</h2>
-
-<p>Products</p>
-
-</div>
-
-<div class="stat-card">
-
-<h2>2K+</h2>
-
-<p>Suppliers</p>
-
-</div>
-
-<div class="stat-card">
-
-<h2>50+</h2>
-
-<p>Countries</p>
-
-</div>
-
-<div class="stat-card">
-
-<h2>100K+</h2>
-
-<p>Customers</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ======================
-BECOME A SELLER
-====================== -->
-
-<section class="seller-banner">
-
-<div class="container">
-
-<div class="seller-content">
-
-<h2>Start Selling Today</h2>
+<h2>Download BDIMarket App</h2>
 
 <p>
 
-Upload your products and reach thousands of buyers around the world.
+Buy & Sell Anywhere, Anytime.
 
 </p>
 
-<a href="upload.html" class="hero-btn">
+<div class="download-buttons">
 
-Become a Seller
+<a href="#">📱 Android</a>
 
-</a>
-
-</div>
-
-</div>
-
-</section>
-  <!-- ======================
-NEWSLETTER
-====================== -->
-
-<section class="newsletter">
-
-<div class="container">
-
-<div class="newsletter-box">
-
-<h2>
-
-Stay Updated
-
-</h2>
-
-<p>
-
-Get the latest products, suppliers and exclusive offers.
-
-</p>
-
-<form class="newsletter-form">
-
-<input
-type="email"
-placeholder="Enter your email">
-
-<button type="submit">
-
-Subscribe
-
-</button>
-
-</form>
+<a href="#">🍎 iPhone</a>
 
 </div>
 
@@ -496,9 +481,7 @@ Subscribe
 
 </section>
 
-<!-- ======================
-FOOTER
-====================== -->
+<!-- ================= FOOTER ================= -->
 
 <footer class="footer">
 
@@ -508,11 +491,11 @@ FOOTER
 
 <div>
 
-<h3>BDIMarket Place</h3>
+<h3>BDIMarket</h3>
 
 <p>
 
-Your trusted Global B2B Marketplace connecting buyers and sellers worldwide.
+Global B2B Marketplace.
 
 </p>
 
@@ -520,37 +503,13 @@ Your trusted Global B2B Marketplace connecting buyers and sellers worldwide.
 
 <div>
 
-<h4>Marketplace</h4>
+<h4>Company</h4>
 
-<ul>
+<a href="#">About</a>
 
-<li><a href="index.html">Home</a></li>
+<a href="#">Careers</a>
 
-<li><a href="products.html">Products</a></li>
-
-<li><a href="upload.html">Upload Product</a></li>
-
-<li><a href="seller.html">Seller Dashboard</a></li>
-
-</ul>
-
-</div>
-
-<div>
-
-<h4>Customer</h4>
-
-<ul>
-
-<li><a href="cart.html">Cart</a></li>
-
-<li><a href="wishlist.html">Wishlist</a></li>
-
-<li><a href="login.html">Login</a></li>
-
-<li><a href="signup.html">Sign Up</a></li>
-
-</ul>
+<a href="#">Contact</a>
 
 </div>
 
@@ -558,17 +517,11 @@ Your trusted Global B2B Marketplace connecting buyers and sellers worldwide.
 
 <h4>Support</h4>
 
-<ul>
+<a href="#">Help Center</a>
 
-<li><a href="#">Help Center</a></li>
+<a href="#">Privacy</a>
 
-<li><a href="#">Privacy Policy</a></li>
-
-<li><a href="#">Terms & Conditions</a></li>
-
-<li><a href="#">Contact</a></li>
-
-</ul>
+<a href="#">Terms</a>
 
 </div>
 
@@ -576,62 +529,19 @@ Your trusted Global B2B Marketplace connecting buyers and sellers worldwide.
 
 <hr>
 
-<p class="copyright">
+<p>
 
-© 2026 BDIMarket Place. All Rights Reserved.
+© 2026 BDIMarket. All Rights Reserved.
 
 </p>
 
 </div>
 
 </footer>
-
-<!-- ======================
-SCRIPTS
-====================== -->
+<!-- এগুলো আমরা Part 2 থেকে যোগ করব -->
 
 <script type="module" src="js/firebase.js"></script>
-
-<script type="module" src="js/auth.js"></script>
-
-<script type="module" src="js/products.js"></script>
-
-<script>
-
-const menuToggle = document.getElementById("menuToggle");
-
-const sideMenu = document.getElementById("sideMenu");
-
-const overlay = document.getElementById("overlay");
-
-const closeMenu = document.getElementById("closeMenu");
-
-menuToggle.onclick = () => {
-
-sideMenu.classList.add("active");
-
-overlay.classList.add("active");
-
-};
-
-closeMenu.onclick = () => {
-
-sideMenu.classList.remove("active");
-
-overlay.classList.remove("active");
-
-};
-
-overlay.onclick = () => {
-
-sideMenu.classList.remove("active");
-
-overlay.classList.remove("active");
-
-};
-
-</script>
+<script type="module" src="js/home.js"></script>
 
 </body>
 
-</html>
