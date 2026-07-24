@@ -10,108 +10,136 @@
 <title>Product Details | BDIMarket Place</title>
 
 <meta name="description"
-content="View complete product details from verified suppliers.">
+content="View product details from verified suppliers.">
 
-<link rel="stylesheet" href="css/style_v4.css">
-
-<link rel="preconnect"
-href="https://fonts.googleapis.com">
-
-<link rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
 
 </head>
 
 <body>
 
-<!-- ======================
-TOP BAR
-====================== -->
+<!-- ================= TOP BAR ================= -->
 
 <div class="top-bar">
 
-<div class="container">
+<div class="container top-container">
 
-<div class="top-left">
+<div>
 
-🌍 Welcome To BDIMarket Place
-
-</div>
-
-<div class="top-right">
-
-<a href="#">Help Center</a>
-
-<a href="#">English</a>
+🌍 Global B2B Marketplace
 
 </div>
 
+<div class="top-links">
+
+<a href="index.html">Home</a>
+
+<a href="products.html">Products</a>
+
+<a href="seller.html">Seller</a>
+
+<a href="cart.html">Cart</a>
+
+</div>
+
 </div>
 
 </div>
 
-<!-- ======================
-HEADER
-====================== -->
+<!-- ================= HEADER ================= -->
 
 <header class="header">
 
-<div class="container header-wrapper">
+<div class="container header-container">
 
-<div class="logo">
+<button class="menu-btn" id="menuBtn">
 
-<a href="index.html">
+☰
 
-BDI<span>Market Place</span>
+</button>
+
+<a href="index.html" class="logo">
+
+<span class="logo-dark">BDI</span><span class="logo-orange">Market</span>
 
 </a>
+
+<div class="search-box">
+
+<input
+type="text"
+id="searchInput"
+placeholder="Search products...">
+
+<button id="searchBtn">
+
+🔍
+
+</button>
 
 </div>
-
-<div class="header-buttons">
-
-<a href="products.html">
-
-Products
-
-</a>
 
 <a href="cart.html" class="cart-btn">
 
-🛒 Cart
+🛒
+
+<span id="cartCount">0</span>
 
 </a>
-
-</div>
 
 </div>
 
 </header>
 
-<!-- ======================
-PRODUCT DETAILS
-====================== -->
+<!-- ================= PRODUCT DETAILS ================= -->
 
 <section class="product-details">
 
 <div class="container">
 
-<div class="product-details-wrapper">
+<div class="product-details-grid">
 
-<div class="product-image">
+<!-- LEFT -->
+
+<div class="product-gallery">
+
+<div class="main-image">
 
 <img
+
 id="productImage"
-src=""
+
+src="images/no-image.png"
+
 alt="Product">
 
 </div>
 
-<div class="product-info">
+<div class="thumbnail-list">
+
+<img src="images/no-image.png" alt="">
+
+<img src="images/no-image.png" alt="">
+
+<img src="images/no-image.png" alt="">
+
+<img src="images/no-image.png" alt="">
+
+</div>
+
+</div>
+
+<!-- RIGHT -->
+
+<div class="product-info-box">
+
+<span class="product-category"
+
+id="productCategory">
+
+Category
+
+</span>
 
 <h1 id="productName">
 
@@ -119,37 +147,37 @@ Loading...
 
 </h1>
 
-<h2 id="productPrice">
+<div class="product-rating">
+
+⭐⭐⭐⭐⭐
+
+<span>(0 Reviews)</span>
+
+</div>
+
+<h2 class="product-price"
+
+id="productPrice">
 
 $0
 
 </h2>
 
-<p>
+<p class="stock-status">
 
-<strong>Category:</strong>
-
-<span id="productCategory">
-
-Loading...
-
-</span>
-
-</p>
-
-<p>
-
-<strong>Stock:</strong>
+Stock:
 
 <span id="productStock">
 
-Loading...
+Available
 
 </span>
 
 </p>
 
-<p id="productDescription">
+<p class="product-description"
+
+id="productDescription">
 
 Loading product description...
 
@@ -157,15 +185,23 @@ Loading product description...
 
 <div class="product-buttons">
 
-<button id="addToCart">
+<button
+
+id="addToCart"
+
+class="btn btn-primary">
 
 🛒 Add To Cart
 
 </button>
 
-<button id="addToWishlist">
+<button
 
-❤️ Wishlist
+id="buyNow"
+
+class="btn btn-outline">
+
+Buy Now
 
 </button>
 
@@ -178,9 +214,8 @@ Loading product description...
 </div>
 
 </section>
-  <!-- ======================
-SELLER INFORMATION
-====================== -->
+  
+<!-- ================= SELLER INFORMATION ================= -->
 
 <section class="seller-section">
 
@@ -188,17 +223,45 @@ SELLER INFORMATION
 
 <div class="seller-card">
 
-<h2>Seller Information</h2>
+<h2>🏪 Seller Information</h2>
 
-<div class="seller-info">
+<div class="seller-grid">
 
-<p><strong>Seller:</strong> <span id="sellerName">Loading...</span></p>
+<div>
 
-<p><strong>Company:</strong> <span id="sellerCompany">Loading...</span></p>
+<p><strong>Seller:</strong></p>
 
-<p><strong>Location:</strong> <span id="sellerLocation">Loading...</span></p>
+<p id="sellerName">Loading...</p>
 
-<p><strong>Status:</strong> <span id="sellerVerified">✔ Verified Supplier</span></p>
+</div>
+
+<div>
+
+<p><strong>Company:</strong></p>
+
+<p id="sellerCompany">Loading...</p>
+
+</div>
+
+<div>
+
+<p><strong>Country:</strong></p>
+
+<p id="sellerCountry">Loading...</p>
+
+</div>
+
+<div>
+
+<p><strong>Status:</strong></p>
+
+<p class="verified-badge">
+
+✔ Verified Supplier
+
+</p>
+
+</div>
 
 </div>
 
@@ -208,19 +271,17 @@ SELLER INFORMATION
 
 </section>
 
-<!-- ======================
-PRODUCT SPECIFICATIONS
-====================== -->
+<!-- ================= PRODUCT SPECIFICATIONS ================= -->
 
 <section class="product-specifications">
 
 <div class="container">
 
-<div class="section-header">
+<h2 class="section-title">
 
-<h2>Product Specifications</h2>
+📋 Product Specifications
 
-</div>
+</h2>
 
 <table class="spec-table">
 
@@ -228,7 +289,11 @@ PRODUCT SPECIFICATIONS
 
 <th>Brand</th>
 
-<td id="productBrand">Loading...</td>
+<td id="productBrand">
+
+Loading...
+
+</td>
 
 </tr>
 
@@ -236,7 +301,11 @@ PRODUCT SPECIFICATIONS
 
 <th>Model</th>
 
-<td id="productModel">Loading...</td>
+<td id="productModel">
+
+Loading...
+
+</td>
 
 </tr>
 
@@ -244,7 +313,11 @@ PRODUCT SPECIFICATIONS
 
 <th>Origin</th>
 
-<td id="productOrigin">Loading...</td>
+<td id="productOrigin">
+
+Loading...
+
+</td>
 
 </tr>
 
@@ -252,7 +325,11 @@ PRODUCT SPECIFICATIONS
 
 <th>Minimum Order</th>
 
-<td id="minimumOrder">Loading...</td>
+<td id="minimumOrder">
+
+Loading...
+
+</td>
 
 </tr>
 
@@ -260,7 +337,11 @@ PRODUCT SPECIFICATIONS
 
 <th>Availability</th>
 
-<td id="availability">Loading...</td>
+<td id="availability">
+
+Loading...
+
+</td>
 
 </tr>
 
@@ -270,9 +351,77 @@ PRODUCT SPECIFICATIONS
 
 </section>
 
-<!-- ======================
-RELATED PRODUCTS
-====================== -->
+<!-- ================= SHIPPING ================= -->
+
+<section class="shipping-section">
+
+<div class="container">
+
+<div class="shipping-grid">
+
+<div class="shipping-card">
+
+🚚
+
+<h3>Fast Delivery</h3>
+
+<p>
+
+Worldwide shipping available.
+
+</p>
+
+</div>
+
+<div class="shipping-card">
+
+🔒
+
+<h3>Buyer Protection</h3>
+
+<p>
+
+100% secure purchase protection.
+
+</p>
+
+</div>
+
+<div class="shipping-card">
+
+💳
+
+<h3>Secure Payment</h3>
+
+<p>
+
+Pay safely using trusted methods.
+
+</p>
+
+</div>
+
+<div class="shipping-card">
+
+💬
+
+<h3>24/7 Support</h3>
+
+<p>
+
+Customer support anytime.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+  
+<!-- ================= RELATED PRODUCTS ================= -->
 
 <section class="related-products">
 
@@ -280,13 +429,13 @@ RELATED PRODUCTS
 
 <div class="section-header">
 
-<h2>Related Products</h2>
+<h2>🔥 Related Products</h2>
 
-<p>You may also like these products.</p>
+<a href="products.html">View All</a>
 
 </div>
 
-<div class="products-grid" id="relatedProducts">
+<div id="relatedProducts" class="product-grid">
 
 <div class="loading">
 
@@ -300,9 +449,7 @@ Loading Related Products...
 
 </section>
 
-<!-- ======================
-CUSTOMER REVIEWS
-====================== -->
+<!-- ================= CUSTOMER REVIEWS ================= -->
 
 <section class="customer-reviews">
 
@@ -310,9 +457,7 @@ CUSTOMER REVIEWS
 
 <div class="section-header">
 
-<h2>Customer Reviews</h2>
-
-<p>Reviews from verified buyers.</p>
+<h2>⭐ Customer Reviews</h2>
 
 </div>
 
@@ -322,7 +467,11 @@ CUSTOMER REVIEWS
 
 <h4>No Reviews Yet</h4>
 
-<p>Be the first customer to review this product.</p>
+<p>
+
+Be the first customer to review this product.
+
+</p>
 
 </div>
 
@@ -331,34 +480,64 @@ CUSTOMER REVIEWS
 </div>
 
 </section>
-    
-    <!-- ======================
-NEWSLETTER
-====================== -->
+
+<!-- ================= RECENTLY VIEWED ================= -->
+
+<section class="recent-products">
+
+<div class="container">
+
+<div class="section-header">
+
+<h2>👀 Recently Viewed</h2>
+
+<a href="products.html">
+
+Browse More
+
+</a>
+
+</div>
+
+<div id="recentProducts" class="product-grid">
+
+<div class="loading">
+
+No recently viewed products.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= NEWSLETTER ================= -->
 
 <section class="newsletter">
 
 <div class="container">
 
-<div class="newsletter-box">
-
 <h2>
 
-Subscribe To Our Newsletter
+Get the Latest Deals
 
 </h2>
 
 <p>
 
-Get the latest products, suppliers and business offers.
+Subscribe to receive new products, discounts and supplier offers.
 
 </p>
 
-<div class="newsletter-form">
+<div class="newsletter-box">
 
 <input
+
 type="email"
-placeholder="Enter Your Email">
+
+placeholder="Enter your email">
 
 <button>
 
@@ -370,13 +549,8 @@ Subscribe
 
 </div>
 
-</div>
-
 </section>
-
-<!-- ======================
-FOOTER
-====================== -->
+<!-- ================= FOOTER ================= -->
 
 <footer class="footer">
 
@@ -386,15 +560,11 @@ FOOTER
 
 <div>
 
-<h3>
-
-BDIMarket Place
-
-</h3>
+<h3>BDIMarket Place</h3>
 
 <p>
 
-Your trusted Global B2B Marketplace.
+The complete B2B marketplace connecting buyers and suppliers worldwide.
 
 </p>
 
@@ -402,11 +572,7 @@ Your trusted Global B2B Marketplace.
 
 <div>
 
-<h4>
-
-Marketplace
-
-</h4>
+<h4>Marketplace</h4>
 
 <ul>
 
@@ -424,11 +590,7 @@ Marketplace
 
 <div>
 
-<h4>
-
-Support
-
-</h4>
+<h4>Support</h4>
 
 <ul>
 
@@ -438,7 +600,7 @@ Support
 
 <li><a href="#">Terms & Conditions</a></li>
 
-<li><a href="#">Contact Us</a></li>
+<li><a href="contact.html">Contact Us</a></li>
 
 </ul>
 
@@ -446,19 +608,19 @@ Support
 
 <div>
 
-<h4>
+<h4>Account</h4>
 
-Follow Us
+<ul>
 
-</h4>
+<li><a href="login.html">Login</a></li>
 
-<p>Facebook</p>
+<li><a href="signup.html">Create Account</a></li>
 
-<p>Instagram</p>
+<li><a href="cart.html">My Cart</a></li>
 
-<p>LinkedIn</p>
+<li><a href="checkout.html">Checkout</a></li>
 
-<p>YouTube</p>
+</ul>
 
 </div>
 
@@ -476,17 +638,14 @@ Follow Us
 
 </footer>
 
-<!-- ======================
-SCRIPTS
-====================== -->
+<!-- ================= SCRIPTS ================= -->
 
 <script type="module" src="js/firebase.js"></script>
 
-<script type="module" src="js/auth.js"></script>
+<script type="module" src="js/home.js"></script>
 
 <script type="module" src="js/product.js"></script>
 
 </body>
 
 </html>
-
