@@ -106,12 +106,12 @@ product.description ||
 // ===============================
 // Seller Information
 // ===============================
-
 sellerName.textContent =
-product.sellerName || "Unknown Seller";
+product.seller || "Unknown Seller";
+
 
 sellerCompany.textContent =
-product.company || "BDIMarket Seller";
+product.company || product.seller || "-";
 
 sellerCountry.textContent =
 product.country || "Bangladesh";
@@ -130,7 +130,7 @@ productOrigin.textContent =
 product.origin || "-";
 
 minimumOrder.textContent =
-product.minimumOrder || "1 Piece";
+product.moq || "1 Piece";
 
 availability.textContent =
 product.availability || "In Stock";
@@ -145,3 +145,71 @@ productName.textContent =
 }
 
 }
+// =====================================
+// Add To Cart
+// =====================================
+
+const addToCartBtn = document.getElementById("addToCart");
+const buyNowBtn = document.getElementById("buyNow");
+
+addToCartBtn?.addEventListener("click", () => {
+
+const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+cart.push({
+
+id: productId,
+
+name: productName.textContent,
+
+price: productPrice.textContent,
+
+image: productImage.src,
+
+qty: 1
+
+});
+
+localStorage.setItem("cart", JSON.stringify(cart));
+
+alert("✅ Product added to cart.");
+
+updateCartCount();
+
+});
+
+// =====================================
+// Buy Now
+// =====================================
+
+buyNowBtn?.addEventListener("click", () => {
+
+window.location.href = "cart.html";
+
+});
+
+// =====================================
+// Cart Counter
+// =====================================
+
+function updateCartCount(){
+
+const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+const count = document.getElementById("cartCount");
+
+if(count){
+
+count.textContent = cart.length;
+
+}
+
+}
+
+// =====================================
+// Load Product Data
+// =====================================
+
+loadProduct();
+
+updateCartCount();
