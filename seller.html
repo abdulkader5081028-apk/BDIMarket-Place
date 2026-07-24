@@ -9,36 +9,49 @@
 
 <title>Seller Dashboard | BDIMarket Place</title>
 
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="dashboard.css">
+<link rel="stylesheet" href="css/style_v4.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 </head>
- 
- <body>
 
-<!-- TOP HEADER -->
+<body>
+
+<!-- ======================
+TOP BAR
+====================== -->
 
 <div class="top-bar">
 
 <div class="container">
 
-<span>Welcome Seller 👋</span>
+<div class="top-left">
+
+🌍 Welcome Seller
+
+</div>
 
 <div class="top-right">
 
 <a href="index.html">Home</a>
 
-<a href="#">Help Center</a>
+<a href="products.html">Products</a>
 
-<a href="#">Support</a>
-
-</div>
+<a href="upload.html">Upload Product</a>
 
 </div>
 
 </div>
 
-<!-- HEADER -->
+</div>
+
+<!-- ======================
+HEADER
+====================== -->
 
 <header class="header">
 
@@ -46,15 +59,27 @@
 
 <div class="logo">
 
-<a href="index.html">BDI<span>Market</span></a>
+<a href="index.html">
+
+BDI<span>Market Place</span>
+
+</a>
 
 </div>
 
 <div class="header-buttons">
 
-<a href="upload.html" class="btn btn-primary">+ Upload Product</a>
+<a href="upload.html">
 
-<a href="index.html">Home</a>
+➕ Upload Product
+
+</a>
+
+<a href="cart.html" class="cart-btn">
+
+🛒 Orders
+
+</a>
 
 </div>
 
@@ -62,181 +87,197 @@
 
 </header>
 
-<!-- DASHBOARD -->
+<!-- ======================
+PAGE TITLE
+====================== -->
 
-<section class="dashboard">
+<section class="page-title">
 
 <div class="container">
 
-<h1 class="dashboard-title">
+<h1>
 
 Seller Dashboard
 
 </h1>
 
-<p class="dashboard-subtitle">
+<p>
 
-Manage your products, orders and business from one place.
+Manage your products and grow your business.
 
 </p>
-
-<div class="dashboard-cards">
- <!-- Dashboard Card 1 -->
-
-<div class="dashboard-card">
-
-<div class="card-icon">📦</div>
-
-<h2>Total Products</h2>
-
-<h1>24</h1>
-
-<p>Products Uploaded</p>
-
-</div>
-
-<!-- Dashboard Card 2 -->
-
-<div class="dashboard-card">
-
-<div class="card-icon">🛒</div>
-
-<h2>Total Orders</h2>
-
-<h1>156</h1>
-
-<p>Orders Received</p>
-
-</div>
-
-<!-- Dashboard Card 3 -->
-
-<div class="dashboard-card">
-
-<div class="card-icon">💰</div>
-
-<h2>Total Revenue</h2>
-
-<h1>$8,450</h1>
-
-<p>Total Earnings</p>
-
-</div>
-
-<!-- Dashboard Card 4 -->
-
-<div class="dashboard-card">
-
-<div class="card-icon">⏳</div>
-
-<h2>Pending Orders</h2>
-
-<h1>12</h1>
-
-<p>Waiting for Delivery</p>
-
-</div>
-
-</div>
-
-<!-- Quick Actions -->
-
-<div class="dashboard-actions">
-
-<a href="upload.html" class="btn btn-primary">
-
-➕ Upload Product
-
-</a>
-
-<a href="products.html" class="btn btn-outline">
-
-📦 My Products
-
-</a>
-
-<a href="cart.html" class="btn btn-outline">
-
-🛒 Orders
-
-</a>
-
-<a href="checkout.html" class="btn btn-outline">
-
-💰 Earnings
-
-</a>
-
-</div>
-<!-- ================= RECENT ORDERS ================= -->
-
-<h2 class="section-title">Recent Orders</h2>
-
-<table>
-
-<thead>
-
-<tr>
-
-<th>Order ID</th>
-
-<th>Product</th>
-
-<th>Status</th>
-
-<th>Amount</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-<td>#1001</td>
-
-<td>Premium Smartphone</td>
-
-<td><span class="badge">Delivered</span></td>
-
-<td>$120</td>
-
-</tr>
-
-<tr>
-
-<td>#1002</td>
-
-<td>Wireless Headphone</td>
-
-<td><span class="badge">Pending</span></td>
-
-<td>$45</td>
-
-</tr>
-
-<tr>
-
-<td>#1003</td>
-
-<td>Sports Shoes</td>
-
-<td><span class="badge">Processing</span></td>
-
-<td>$60</td>
-
-</tr>
-
-</tbody>
-
-</table>
 
 </div>
 
 </section>
 
-<!-- ================= FOOTER ================= -->
+<!-- ======================
+DASHBOARD CARDS
+====================== -->
+
+<section class="dashboard">
+
+<div class="container">
+
+<div class="dashboard-cards">
+
+<div class="dashboard-card">
+
+<h3>Total Products</h3>
+
+<h2 id="totalProducts">
+
+0
+
+</h2>
+
+</div>
+
+<div class="dashboard-card">
+
+<h3>Total Orders</h3>
+
+<h2>
+
+0
+
+</h2>
+
+</div>
+
+<div class="dashboard-card">
+
+<h3>Total Revenue</h3>
+
+<h2>
+
+$0
+
+</h2>
+
+</div>
+
+<div class="dashboard-card">
+
+<h3>Pending Orders</h3>
+
+<h2>
+
+0
+
+</h2>
+
+</div>
+
+</div>
+
+ <!-- ======================
+QUICK ACTIONS
+====================== -->
+
+<div class="dashboard-actions">
+
+<a href="upload.html" class="hero-btn">
+
+➕ Upload Product
+
+</a>
+
+<a href="products.html" class="hero-btn">
+
+📦 Browse Products
+
+</a>
+
+<a href="cart.html" class="hero-btn">
+
+🛒 View Orders
+
+</a>
+
+</div>
+
+<!-- ======================
+MY PRODUCTS
+====================== -->
+
+<div class="seller-products">
+
+<div class="section-header">
+
+<h2>
+
+My Products
+
+</h2>
+
+<p>
+
+Products you have uploaded.
+
+</p>
+
+</div>
+
+<div
+id="sellerProducts"
+class="products-grid">
+
+<div class="loading">
+
+Loading Products...
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ======================
+NEWSLETTER
+====================== -->
+
+<section class="newsletter">
+
+<div class="container">
+
+<div class="newsletter-box">
+
+<h2>
+
+Grow Your Business
+
+</h2>
+
+<p>
+
+Upload more products and reach buyers worldwide.
+
+</p>
+
+<div class="newsletter-form">
+
+<a href="upload.html" class="hero-btn">
+
+Upload New Product
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+ 
+<!-- ======================
+FOOTER
+====================== -->
 
 <footer class="footer">
 
@@ -249,14 +290,16 @@ Manage your products, orders and business from one place.
 <h3>BDIMarket Place</h3>
 
 <p>
-The complete B2B marketplace for buyers and sellers.
+
+Your trusted Global B2B Marketplace.
+
 </p>
 
 </div>
 
 <div>
 
-<h4>Quick Links</h4>
+<h4>Marketplace</h4>
 
 <ul>
 
@@ -265,6 +308,8 @@ The complete B2B marketplace for buyers and sellers.
 <li><a href="products.html">Products</a></li>
 
 <li><a href="upload.html">Upload Product</a></li>
+
+<li><a href="seller.html">Seller Dashboard</a></li>
 
 </ul>
 
@@ -282,7 +327,23 @@ The complete B2B marketplace for buyers and sellers.
 
 <li><a href="#">Terms & Conditions</a></li>
 
+<li><a href="#">Contact Us</a></li>
+
 </ul>
+
+</div>
+
+<div>
+
+<h4>Follow Us</h4>
+
+<p>Facebook</p>
+
+<p>Instagram</p>
+
+<p>LinkedIn</p>
+
+<p>YouTube</p>
 
 </div>
 
@@ -299,10 +360,17 @@ The complete B2B marketplace for buyers and sellers.
 </div>
 
 </footer>
- <script type="module" src="js/firebase.js"></script>
+
+<!-- ======================
+SCRIPTS
+====================== -->
+
+<script type="module" src="js/firebase.js"></script>
+
+<script type="module" src="js/auth.js"></script>
+
 <script type="module" src="js/seller.js"></script>
 
 </body>
 
 </html>
-
