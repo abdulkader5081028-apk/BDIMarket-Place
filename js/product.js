@@ -1,27 +1,18 @@
+// =====================================
+// BDIMarket Place
+// product.js (Version 1)
+// =====================================
+
 import { db } from "./firebase.js";
+
 import {
 doc,
-getDoc,
-getDocs,
-collection,
-addDoc,
-serverTimestamp
-}
-from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+getDoc
+} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
- from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
-
-// ======================
-// Get Product ID
-// ======================
-let currentProduct = null;
-const params = new URLSearchParams(window.location.search);
-
-const productId = params.get("id");
-
-// ======================
+// =====================================
 // HTML Elements
-// ======================
+// =====================================
 
 const productImage = document.getElementById("productImage");
 
@@ -31,286 +22,126 @@ const productPrice = document.getElementById("productPrice");
 
 const productCategory = document.getElementById("productCategory");
 
-const productDescription = document.getElementById("productDescription");
-
 const productStock = document.getElementById("productStock");
 
-// ======================
-// const product = productSnap.data();
-// ======================
-currentProduct = product;
-async function loadProduct() {
+const productDescription = document.getElementById("productDescription");
 
-    if (!productId) {
+const sellerName = document.getElementById("sellerName");
 
-        alert("Product not found.");
+const sellerCompany = document.getElementById("sellerCompany");
 
-        return;
+const sellerCountry = document.getElementById("sellerCountry");
 
-    }
+const productBrand = document.getElementById("productBrand");
 
-    try {
+const productModel = document.getElementById("productModel");
 
-        const productRef = doc(db, "products", productId);
+const productOrigin = document.getElementById("productOrigin");
 
-        const productSnap = await getDoc(productRef);
+const minimumOrder = document.getElementById("minimumOrder");
 
-        if (!productSnap.exists()) {
+const availability = document.getElementById("availability");
 
-            alert("Product not found.");
+// =====================================
+// Get Product ID
+// =====================================
 
-            return;
+const params = new URLSearchParams(window.location.search);
 
-        }
+const productId = params.get("id");
 
-        const product = productSnap.data();
-fillProductDetails(product);
-        productImage.src = product.image;
+// =====================================
+// Load Product
+// =====================================
 
-        productName.textContent = product.name;
+async function loadProduct(){
 
-        productPrice.textContent = "$" + product.price;
+if(!productId){
 
-        productCategory.textContent = product.category;
+productName.textContent = "Product Not Found";
 
-        productDescription.textContent = product.description;
-
-        productStock.textContent =
-            product.stock > 0
-                ? "✅ In Stock"
-                : "❌ Out of Stock";
-
-    }
-
-    catch (error) {
-
-        console.error(error);
-
-        alert("Failed to load product.");
-
-    }
+return;
 
 }
 
-loadProduct();
-// ======================
-// Related Products
-// ======================
+try{
 
-async function loadRelatedProducts() {
+const productRef = doc(db,"products",productId);
 
-    const container =
-        document.getElementById("relatedProducts");
+const productSnap = await getDoc(productRef);
 
-    try {
+if(!productSnap.exists()){
 
-        const snapshot =
-            await getDocs(collection(db, "products"));
+productName.textContent = "Product Not Found";
 
-        let html = "";
-
-        snapshot.forEach((doc) => {
-
-            const item = doc.data();
-
-            if (doc.id === productId) return;
-
-            html += `
-
-            <div class="product-card">
-
-                <img src="${item.image}" alt="${item.name}">
-
-                <div class="product-info">
-
-                    <h3>${item.name}</h3>
-
-                    <p class="price">$${item.price}</p>
-
-                    <a href="product_v2.html?id=${doc.id}" class="hero-btn">
-
-                        View Details
-
-                    </a>
-
-                </div>
-
-            </div>
-
-            `;
-
-        });
-
-        container.innerHTML = html;
-
-    }
-
-    catch (error) {
-
-        console.error(error);
-
-    }
-
-}
-// ======================
-// Fill Product Information
-// ======================
-
-function fillProductDetails(product) {
-
-    document.getElementById("sellerName").textContent =
-        product.seller || "Unknown Seller";
-
-    document.getElementById("sellerCompany").textContent =
-        product.company || "BDIMarket Place Supplier";
-
-    document.getElementById("sellerLocation").textContent =
-        product.location || "Bangladesh";
-
-    document.getElementById("sellerVerified").textContent =
-        product.verified ? "✔ Verified Supplier" : "Not Verified";
-
-    document.getElementById("productBrand").textContent =
-        product.brand || "N/A";
-
-    document.getElementById("productModel").textContent =
-        product.model || "N/A";
-
-    document.getElementById("productOrigin").textContent =
-        product.origin || "N/A";
-
-    document.getElementById("minimumOrder").textContent =
-        product.minimumOrder || "1 Piece";
-
-    document.getElementById("availability").textContent =
-        product.stock > 0 ? "Available" : "Out Of Stock";
-
-}
-loadRelatedProducts();
-
-Complete product_v2.html (Product Details Page)
-// ======================
-// Buttons
-// ======================
-
-const cartButton =
-document.getElementById("addToCart");
-
-const wishlistButton =
-document.getElementById("addToWishlist");
-
-if (cartButton) {
-
-    cartButton.addEventListener("click", () => {
-
-        alert("Add To Cart feature will be connected with Firebase in next step.");
-
-    });
+return;
 
 }
 
-if (wishlistButton) {
+const product = productSnap.data();
 
-    wishlistButton.addEventListener("click", () => {
+// ===============================
+// Product Information
+// ===============================
 
-        alert("Wishlist feature will be connected with Firebase in next step.");
+productImage.src =
+product.image || "images/no-image.png";
 
-    });
+productName.textContent =
+product.name || "Unnamed Product";
+
+productPrice.textContent =
+`$${product.price || 0}`;
+
+productCategory.textContent =
+product.category || "General";
+
+productStock.textContent =
+product.stock || "Available";
+
+productDescription.textContent =
+product.description ||
+"No description available.";
+
+// ===============================
+// Seller Information
+// ===============================
+
+sellerName.textContent =
+product.sellerName || "Unknown Seller";
+
+sellerCompany.textContent =
+product.company || "BDIMarket Seller";
+
+sellerCountry.textContent =
+product.country || "Bangladesh";
+
+// ===============================
+// Specifications
+// ===============================
+
+productBrand.textContent =
+product.brand || "-";
+
+productModel.textContent =
+product.model || "-";
+
+productOrigin.textContent =
+product.origin || "-";
+
+minimumOrder.textContent =
+product.minimumOrder || "1 Piece";
+
+availability.textContent =
+product.availability || "In Stock";
+
+}catch(error){
+
+console.error(error);
+
+productName.textContent =
+"Failed to load product.";
 
 }
-
-// ======================
-// Share Product
-// ======================
-
-if (navigator.share) {
-
-    const shareButton =
-    document.createElement("button");
-
-    shareButton.textContent = "📤 Share";
-
-    shareButton.className = "hero-btn";
-
-    document.querySelector(".product-buttons")
-        .appendChild(shareButton);
-
-    shareButton.addEventListener("click", async () => {
-
-        await navigator.share({
-
-            title: document.getElementById("productName").textContent,
-
-            url: window.location.href
-
-        });
-
-    });
-
-}
-
-console.log("Product Details Loaded Successfully");
-// ======================
-// Add To Cart
-// ======================
-
-const addToCartBtn =
-document.getElementById("addToCart");
-
-if (addToCartBtn) {
-
-    addToCartBtn.addEventListener("click", async () => {
-
-        const user = auth.currentUser;
-
-        if (!user) {
-
-            alert("Please login first.");
-
-            return;
-
-        }
-
-        if (!currentProduct) {
-
-            alert("Product not loaded.");
-
-            return;
-
-        }
-
-        try {
-
-            await addDoc(collection(db, "cart"), {
-
-                userId: user.uid,
-
-                productId: productId,
-
-                name: currentProduct.name,
-
-                image: currentProduct.image,
-
-                price: currentProduct.price,
-
-                quantity: 1,
-
-                createdAt: serverTimestamp()
-
-            });
-
-            alert("Product added to cart successfully.");
-
-        }
-
-        catch (error) {
-
-            console.error(error);
-
-            alert("Failed to add product.");
-
-        }
-
-    });
 
 }
