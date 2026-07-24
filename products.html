@@ -1,1 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+All Products | BDIMarket Place
+</title>
+
+<meta name="description"
+content="Browse products from verified suppliers around the world.">
+
+<link rel="stylesheet" href="css/style_v4.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- ======================
+TOP BAR
+====================== -->
+
+<div class="top-bar">
+
+<div class="container">
+
+<div class="top-left">
+🌍 Welcome To BDIMarket Place
+</div>
+
+<div class="top-right">
+
+<a href="#">Help Center</a>
+
+<a href="#">English</a>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ======================
+HEADER
+====================== -->
+
+<header class="header">
+
+<div class="container header-wrapper">
+
+<div class="logo">
+
+<a href="index_v2.html">
+
+BDI<span>Market Place</span>
+
+</a>
+
+</div>
+
+<div class="search-box">
+
+<input
+type="text"
+id="searchInput"
+placeholder="Search Products...">
+
+<button id="searchBtn">
+
+Search
+
+</button>
+
+</div>
+
+<div class="header-buttons">
+
+<a href="login.html">
+
+Sign In
+
+</a>
+
+<a href="signup.html">
+
+Join Free
+
+</a>
+
+<a href="seller.html">
+
+Seller
+
+</a>
+
+<a href="cart_v2.html" class="cart-btn">
+
+🛒 Cart
+
+</a>
+
+</div>
+
+</div>
+
+</header>
+
+<!-- ======================
+PAGE TITLE
+====================== -->
+
+<section class="page-title">
+
+<div class="container">
+
+<h1>
+
+All Products
+
+</h1>
+
+<p>
+
+Browse thousands of products from trusted suppliers.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- ======================
+FILTER SECTION
+====================== -->
+
+<section class="product-filter">
+
+<div class="container">
+
+<div class="filter-wrapper">
+
+<select id="categoryFilter">
+
+<option value="">
+
+All Categories
+
+</option>
+
+<option>
+
+Electronics
+
+</option>
+
+<option>
+
+Fashion
+
+</option>
+
+<option>
+
+Machinery
+
+</option>
+
+<option>
+
+Agriculture
+
+</option>
+
+<option>
+
+Beauty
+
+</option>
+
+<option>
+
+Home & Kitchen
+
+</option>
+
+<option>
+
+Sports
+
+</option>
+
+<option>
+
+Automobile
+
+</option>
+
+</select>
+
+<select id="priceFilter">
+
+<option value="">
+
+All Prices
+
+</option>
+
+<option value="1">
+
+Under $50
+
+</option>
+
+<option value="2">
+
+$50 - $100
+
+</option>
+
+<option value="3">
+
+$100 - $500
+
+</option>
+
+<option value="4">
+
+Above $500
+
+</option>
+
+</select>
+
+<button id="applyFilter">
+
+Apply Filter
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+  <!-- ======================
+PRODUCTS SECTION
+====================== -->
+
+<section class="products-section">
+
+<div class="container">
+
+<div class="products-top">
+
+<h2>Featured Products</h2>
+
+<p id="productCount">
+
+Loading products...
+
+</p>
+
+</div>
+
+<div
+class="products-grid"
+id="productsContainer">
+
+<div class="loading">
+
+Loading Products...
+
+</div>
+
+</div>
+
+<div
+id="noProducts"
+class="no-products"
+style="display:none;">
+
+<h3>
+
+No Products Found
+
+</h3>
+
+<p>
+
+Try another category or search keyword.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ======================
+PAGINATION
+====================== -->
+
+<section class="pagination-section">
+
+<div class="container">
+
+<div class="pagination">
+
+<button id="prevPage">
+
+← Previous
+
+</button>
+
+<span id="pageNumber">
+
+Page 1
+
+</span>
+
+<button id="nextPage">
+
+Next →
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ======================
+NEWSLETTER
+====================== -->
+
+<section class="newsletter">
+
+<div class="container">
+
+<div class="newsletter-box">
+
+<h2>
+
+Subscribe To Our Newsletter
+
+</h2>
+
+<p>
+
+Get the latest products, suppliers and business offers.
+
+</p>
+
+<div class="newsletter-form">
+
+<input
+type="email"
+placeholder="Enter Your Email">
+
+<button>
+
+Subscribe
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ======================
+FOOTER
+====================== -->
+
+<footer class="footer">
+
+<div class="container">
+
+<div class="footer-grid">
+
+<div>
+
+<h3>
+
+BDIMarket Place
+
+</h3>
+
+<p>
+
+Your trusted Global B2B Marketplace.
+
+</p>
+
+</div>
+
+<div>
+
+<h4>
+
+Marketplace
+
+</h4>
+
+<ul>
+
+<li><a href="index_v2.html">Home</a></li>
+
+<li><a href="products_v2.html">Products</a></li>
+
+<li><a href="seller.html">Seller Dashboard</a></li>
+
+<li><a href="upload.html">Upload Product</a></li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h4>
+
+Support
+
+</h4>
+
+<ul>
+
+<li><a href="#">Help Center</a></li>
+
+<li><a href="#">Privacy Policy</a></li>
+
+<li><a href="#">Terms & Conditions</a></li>
+
+<li><a href="#">Contact Us</a></li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h4>
+
+Follow Us
+
+</h4>
+
+<p>Facebook</p>
+
+<p>Instagram</p>
+
+<p>LinkedIn</p>
+
+<p>YouTube</p>
+
+</div>
+
+</div>
+
+<hr>
+
+<p class="copyright">
+
+© 2026 BDIMarket Place. All Rights Reserved.
+
+</p>
+
+</div>
+
+</footer>
+  <!-- ======================
+SCRIPTS
+====================== -->
+
+<script type="module" src="js/firebase.js"></script>
+
+<script type="module" src="js/auth.js"></script>
+
+<script type="module" src="js/products_v2.js"></script>
+
+</body>
+
+</html>
