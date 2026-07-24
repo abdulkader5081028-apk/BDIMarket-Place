@@ -4,245 +4,91 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>
-All Products | BDIMarket Place
-</title>
+<title>Products | BDIMarket Place</title>
 
-<meta name="description"
-content="Browse products from verified suppliers around the world.">
-
-<link rel="stylesheet" href="css/style_v4.css">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
 
 </head>
 
 <body>
 
-<!-- ======================
-TOP BAR
-====================== -->
+<!-- ================= TOP BAR ================= -->
 
 <div class="top-bar">
 
-<div class="container">
+<div class="container top-container">
 
-<div class="top-left">
-🌍 Welcome To BDIMarket Place
-</div>
+<div>
 
-<div class="top-right">
-
-<a href="#">Help Center</a>
-
-<a href="#">English</a>
+🌍 Global B2B Marketplace
 
 </div>
 
+<div class="top-links">
+
+<a href="index.html">Home</a>
+
+<a href="seller.html">Seller</a>
+
+<a href="cart.html">Cart</a>
+
+<a href="login.html">Login</a>
+
+</div>
+
 </div>
 
 </div>
 
-<!-- ======================
-HEADER
-====================== -->
+<!-- ================= HEADER ================= -->
 
 <header class="header">
 
-<div class="container header-wrapper">
+<div class="container header-container">
 
-<div class="logo">
+<button class="menu-btn" id="menuBtn">
 
-<a href="index_v2.html">
+☰
 
-BDI<span>Market Place</span>
+</button>
+
+<a href="index.html" class="logo">
+
+<span class="logo-dark">BDI</span><span class="logo-orange">Market</span>
+
+</a>
+
+<a href="cart.html" class="cart-btn">
+
+🛒
+
+<span id="cartCount">0</span>
 
 </a>
 
 </div>
+
+</header>
+
+<!-- ================= SEARCH ================= -->
+
+<section class="search-section">
+
+<div class="container">
 
 <div class="search-box">
 
 <input
 type="text"
 id="searchInput"
-placeholder="Search Products...">
+placeholder="Search products...">
 
 <button id="searchBtn">
 
-Search
-
-</button>
-
-</div>
-
-<div class="header-buttons">
-
-<a href="login.html">
-
-Sign In
-
-</a>
-
-<a href="signup.html">
-
-Join Free
-
-</a>
-
-<a href="seller.html">
-
-Seller
-
-</a>
-
-<a href="cart_v2.html" class="cart-btn">
-
-🛒 Cart
-
-</a>
-
-</div>
-
-</div>
-
-</header>
-
-<!-- ======================
-PAGE TITLE
-====================== -->
-
-<section class="page-title">
-
-<div class="container">
-
-<h1>
-
-All Products
-
-</h1>
-
-<p>
-
-Browse thousands of products from trusted suppliers.
-
-</p>
-
-</div>
-
-</section>
-
-<!-- ======================
-FILTER SECTION
-====================== -->
-
-<section class="product-filter">
-
-<div class="container">
-
-<div class="filter-wrapper">
-
-<select id="categoryFilter">
-
-<option value="">
-
-All Categories
-
-</option>
-
-<option>
-
-Electronics
-
-</option>
-
-<option>
-
-Fashion
-
-</option>
-
-<option>
-
-Machinery
-
-</option>
-
-<option>
-
-Agriculture
-
-</option>
-
-<option>
-
-Beauty
-
-</option>
-
-<option>
-
-Home & Kitchen
-
-</option>
-
-<option>
-
-Sports
-
-</option>
-
-<option>
-
-Automobile
-
-</option>
-
-</select>
-
-<select id="priceFilter">
-
-<option value="">
-
-All Prices
-
-</option>
-
-<option value="1">
-
-Under $50
-
-</option>
-
-<option value="2">
-
-$50 - $100
-
-</option>
-
-<option value="3">
-
-$100 - $500
-
-</option>
-
-<option value="4">
-
-Above $500
-
-</option>
-
-</select>
-
-<button id="applyFilter">
-
-Apply Filter
+🔍
 
 </button>
 
@@ -252,29 +98,102 @@ Apply Filter
 
 </section>
 
-  <!-- ======================
-PRODUCTS SECTION
-====================== -->
+<!-- ================= PRODUCTS ================= -->
 
-<section class="products-section">
+<section class="products-page">
 
-<div class="container">
+<div class="container products-layout">
+  <!-- ================= SIDEBAR ================= -->
 
-<div class="products-top">
+<aside class="products-sidebar">
 
-<h2>Featured Products</h2>
+<div class="filter-box">
 
-<p id="productCount">
+<h3>Categories</h3>
 
-Loading products...
+<ul>
 
-</p>
+<li><a href="#">📱 Electronics</a></li>
+
+<li><a href="#">💻 Computers</a></li>
+
+<li><a href="#">👕 Fashion</a></li>
+
+<li><a href="#">🏠 Home & Living</a></li>
+
+<li><a href="#">⚽ Sports</a></li>
+
+<li><a href="#">🏭 Industrial</a></li>
+
+</ul>
 
 </div>
 
-<div
-class="products-grid"
-id="productsContainer">
+<div class="filter-box">
+
+<h3>Price</h3>
+
+<label><input type="checkbox"> Under $50</label>
+
+<label><input type="checkbox"> $50 - $100</label>
+
+<label><input type="checkbox"> $100 - $500</label>
+
+<label><input type="checkbox"> Above $500</label>
+
+</div>
+
+<div class="filter-box">
+
+<h3>Supplier Country</h3>
+
+<label><input type="checkbox"> 🇨🇳 China</label>
+
+<label><input type="checkbox"> 🇧🇩 Bangladesh</label>
+
+<label><input type="checkbox"> 🇺🇸 USA</label>
+
+<label><input type="checkbox"> 🇯🇵 Japan</label>
+
+</div>
+
+<div class="filter-box">
+
+<h3>Rating</h3>
+
+<label><input type="checkbox"> ⭐⭐⭐⭐⭐</label>
+
+<label><input type="checkbox"> ⭐⭐⭐⭐☆</label>
+
+<label><input type="checkbox"> ⭐⭐⭐☆☆</label>
+
+</div>
+
+</aside>
+
+<!-- ================= PRODUCT LIST ================= -->
+
+<div class="products-content">
+
+<div class="section-header">
+
+<h2>All Products</h2>
+
+<select id="sortProducts">
+
+<option value="newest">Newest</option>
+
+<option value="low">Price: Low to High</option>
+
+<option value="high">Price: High to Low</option>
+
+<option value="name">Name (A-Z)</option>
+
+</select>
+
+</div>
+
+<div id="products-container" class="product-grid">
 
 <div class="loading">
 
@@ -284,52 +203,36 @@ Loading Products...
 
 </div>
 
-<div
-id="noProducts"
-class="no-products"
-style="display:none;">
-
-<h3>
-
-No Products Found
-
-</h3>
-
-<p>
-
-Try another category or search keyword.
-
-</p>
-
 </div>
-
-</div>
-
-</section>
-
-<!-- ======================
-PAGINATION
-====================== -->
-
-<section class="pagination-section">
-
-<div class="container">
+  <!-- ================= PAGINATION ================= -->
 
 <div class="pagination">
 
-<button id="prevPage">
+<button class="page-btn">
 
 ← Previous
 
 </button>
 
-<span id="pageNumber">
+<button class="page-btn active">
 
-Page 1
+1
 
-</span>
+</button>
 
-<button id="nextPage">
+<button class="page-btn">
+
+2
+
+</button>
+
+<button class="page-btn">
+
+3
+
+</button>
+
+<button class="page-btn">
 
 Next →
 
@@ -339,53 +242,11 @@ Next →
 
 </div>
 
-</section>
-
-<!-- ======================
-NEWSLETTER
-====================== -->
-
-<section class="newsletter">
-
-<div class="container">
-
-<div class="newsletter-box">
-
-<h2>
-
-Subscribe To Our Newsletter
-
-</h2>
-
-<p>
-
-Get the latest products, suppliers and business offers.
-
-</p>
-
-<div class="newsletter-form">
-
-<input
-type="email"
-placeholder="Enter Your Email">
-
-<button>
-
-Subscribe
-
-</button>
-
-</div>
-
-</div>
-
 </div>
 
 </section>
 
-<!-- ======================
-FOOTER
-====================== -->
+<!-- ================= FOOTER ================= -->
 
 <footer class="footer">
 
@@ -395,15 +256,11 @@ FOOTER
 
 <div>
 
-<h3>
-
-BDIMarket Place
-
-</h3>
+<h3>BDIMarket Place</h3>
 
 <p>
 
-Your trusted Global B2B Marketplace.
+The complete B2B marketplace for buyers and sellers.
 
 </p>
 
@@ -411,17 +268,13 @@ Your trusted Global B2B Marketplace.
 
 <div>
 
-<h4>
-
-Marketplace
-
-</h4>
+<h4>Quick Links</h4>
 
 <ul>
 
-<li><a href="index_v2.html">Home</a></li>
+<li><a href="index.html">Home</a></li>
 
-<li><a href="products_v2.html">Products</a></li>
+<li><a href="products.html">Products</a></li>
 
 <li><a href="seller.html">Seller Dashboard</a></li>
 
@@ -433,11 +286,7 @@ Marketplace
 
 <div>
 
-<h4>
-
-Support
-
-</h4>
+<h4>Support</h4>
 
 <ul>
 
@@ -447,7 +296,7 @@ Support
 
 <li><a href="#">Terms & Conditions</a></li>
 
-<li><a href="#">Contact Us</a></li>
+<li><a href="contact.html">Contact</a></li>
 
 </ul>
 
@@ -455,19 +304,19 @@ Support
 
 <div>
 
-<h4>
+<h4>Account</h4>
 
-Follow Us
+<ul>
 
-</h4>
+<li><a href="login.html">Login</a></li>
 
-<p>Facebook</p>
+<li><a href="signup.html">Register</a></li>
 
-<p>Instagram</p>
+<li><a href="cart.html">Cart</a></li>
 
-<p>LinkedIn</p>
+<li><a href="checkout.html">Checkout</a></li>
 
-<p>YouTube</p>
+</ul>
 
 </div>
 
@@ -484,15 +333,14 @@ Follow Us
 </div>
 
 </footer>
-  <!-- ======================
-SCRIPTS
-====================== -->
+
+<!-- ================= SCRIPTS ================= -->
 
 <script type="module" src="js/firebase.js"></script>
 
-<script type="module" src="js/auth.js"></script>
+<script type="module" src="js/products.js"></script>
 
-<script type="module" src="js/products_v2.js"></script>
+<script type="module" src="js/home.js"></script>
 
 </body>
 
