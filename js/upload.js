@@ -1,223 +1,108 @@
-// ======================================
-// BDIMarket Place - upload.js
-// Part 1
-// ======================================
+// =====================================
+// BDIMarket Place
+// upload.js - Part 1
+// =====================================
 
-import { auth, db, storage } from "./firebase.js";
-
-import {
-    onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
+import { db, auth } from "./firebase.js";
 
 import {
-    collection,
-    addDoc,
-    serverTimestamp
-} from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+collection,
+addDoc,
+serverTimestamp
+} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-import {
-    ref,
-    uploadBytes,
-    getDownloadURL
-} from "https://www.gstatic.com/firebasejs/10.13.2/firebase-storage.js";
-
-// ======================================
-// Login Check
-// ======================================
-
-let currentUser = null;
-
-onAuthStateChanged(auth, (user) => {
-
-    if (!user) {
-
-        alert("Please login first.");
-
-        window.location.href = "login.html";
-
-        return;
-
-    }
-
-    currentUser = user;
-
-});
-
-// ======================================
-// Form Elements
-// ======================================
-
-const form =
+const uploadForm =
 document.getElementById("uploadForm");
 
-const submitBtn =
-form.querySelector("button[type='submit']");
-// ======================================
+// =====================================
 // Upload Product
-// ======================================
+// =====================================
 
-form.addEventListener("submit", async (e) => {
+uploadForm?.addEventListener("submit", async (e) => {
 
-    e.preventDefault();
+e.preventDefault();
 
-    submitBtn.disabled = true;
+const product = {
 
-    submitBtn.textContent = "Uploading...";
+name:
+document.getElementById("productName").value.trim(),
 
-    try {
+price:
+Number(document.getElementById("productPrice").value),
 
-        const name =
-        document.getElementById("productName").value.trim();
+category:
+document.getElementById("productCategory").value.trim(),
 
-        const price =
-        Number(document.getElementById("productPrice").value);
+description:
+document.getElementById("productDescription").value.trim(),
 
-        const category =
-        document.getElementById("productCategory").value;
+brand:
+document.getElementById("productBrand").value.trim(),
 
-        const description =
-        document.getElementById("productDescription").value.trim();
+model:
+document.getElementById("productModel").value.trim(),
 
-        const company =
-        document.getElementById("companyName").value.trim();
+stock:
+Number(document.getElementById("productStock").value || 0),
 
-        const country =
-        document.getElementById("country").value.trim();
+moq:
+Number(document.getElementById("productMOQ").value || 1),
 
-        const moq =
-        Number(document.getElementById("moq").value);
+image:
+document.getElementById("productImage").value.trim(),
 
-        const stock =
-        Number(document.getElementById("stock").value);
+seller:
+auth.currentUser?.email || "Guest Seller",
 
-        const imageFile =
-        document.getElementById("productImage").files[0];
+status:"Available",
 
-        if (!imageFile) {
+createdAt:serverTimestamp()
 
-            alert("Please select an image.");
+};
 
-            submitBtn.disabled = false;
+try{
 
-            submitBtn.textContent = "📤 Upload Product";
+await addDoc(
 
-            return;
+collection(db,"products"),
 
-        }
+product
 
-        // Upload Image
+);
+// =====================================
+// Save Product
+// =====================================
 
-        const imageRef = ref(
-            storage,
-            `products/${Date.now()}_${imageFile.name}`
-        );
+alert("✅ Product uploaded successfully!");
 
-        await uploadBytes(imageRef, imageFile);
+uploadForm.reset();
 
-        const imageUrl =
-        await getDownloadURL(imageRef);
-      // ======================================
-// Save Product To Firestore
-// ======================================
+window.location.href = "products.html";
 
-        await addDoc(collection(db, "products"), {
+}catch(error){
 
-            name,
-            price,
-            category,
-            description,
+console.error("Upload Error:", error);
 
-            company,
-            country,
+alert("❌ Failed to upload product.\n\n" + error.message);
 
-            moq,
-            stock,
-
-            image: imageUrl,
-
-            sellerId: currentUser.uid,
-
-            sellerEmail: currentUser.email,
-
-            createdAt: serverTimestamp()
-
-        });
-
-        alert("✅ Product uploaded successfully.");
-
-        form.reset();
-
-        window.location.href = "seller.html";
-
-    }
-
-    catch (error) {
-
-        console.error(error);
-
-        alert("❌ " + error.message);
-
-    }
-
-    finally {
-
-        submitBtn.disabled = false;
-
-        submitBtn.textContent = "📤 Upload Product";
-
-    }
+}
 
 });
-// ======================================
-// Validation
-// ======================================
 
-        if (!name) {
-            throw new Error("Product name is required.");
-        }
+// =====================================
+// Auth Check
+// =====================================
 
-        if (price <= 0) {
-            throw new Error("Enter a valid price.");
-        }
+auth.onAuthStateChanged?.((user)=>{
 
-        if (!category) {
-            throw new Error("Please select a category.");
-        }
+if(!user){
 
-        if (!description) {
-            throw new Error("Product description is required.");
-        }
+alert("Please login first.");
 
-        if (!company) {
-            throw new Error("Company name is required.");
-        }
+window.location.href="login.html";
 
-        if (!country) {
-            throw new Error("Country is required.");
-        }
+}
 
-        if (stock < 1) {
-            throw new Error("Stock must be at least 1.");
-        }
+});
 
-        if (moq < 1) {
-            throw new Error("MOQ must be at least 1.");
-        }
-
-        const allowedTypes = [
-            "image/jpeg",
-            "image/png",
-            "image/webp"
-        ];
-
-        if (!allowedTypes.includes(imageFile.type)) {
-            throw new Error(
-                "Only JPG, PNG and WEBP images are allowed."
-            );
-        }
-
-        if (imageFile.size > 2 * 1024 * 1024) {
-            throw new Error(
-                "Image size must be under 2 MB."
-            );
-        }
+console.log("✅ Upload Page Ready");
