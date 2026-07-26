@@ -1,217 +1,274 @@
-// ======================================
-// BDIMarket Place - seller.js
-// Part 1
-// ======================================
+// =====================================
+// BDIMarket Place
+// seller.js - Part 1
+// =====================================
 
-import { auth, db } from "./firebase.js";
-
-import {
-    onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
+import { db, auth } from "./firebase.js";
 
 import {
-    collection,
-    query,
-    where,
-    getDocs
-} from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+collection,
+getDocs
+} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-// ======================================
-// HTML Elements
-// ======================================
+import {
+onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
-const productsContainer =
+// =====================================
+// Elements
+// =====================================
+
+const sellerProducts =
 document.getElementById("sellerProducts");
 
 const totalProducts =
 document.getElementById("totalProducts");
 
-// ======================================
-// Current User
-// ======================================
+const totalOrders =
+document.getElementById("totalOrders");
 
-let currentUser = null;
+const totalRevenue =
+document.getElementById("totalRevenue");
 
-// ======================================
-// Check Login
-// ======================================
+const pendingOrders =
+document.getElementById("pendingOrders");
 
-onAuthStateChanged(auth, async (user) => {
+// =====================================
+// Auth Check
+// =====================================
 
-    if (!user) {
+onAuthStateChanged(auth, (user) => {
 
-        alert("Please login first.");
+if (!user) {
 
-        window.location.href = "login.html";
+window.location.href = "login.html";
 
-        return;
-
-    }
-
-    currentUser = user;
-
-    await loadSellerProducts();
-
-});
-// ======================================
-// Load Seller Products
-// ======================================
-
-async function loadSellerProducts() {
-
-    productsContainer.innerHTML = `
-        <div class="loading">
-            Loading Products...
-        </div>
-    `;
-
-    try {
-
-        const q = query(
-            collection(db, "products"),
-            where("sellerId", "==", currentUser.uid)
-        );
-
-        const snapshot = await getDocs(q);
-
-        totalProducts.textContent = snapshot.size;
-
-        if (snapshot.empty) {
-
-            productsContainer.innerHTML = `
-                <div class="empty-products">
-                    <h2>No Products Found</h2>
-                    <p>Upload your first product.</p>
-                </div>
-            `;
-
-            return;
-
-        }
-
-        renderProducts(snapshot);
-
-    }
-
-    catch (error) {
-
-        console.error(error);
-
-        productsContainer.innerHTML = `
-            <div class="error-message">
-                Failed to load products.
-            </div>
-        `;
-
-    }
+return;
 
 }
-// ======================================
-// Render Seller Products
-// ======================================
 
-function renderProducts(snapshot) {
+loadSellerProducts(user.email);
 
-    let html = "";
+});
+// =====================================
+// Load Seller Products
+// =====================================
 
-    snapshot.forEach((docSnap) => {
+async function loadSellerProducts(userEmail){
 
-        const product = docSnap.data();
+try{
 
-        html += `
+const snapshot = await getDocs(
+collection(db,"products")
+);
+
+let html = "";
+
+let productCount = 0;
+
+let revenue = 0;
+
+snapshot.forEach((doc)=>{
+
+const product = doc.data();
+
+// শুধুমাত্র Logged-in Seller-এর Product
+
+if(product.seller !== userEmail){
+
+return;
+
+}
+
+productCount++;
+
+revenue +=
+(product.price || 0) *
+(product.stock || 0);
+
+html += `
 
 <div class="product-card">
 
-    <div class="product-image">
+<img
+src="${product.image || 'images/no-image.png'}"
+alt="${product.name}">
 
-        <img src="${product.image}" alt="${product.name}">
+<div class="product-info">
 
-    </div>
+<h3>${product.name}</h3>
 
-    <div class="product-info">
+<p class="price">
 
-        <h3>${product.name}</h3>
+$${product.price || 0}
 
-        <p><strong>Price:</strong> $${product.price}</p>
+</p>
 
-        <p><strong>Category:</strong> ${product.category}</p>
+<p>
 
-        <p><strong>Stock:</strong> ${product.stock}</p>
+Category:
+${product.category || "-"}
 
-        <div class="product-actions">
+</p>
 
-            <a
-                href="product.html?id=${docSnap.id}"
-                class="product-btn">
+<p>
 
-                View
+Stock:
+${product.stock || 0}
 
-            </a>
+</p>
 
-            <button
-                class="delete-btn"
-                data-id="${docSnap.id}">
+<div class="product-actions">
 
-                🗑 Delete
+<a
+href="product.html?id=${doc.id}"
+class="btn btn-outline">
 
-            </button>
+View
 
-        </div>
+</a>
 
-    </div>
+<a
+href="upload.html?id=${doc.id}"
+class="btn btn-primary">
+
+Edit
+
+</a>
+
+<button
+class="btn btn-danger"
+onclick="deleteProduct('${doc.id}')">
+
+Delete
+
+</button>
+
+</div>
+
+</div>
 
 </div>
 
 `;
 
-    });
+});
 
-    productsContainer.innerHTML = html;
+if(productCount===0){
+
+sellerProducts.innerHTML=`
+
+<div class="empty-state">
+
+<h3>No Products Found</h3>
+
+<p>
+
+Upload your first product.
+
+</p>
+
+<a
+href="upload.html"
+class="btn btn-primary">
+
+Upload Product
+
+</a>
+
+</div>
+
+`;
+
+}else{
+
+sellerProducts.innerHTML = html;
 
 }
-// ======================================
+
+totalProducts.textContent = productCount;
+
+totalRevenue.textContent =
+"$" + revenue.toFixed(2);
+
+// আপাতত Order Data যোগ করা হয়নি
+
+totalOrders.textContent = "0";
+
+pendingOrders.textContent = "0";
+
+}catch(error){
+
+console.error(error);
+
+sellerProducts.innerHTML =
+
+"<p>Failed to load products.</p>";
+
+}
+
+}
+// =====================================
 // Delete Product
-// ======================================
+// =====================================
 
 import {
-    deleteDoc,
-    doc
-} from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+doc,
+deleteDoc
+} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-document.addEventListener("click", async (e) => {
+window.deleteProduct = async function(productId){
 
-    if (!e.target.classList.contains("delete-btn")) return;
+const confirmDelete = confirm(
+"Are you sure you want to delete this product?"
+);
 
-    const productId = e.target.dataset.id;
+if(!confirmDelete){
 
-    const confirmDelete = confirm(
-        "Are you sure you want to delete this product?"
-    );
+return;
 
-    if (!confirmDelete) return;
+}
 
-    try {
+try{
 
-        await deleteDoc(doc(db, "products", productId));
+await deleteDoc(
+doc(db,"products",productId)
+);
 
-        alert("✅ Product deleted successfully.");
+alert("✅ Product deleted successfully.");
 
-        await loadSellerProducts();
+const user = auth.currentUser;
 
-    }
+if(user){
 
-    catch (error) {
+loadSellerProducts(user.email);
 
-        console.error(error);
+}
 
-        alert("❌ Failed to delete product.");
+}catch(error){
 
-    }
+console.error(error);
+
+alert("❌ Failed to delete product.");
+
+}
+
+};
+
+// =====================================
+// Refresh Dashboard
+// =====================================
+
+window.addEventListener("focus",()=>{
+
+const user = auth.currentUser;
+
+if(user){
+
+loadSellerProducts(user.email);
+
+}
 
 });
 
-// ======================================
-// Ready
-// ======================================
-
-console.log("✅ seller.js loaded successfully");
+console.log("✅ Seller Dashboard Ready");
