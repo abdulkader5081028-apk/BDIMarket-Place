@@ -92,3 +92,100 @@ checkoutItems.innerHTML=html;
 checkoutTotal.textContent="$"+total.toFixed(2);
 
 }
+// =====================================
+// Place Order
+// =====================================
+
+checkoutForm?.addEventListener("submit", async (e) => {
+
+e.preventDefault();
+
+if(cart.length===0){
+
+alert("Your cart is empty.");
+
+return;
+
+}
+
+const order={
+
+customerName:
+document.getElementById("customerName").value,
+
+customerEmail:
+document.getElementById("customerEmail").value,
+
+customerPhone:
+document.getElementById("customerPhone").value,
+
+customerAddress:
+document.getElementById("customerAddress").value,
+
+items:cart,
+
+total:checkoutTotal.textContent,
+
+status:"Pending",
+
+createdAt:serverTimestamp()
+
+};
+
+try{
+
+await addDoc(
+
+collection(db,"orders"),
+
+order
+
+);
+
+localStorage.removeItem("cart");
+
+alert("✅ Order placed successfully!");
+
+window.location.href="index.html";
+
+}catch(error){
+
+console.error(error);
+
+alert("❌ Failed to place order.");
+
+}
+
+});
+
+// =====================================
+// Cart Counter
+// =====================================
+
+function updateCartCount(){
+
+const count=document.getElementById("cartCount");
+
+if(!count) return;
+
+let totalQty=0;
+
+cart.forEach(item=>{
+
+totalQty+=item.qty||1;
+
+});
+
+count.textContent=totalQty;
+
+}
+
+// =====================================
+// Start
+// =====================================
+
+renderCheckout();
+
+updateCartCount();
+
+console.log("✅ Checkout Ready");
