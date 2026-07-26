@@ -1,6 +1,6 @@
 // =====================================
 // BDIMarket Place
-// upload.js - Part 1
+// upload.js V2
 // =====================================
 
 import { db, auth } from "./firebase.js";
@@ -11,18 +11,41 @@ addDoc,
 serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-const uploadForm =
-document.getElementById("uploadForm");
+import {
+onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+// =====================================
+// Elements
+// =====================================
+
+const uploadForm = document.getElementById("uploadForm");
+
+// =====================================
+// Check Login
+// =====================================
+
+onAuthStateChanged(auth,(user)=>{
+
+if(!user){
+
+alert("Please login first.");
+
+window.location.href="login.html";
+
+}
+
+});
 
 // =====================================
 // Upload Product
 // =====================================
 
-uploadForm?.addEventListener("submit", async (e) => {
+uploadForm?.addEventListener("submit", async(e)=>{
 
 e.preventDefault();
 
-const product = {
+const product={
 
 name:
 document.getElementById("productName").value.trim(),
@@ -43,20 +66,19 @@ model:
 document.getElementById("productModel").value.trim(),
 
 stock:
-Number(document.getElementById("productStock").value || 0),
+Number(document.getElementById("productStock").value||0),
 
 moq:
-Number(document.getElementById("productMOQ").value || 1),
+Number(document.getElementById("productMOQ").value||1),
 
 image:
 document.getElementById("productImage").value.trim(),
 
 seller:
-auth.currentUser?.email || "Guest Seller",
+auth.currentUser?.email || "",
 
-status:"Available",
-
-createdAt:serverTimestamp()
+createdAt:
+serverTimestamp()
 
 };
 
@@ -70,12 +92,14 @@ product
 
 );
 // =====================================
-// Save Product
+// Upload Success
 // =====================================
 
 alert("✅ Product uploaded successfully!");
 
 uploadForm.reset();
+
+// Redirect to Products Page
 
 window.location.href = "products.html";
 
@@ -83,26 +107,14 @@ window.location.href = "products.html";
 
 console.error("Upload Error:", error);
 
-alert("❌ Failed to upload product.\n\n" + error.message);
+alert("❌ Upload failed!\n\n" + error.message);
 
 }
 
 });
 
 // =====================================
-// Auth Check
+// Page Ready
 // =====================================
 
-auth.onAuthStateChanged?.((user)=>{
-
-if(!user){
-
-alert("Please login first.");
-
-window.location.href="login.html";
-
-}
-
-});
-
-console.log("✅ Upload Page Ready");
+console.log("✅ upload.js V2 Ready");
