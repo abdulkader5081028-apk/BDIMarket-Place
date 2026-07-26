@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Checkout | BDIMarket Place</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<!-- ================= TOP BAR ================= -->
+
+<div class="top-bar">
+
+<div class="container top-container">
+
+<div>
+
+🌍 Global B2B Marketplace
+
+</div>
+
+<div class="top-links">
+
+<a href="index.html">Home</a>
+
+<a href="products.html">Products</a>
+
+<a href="cart.html">Cart</a>
+
+<a href="seller.html">Seller</a>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+<div class="container header-container">
+
+<a href="index.html" class="logo">
+
+<span class="logo-dark">BDI</span><span class="logo-orange">Market</span>
+
+</a>
+
+<a href="cart.html" class="cart-btn">
+
+🛒
+
+<span id="cartCount">0</span>
+
+</a>
+
+</div>
+
+</header>
+
+<!-- ================= CHECKOUT ================= -->
+
+<section class="checkout-page">
+
+<div class="container">
+
+<div class="section-header">
+
+<h2>Checkout</h2>
+
+<p>Complete your order securely.</p>
+
+</div>
+
+<div class="checkout-layout">
+
+<!-- Customer Form -->
+
+<div class="checkout-form">
+
+<h3>Shipping Information</h3>
+
+<form id="checkoutForm">
+
+<input
+type="text"
+id="customerName"
+placeholder="Full Name"
+required>
+
+<input
+type="email"
+id="customerEmail"
+placeholder="Email Address"
+required>
+
+<input
+type="tel"
+id="customerPhone"
+placeholder="Phone Number"
+required>
+
+<textarea
+id="customerAddress"
+placeholder="Shipping Address"
+required>
+
+</textarea>
+
+<button
+type="submit"
+class="btn btn-primary">
+
+Place Order
+
+</button>
+
+</form>
+
+</div>
+
+<!-- Order Summary -->
+
+<div class="checkout-summary">
+
+<h3>Order Summary</h3>
+
+<div id="checkoutItems">
+
+Loading...
+
+</div>
+
+<div class="summary-row">
+
+<span>Total</span>
+
+<strong id="checkoutTotal">
+
+$0
+
+</strong>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+<div class="container">
+
+<div class="footer-grid">
+
+<div>
+
+<h3>BDIMarket Place</h3>
+
+<p>
+
+Your trusted Global B2B Marketplace connecting buyers and suppliers worldwide.
+
+</p>
+
+</div>
+
+<div>
+
+<h4>Marketplace</h4>
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="products.html">Products</a></li>
+
+<li><a href="seller.html">Seller Dashboard</a></li>
+
+<li><a href="upload.html">Upload Product</a></li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h4>Support</h4>
+
+<ul>
+
+<li><a href="#">Help Center</a></li>
+
+<li><a href="#">Privacy Policy</a></li>
+
+<li><a href="#">Terms & Conditions</a></li>
+
+<li><a href="contact.html">Contact Us</a></li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h4>Account</h4>
+
+<ul>
+
+<li><a href="login.html">Login</a></li>
+
+<li><a href="signup.html">Register</a></li>
+
+<li><a href="cart.html">My Cart</a></li>
+
+<li><a href="checkout.html">Checkout</a></li>
+
+</ul>
+
+</div>
+
+</div>
+
+<hr>
+
+<p class="copyright">
+
+© 2026 BDIMarket Place. All Rights Reserved.
+
+</p>
+
+</div>
+
+</footer>
+
+<!-- ================= SCRIPTS ================= -->
+
+<script type="module" src="js/firebase.js"></script>
+
+<script type="module" src="js/checkout.js"></script>
+
+</body>
+
+</html>
