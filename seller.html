@@ -5,43 +5,39 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>Seller Dashboard | BDIMarket Place</title>
 
-<link rel="stylesheet" href="css/style_v4.css">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet"
+href="css/style.css">
 
 </head>
 
 <body>
 
-<!-- ======================
-TOP BAR
-====================== -->
+<!-- ================= TOP BAR ================= -->
 
 <div class="top-bar">
 
-<div class="container">
+<div class="container top-container">
 
-<div class="top-left">
+<div>
 
-🌍 Welcome Seller
+🏪 Seller Center
 
 </div>
 
-<div class="top-right">
+<div class="top-links">
 
 <a href="index.html">Home</a>
 
 <a href="products.html">Products</a>
 
-<a href="upload.html">Upload Product</a>
+<a href="upload.html">Upload</a>
+
+<a href="logout.html">Logout</a>
 
 </div>
 
@@ -49,223 +45,120 @@ TOP BAR
 
 </div>
 
-<!-- ======================
-HEADER
-====================== -->
+<!-- ================= HEADER ================= -->
 
 <header class="header">
 
-<div class="container header-wrapper">
+<div class="container header-container">
 
-<div class="logo">
+<a href="index.html"
+class="logo">
 
-<a href="index.html">
+<span class="logo-dark">BDI</span>
 
-BDI<span>Market Place</span>
-
-</a>
-
-</div>
-
-<div class="header-buttons">
-
-<a href="upload.html">
-
-➕ Upload Product
+<span class="logo-orange">Market</span>
 
 </a>
 
-<a href="cart.html" class="cart-btn">
+<a href="upload.html"
+class="btn btn-primary">
 
-🛒 Orders
++ Upload Product
 
 </a>
-
-</div>
 
 </div>
 
 </header>
 
-<!-- ======================
-PAGE TITLE
-====================== -->
-
-<section class="page-title">
-
-<div class="container">
-
-<h1>
-
-Seller Dashboard
-
-</h1>
-
-<p>
-
-Manage your products and grow your business.
-
-</p>
-
-</div>
-
-</section>
-
-<!-- ======================
-DASHBOARD CARDS
-====================== -->
+<!-- ================= DASHBOARD ================= -->
 
 <section class="dashboard">
 
 <div class="container">
 
+<div class="section-header">
+
+<h2>Seller Dashboard</h2>
+
+<p>
+
+Manage your products and orders.
+
+</p>
+
+</div>
+
 <div class="dashboard-cards">
 
 <div class="dashboard-card">
 
-<h3>Total Products</h3>
-
-<h2 id="totalProducts">
+<h3 id="totalProducts">
 
 0
 
-</h2>
+</h3>
+
+<p>Total Products</p>
 
 </div>
 
 <div class="dashboard-card">
 
-<h3>Total Orders</h3>
-
-<h2>
+<h3 id="totalOrders">
 
 0
 
-</h2>
+</h3>
+
+<p>Total Orders</p>
 
 </div>
 
 <div class="dashboard-card">
 
-<h3>Total Revenue</h3>
-
-<h2>
+<h3 id="totalRevenue">
 
 $0
 
-</h2>
+</h3>
+
+<p>Total Revenue</p>
 
 </div>
 
 <div class="dashboard-card">
 
-<h3>Pending Orders</h3>
-
-<h2>
+<h3 id="pendingOrders">
 
 0
 
-</h2>
+</h3>
+
+<p>Pending Orders</p>
 
 </div>
 
 </div>
 
- <!-- ======================
-QUICK ACTIONS
-====================== -->
+<!-- Product List -->
 
-<div class="dashboard-actions">
-
-<a href="upload.html" class="hero-btn">
-
-➕ Upload Product
-
-</a>
-
-<a href="products.html" class="hero-btn">
-
-📦 Browse Products
-
-</a>
-
-<a href="cart.html" class="hero-btn">
-
-🛒 View Orders
-
-</a>
-
-</div>
-
-<!-- ======================
-MY PRODUCTS
-====================== -->
-
-<div class="seller-products">
+<div class="dashboard-products">
 
 <div class="section-header">
 
-<h2>
-
-My Products
-
-</h2>
-
-<p>
-
-Products you have uploaded.
-
-</p>
+<h2>My Products</h2>
 
 </div>
 
-<div
-id="sellerProducts"
-class="products-grid">
+<div id="sellerProducts"
+class="product-grid">
 
 <div class="loading">
 
-Loading Products...
+Loading products...
 
 </div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ======================
-NEWSLETTER
-====================== -->
-
-<section class="newsletter">
-
-<div class="container">
-
-<div class="newsletter-box">
-
-<h2>
-
-Grow Your Business
-
-</h2>
-
-<p>
-
-Upload more products and reach buyers worldwide.
-
-</p>
-
-<div class="newsletter-form">
-
-<a href="upload.html" class="hero-btn">
-
-Upload New Product
-
-</a>
 
 </div>
 
@@ -275,9 +168,7 @@ Upload New Product
 
 </section>
  
-<!-- ======================
-FOOTER
-====================== -->
+<!-- ================= FOOTER ================= -->
 
 <footer class="footer">
 
@@ -291,7 +182,7 @@ FOOTER
 
 <p>
 
-Your trusted Global B2B Marketplace.
+Manage your business with the BDIMarket Place Seller Center.
 
 </p>
 
@@ -299,17 +190,17 @@ Your trusted Global B2B Marketplace.
 
 <div>
 
-<h4>Marketplace</h4>
+<h4>Seller</h4>
 
 <ul>
 
-<li><a href="index.html">Home</a></li>
-
-<li><a href="products.html">Products</a></li>
+<li><a href="seller.html">Dashboard</a></li>
 
 <li><a href="upload.html">Upload Product</a></li>
 
-<li><a href="seller.html">Seller Dashboard</a></li>
+<li><a href="products.html">All Products</a></li>
+
+<li><a href="orders.html">Orders</a></li>
 
 </ul>
 
@@ -323,11 +214,11 @@ Your trusted Global B2B Marketplace.
 
 <li><a href="#">Help Center</a></li>
 
+<li><a href="#">Seller Policy</a></li>
+
 <li><a href="#">Privacy Policy</a></li>
 
-<li><a href="#">Terms & Conditions</a></li>
-
-<li><a href="#">Contact Us</a></li>
+<li><a href="#">Contact Support</a></li>
 
 </ul>
 
@@ -335,15 +226,19 @@ Your trusted Global B2B Marketplace.
 
 <div>
 
-<h4>Follow Us</h4>
+<h4>Account</h4>
 
-<p>Facebook</p>
+<ul>
 
-<p>Instagram</p>
+<li><a href="profile.html">My Profile</a></li>
 
-<p>LinkedIn</p>
+<li><a href="settings.html">Settings</a></li>
 
-<p>YouTube</p>
+<li><a href="login.html">Login</a></li>
+
+<li><a href="#" id="logoutBtn">Logout</a></li>
+
+</ul>
 
 </div>
 
@@ -361,9 +256,7 @@ Your trusted Global B2B Marketplace.
 
 </footer>
 
-<!-- ======================
-SCRIPTS
-====================== -->
+<!-- ================= SCRIPTS ================= -->
 
 <script type="module" src="js/firebase.js"></script>
 
