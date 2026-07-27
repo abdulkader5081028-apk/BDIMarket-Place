@@ -1,120 +1,132 @@
-// =====================================
+// ======================================================
 // BDIMarket Place
-// upload.js V2
-// =====================================
+// Upload Product
+// ======================================================
 
 import { db, auth } from "./firebase.js";
 
 import {
-collection,
-addDoc,
-serverTimestamp
-} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+  collection,
+  addDoc
+} from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
 
-import {
-onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-
-// =====================================
-// Elements
-// =====================================
+// ======================================================
+// DOM
+// ======================================================
 
 const uploadForm = document.getElementById("uploadForm");
+const uploadMessage = document.getElementById("uploadMessage");
 
-// =====================================
-// Check Login
-// =====================================
+// ======================================================
+// Login Check
+// ======================================================
 
-onAuthStateChanged(auth,(user)=>{
+if (!auth.currentUser) {
 
-if(!user){
+  alert("Please login first.");
 
-alert("Please login first.");
-
-window.location.href="login.html";
+  window.location.href = "login.html";
 
 }
 
-});
-
-// =====================================
+// ======================================================
 // Upload Product
-// =====================================
+// ======================================================
 
-uploadForm?.addEventListener("submit", async(e)=>{
+uploadForm.addEventListener("submit", async (e) => {
 
-e.preventDefault();
+  e.preventDefault();
 
-const product={
+  try {
 
-name:
-document.getElementById("productName").value.trim(),
+    if (!auth.currentUser) {
 
-price:
-Number(document.getElementById("productPrice").value),
+      uploadMessage.textContent = "❌ Please login first.";
 
-category:
-document.getElementById("productCategory").value.trim(),
+      return;
 
-description:
-document.getElementById("productDescription").value.trim(),
+    }
 
-brand:
-document.getElementById("productBrand").value.trim(),
+    const product = {
 
-model:
-document.getElementById("productModel").value.trim(),
+      sellerId: auth.currentUser.uid,
 
-stock:
-Number(document.getElementById("productStock").value||0),
+      productName: document.getElementById("productName").value,
 
-moq:
-Number(document.getElementById("productMOQ").value||1),
+      description: document.getElementById("description").value,
 
-image:
-document.getElementById("productImage").value.trim(),
+      category: document.getElementById("category").value,
 
-seller:
-auth.currentUser?.email || "",
+      brand: document.getElementById("brand").value,
 
-createdAt:
-serverTimestamp()
+      retailPrice: Number(document.getElementById("retailPrice").value),
 
-};
+      wholesalePrice: Number(document.getElementById("wholesalePrice").value),
 
-try{
+      minimumOrder: Number(document.getElementById("minimumOrder").value),
 
-await addDoc(
+      stock: Number(document.getElementById("stock").value),
 
-collection(db,"products"),
+      country: document.getElementById("country").value,
 
-product
+      currency: document.getElementById("currency").value,
 
-);
-// =====================================
-// Upload Success
-// =====================================
+      image: document.getElementById("imageUrl").value,
 
-alert("✅ Product uploaded successfully!");
+      tags: document.getElementById("tags").value,
 
-uploadForm.reset();
+      productType: document.getElementById("productType").value,
 
-// Redirect to Products Page
+      status: document.getElementById("status").value
 
-window.location.href = "products.html";
+    };
+        // ======================================================
+    // Default Values
+    // ======================================================
 
-}catch(error){
+    product.rating = 0;
 
-console.error("Upload Error:", error);
+    product.reviewCount = 0;
 
-alert("❌ Upload failed!\n\n" + error.message);
+    product.flashDeal = false;
 
-}
+    product.featured = false;
+
+    product.bestSeller = false;
+
+    product.verified = false;
+
+    product.createdAt = new Date();
+
+    // ======================================================
+    // Save Product
+    // ======================================================
+
+    await addDoc(
+      collection(db, "products"),
+      product
+    );
+
+    // ======================================================
+    // Success
+    // ======================================================
+
+    uploadMessage.textContent =
+      "✅ Product uploaded successfully.";
+
+    uploadMessage.style.color = "green";
+
+    uploadForm.reset();
+
+  } catch (error) {
+
+    console.error(error);
+
+    uploadMessage.textContent =
+      "❌ Upload failed. Please try again.";
+
+    uploadMessage.style.color = "red";
+
+  }
 
 });
-
-// =====================================
-// Page Ready
-// =====================================
-
-console.log("✅ upload.js V2 Ready");
