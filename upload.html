@@ -15,51 +15,13 @@
 
 <body>
 
-<!-- ================= TOP BAR ================= -->
-
-<div class="top-bar">
-
-<div class="container top-container">
-
-<div>
-
-🌍 Global B2B Marketplace
-
-</div>
-
-<div class="top-links">
-
-<a href="index.html">Home</a>
-
-<a href="products.html">Products</a>
-
-<a href="seller.html">Seller</a>
-
-<a href="cart.html">Cart</a>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- ================= HEADER ================= -->
-
 <header class="header">
 
 <div class="container header-container">
 
 <a href="index.html" class="logo">
 
-<span class="logo-dark">BDI</span>
-
-<span class="logo-orange">Market</span>
-
-</a>
-
-<a href="seller.html" class="btn btn-outline">
-
-Seller Dashboard
+BDI<span>Market Place</span>
 
 </a>
 
@@ -67,21 +29,15 @@ Seller Dashboard
 
 </header>
 
-<!-- ================= UPLOAD FORM ================= -->
-
-<section class="upload-page">
+<section class="section">
 
 <div class="container">
 
-<div class="section-header">
+<div class="card" style="padding:30px; max-width:800px; margin:auto;">
 
 <h2>Upload Product</h2>
 
-<p>Add a new product to your marketplace.</p>
-
-</div>
-
-<form id="uploadForm" class="upload-form">
+<form id="uploadForm">
 
 <input
 type="text"
@@ -89,156 +45,256 @@ id="productName"
 placeholder="Product Name"
 required>
 
-<input
-type="number"
-id="productPrice"
-placeholder="Price"
-required>
+<br><br>
+
+<textarea
+id="description"
+placeholder="Product Description"
+required></textarea>
+
+<br><br>
 
 <input
 type="text"
-id="productCategory"
+id="category"
 placeholder="Category"
 required>
 
-<textarea
-id="productDescription"
-placeholder="Product Description"
+<br><br>
+
+<input
+type="number"
+id="retailPrice"
+placeholder="Retail Price"
 required>
 
-</textarea>
-
-<input
-type="text"
-id="productBrand"
-placeholder="Brand">
-
-<input
-type="text"
-id="productModel"
-placeholder="Model">
+<br><br>
 
 <input
 type="number"
-id="productStock"
-placeholder="Stock Quantity">
+id="wholesalePrice"
+placeholder="Wholesale Price"
+required>
+
+<br><br>
 
 <input
 type="number"
-id="productMOQ"
-placeholder="Minimum Order Quantity">
+id="stock"
+placeholder="Stock Quantity"
+required>
+
+<br><br>
 
 <input
 type="url"
-id="productImage"
-placeholder="Image URL">
+id="imageUrl"
+placeholder="Image URL"
+required>
+
+<br><br>
 
 <button
-type="submit"
-class="btn btn-primary">
+class="btn"
+type="submit">
 
 Upload Product
+<!-- ================= BRAND ================= -->
 
+<input
+type="text"
+id="brand"
+placeholder="Brand Name">
+
+<br><br>
+
+<!-- ================= MINIMUM ORDER ================= -->
+
+<input
+type="number"
+id="minimumOrder"
+placeholder="Minimum Wholesale Order">
+
+<br><br>
+
+<!-- ================= COUNTRY ================= -->
+
+<select id="country">
+
+<option value="Bangladesh">Bangladesh</option>
+
+<option value="China">China</option>
+
+<option value="India">India</option>
+
+<option value="Pakistan">Pakistan</option>
+
+<option value="Japan">Japan</option>
+
+<option value="South Korea">South Korea</option>
+
+<option value="USA">United States</option>
+
+<option value="UK">United Kingdom</option>
+
+<option value="Germany">Germany</option>
+
+</select>
+
+<br><br>
+
+<!-- ================= CURRENCY ================= -->
+
+<select id="currency">
+
+<option value="BDT">BDT (৳)</option>
+
+<option value="USD">USD ($)</option>
+
+<option value="EUR">EUR (€)</option>
+
+<option value="GBP">GBP (£)</option>
+
+<option value="JPY">JPY (¥)</option>
+
+</select>
+
+<br><br>
+
+<!-- ================= PRODUCT TAGS ================= -->
+
+<input
+type="text"
+id="tags"
+placeholder="Tags (comma separated)">
+
+<br><br>
+
+<!-- ================= PRODUCT TYPE ================= -->
+
+<select id="productType">
+
+<option value="retail">
+
+Retail Product
+
+</option>
+
+<option value="wholesale">
+
+Wholesale Product
+
+</option>
+
+<option value="both">
+
+Retail + Wholesale
+
+</option>
+
+</select>
+
+<br><br>
+
+<!-- ================= PRODUCT STATUS ================= -->
+
+<select id="status">
+
+<option value="active">
+
+Active
+
+</option>
+
+<option value="inactive">
+
+Inactive
+
+</option>
+
+<option value="out_of_stock">
+
+Out Of Stock
+
+</option>
+
+</select>
+
+<br><br>
 </button>
 
 </form>
+<!-- ===========================================
+UPLOAD INFORMATION
+=========================================== -->
+
+<div class="section" style="padding-top:40px;">
+
+<div class="category-grid">
+
+<div class="category-card">
+
+<h3>🛡 Verified Seller</h3>
+
+<p>
+Only verified sellers can sell products with higher buyer trust.
+</p>
+
+</div>
+
+<div class="category-card">
+
+<h3>📦 Wholesale</h3>
+
+<p>
+Add wholesale price and minimum order quantity for bulk buyers.
+</p>
+
+</div>
+
+<div class="category-card">
+
+<h3>🚚 Fast Delivery</h3>
+
+<p>
+Keep your stock updated to avoid order cancellation.
+</p>
+
+</div>
+
+<div class="category-card">
+
+<h3>⭐ Quality</h3>
+
+<p>
+Upload clear images and accurate descriptions to increase sales.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ===========================================
+UPLOAD STATUS
+=========================================== -->
+
+<div class="card"
+style="margin-top:30px;padding:25px;max-width:800px;margin-left:auto;margin-right:auto;">
+
+<h3>Upload Status</h3>
+
+<p id="uploadMessage">
+
+No product uploaded yet.
+
+</p>
 
 </div>
 
 </section>
-  
-<!-- ================= FOOTER ================= -->
 
-<footer class="footer">
-
-<div class="container">
-
-<div class="footer-grid">
-
-<div>
-
-<h3>BDIMarket Place</h3>
-
-<p>
-
-Your trusted Global B2B Marketplace for buyers and sellers.
-
-</p>
-
-</div>
-
-<div>
-
-<h4>Marketplace</h4>
-
-<ul>
-
-<li><a href="index.html">Home</a></li>
-
-<li><a href="products.html">Products</a></li>
-
-<li><a href="seller.html">Seller Dashboard</a></li>
-
-<li><a href="upload.html">Upload Product</a></li>
-
-</ul>
-
-</div>
-
-<div>
-
-<h4>Support</h4>
-
-<ul>
-
-<li><a href="#">Help Center</a></li>
-
-<li><a href="#">Privacy Policy</a></li>
-
-<li><a href="#">Terms & Conditions</a></li>
-
-<li><a href="contact.html">Contact Us</a></li>
-
-</ul>
-
-</div>
-
-<div>
-
-<h4>Account</h4>
-
-<ul>
-
-<li><a href="login.html">Login</a></li>
-
-<li><a href="signup.html">Register</a></li>
-
-<li><a href="cart.html">Cart</a></li>
-
-<li><a href="checkout.html">Checkout</a></li>
-
-</ul>
-
-</div>
-
-</div>
-
-<hr>
-
-<p class="copyright">
-
-© 2026 BDIMarket Place. All Rights Reserved.
-
-</p>
-
-</div>
-
-</footer>
-
-<!-- ================= SCRIPTS ================= -->
-
-<script type="module" src="js/firebase.js"></script>
-<script type="module" src="js/auth.js"></script>
 <script type="module" src="js/upload.js"></script>
 
 </body>
